@@ -476,3 +476,7 @@ Estos son los principales "conceptos" o "entidades" con los que el consultorio v
 - **A** = Accountable (Responsable final)
 - **C** = Consulted (Consultado)
 - **I** = Informed (Informado)
+
+   <div style="page-break-before: always;"></div>
+
+# **Requisitos del sistema**

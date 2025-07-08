@@ -14,7 +14,7 @@
 
 **CU-GP01: Gestionar Información de Clientes y Mascotas**
 
-![alt text](CasosDeUso/gestionPacientesClientes.png)
+![alt text](../Imagenes/CasosDeUso/gestionPacientesClientes.png)
 
 - **Actores Principales:** Asistente, Veterinario, Cliente/Propietario de Mascotas
 - **Descripción:** Permite al personal del consultorio y a los propios Clientes/Propietarios (para su información y la de sus mascotas) crear nuevos registros, así como buscar, visualizar y actualizar la información existente.
@@ -59,7 +59,7 @@
 
 <div style="page-break-after: always;"></div>
 
-![GP01](CU-GP01.png)
+![GP01](../Imagenes/DiagramasDeSecuencia/CU-GP01.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -69,7 +69,7 @@
 
 **CU-GA01: Gestionar Citas**
 
-![alt text](CasosDeUso/gestionDeCitas.png)
+![alt text](../Imagenes/CasosDeUso/gestionDeCitas.png)
 
 - **Actores Principales:** Asistente, Cliente/Propietario de Mascotas, Veterinario
 - **Descripción:** Permite al Asistente y al Cliente/Propietario (a través de un portal) consultar disponibilidad, agendar, reprogramar y cancelar citas. Permite al personal (Asistente, Veterinario) consultar la agenda y confirmar asistencias.
@@ -96,13 +96,13 @@
 
 <div style="page-break-after: always;"></div>
 
-![GA01](CU-GA01.png)
+![GA01](../Imagenes/DiagramasDeSecuencia/CU-GA01.png)
 
 <div style="page-break-after: always;"></div>
 
 **CU-GA02: Gestionar Recordatorios de Citas**
 
-![alt text](CasosDeUso/confirmacionDeCitas.png)
+![alt text](../Imagenes/CasosDeUso/confirmacionDeCitas.png)
 
 - **Actor Principal:** Sistema, Asistente
 - **Descripción:** El Sistema se encarga de enviar recordatorios automáticos de citas, o permite al Asistente gestionarlos.
@@ -114,7 +114,7 @@
 
 <div style="page-break-after: always;"></div>
 
-![GA02](CU-GA02.png)
+![GA02](../Imagenes/DiagramasDeSecuencia/CU-GA02.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -124,7 +124,7 @@
 
 **CU-AC01: Consultar Historial Clínico de Mascota**
 
-![alt text](CasosDeUso/consultarHistoriaClinico.png)
+![alt text](../Imagenes/CasosDeUso/consultarHistoriaClinico.png)
 
 - **Actores Principales:** Veterinario, Asistente (con vista potencialmente limitada)
 - **Descripción:** Permite al Veterinario (y Asistente) acceder y revisar toda la información médica registrada para una mascota, incluyendo resúmenes, archivos adjuntos y registros específicos de vacunación/desparasitación.
@@ -145,13 +145,13 @@
 
 <div style="page-break-after: always;"></div>
 
-![AC01](CU-AC01.png)
+![AC01](../Imagenes/DiagramasDeSecuencia/CU-AC01.png)
 
 <div style="page-break-after: always;"></div>
 
 **CU-AC02: Registrar Nueva Consulta / Actualizar Historia Clínica**
 
-![alt text](CasosDeUso/ActualizarHistoriaClinica.png)
+![alt text](../Imagenes/CasosDeUso/ActualizarHistoriaClinica.png)
 
 - **Actor Principal:** Veterinario
 - **Descripción:** Permite al Veterinario crear una nueva entrada en la historia clínica durante una consulta, o actualizar una existente (bajo condiciones). Incluye registro de hallazgos, diagnósticos, tratamientos, solicitud de exámenes, aplicación de vacunas/desparasitantes y adjuntar archivos.
@@ -181,7 +181,7 @@
 
 <div style="page-break-after: always;"></div>
 
-![AC02](CU-AC02.png)
+![AC02](../Imagenes/DiagramasDeSecuencia/CU-AC02.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -191,7 +191,7 @@
 
 **CU-RH01: Gestionar Personal de la Clínica**
 
-![alt text](CasosDeUso/GestionDePersonal.png)
+![alt text](../Imagenes/CasosDeUso/GestionDePersonal.png)
 
 - **Actor Principal:** Administrador/Gerente
 - **Descripción:** Permite al Administrador/Gerente registrar, actualizar y gestionar la información del personal de la clínica, incluyendo sus roles y estado.
@@ -216,13 +216,13 @@
 
 <div style="page-break-after: always;"></div>
 
-![RH01](CU-RH01.png)
+![RH01](../Imagenes/DiagramasDeSecuencia/CU-RH01.png)
 
 <div style="page-break-after: always;"></div>
 
 **CU-RH02: Gestionar Turnos y Guardias**
 
-![alt text](CasosDeUso/GestionarTurnos.png)
+![alt text](../Imagenes/CasosDeUso/GestionarTurnos.png)
 
 - **Actores Principales:** Administrador/Gerente, Veterinario, Asistente
 - **Descripción:** Permite al Administrador/Gerente planificar y asignar turnos/guardias. Permite al personal consultar sus horarios.
@@ -243,13 +243,13 @@
 
 <div style="page-break-after: always;"></div>
 
-![RH02](CU-RH02.png)
+![RH02](../Imagenes/DiagramasDeSecuencia/CU-RH02.png)
 
 <div style="page-break-after: always;"></div>
 
 **CU-RH03: Gestionar Servicios de la Clínica**
 
-![alt text](CasosDeUso/gestionarServiciosClinica.png)
+![alt text](../Imagenes/CasosDeUso/gestionarServiciosClinica.png)
 
 - **Actor Principal:** Administrador/Gerente
 - **Descripción:** Permite al Administrador/Gerente definir y gestionar los tipos de servicios especiales o complementarios que ofrece la clínica (ej. "Farmacia", "Hospedaje") y asignar personal responsable.
@@ -265,7 +265,7 @@
 
 <div style="page-break-after: always;"></div>
 
-![RH03](CU-RH03.png)
+![RH03](../Imagenes/DiagramasDeSecuencia/CU-RH03.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -275,7 +275,7 @@
 
 **CU-PG01: Registrar Pagos**
 
-![alt text](CasosDeUso/registraPago.png)
+![alt text](../Imagenes/CasosDeUso/registraPago.png)
 
 - **Actor Principal:** Asistente
 - **Descripción:** Permite al Asistente registrar los pagos recibidos de los clientes por servicios o productos y generar los comprobantes correspondientes.
@@ -291,13 +291,13 @@
 
 <div style="page-break-after: always;"></div>
 
-![PG01](CU-PG01.png)
+![PG01](../Imagenes/DiagramasDeSecuencia/CU-PG01.png)
 
 <div style="page-break-after: always;"></div>
 
 **CU-PG02: Consultar Historial de Pagos**
 
-![alt text](CasosDeUso/consultarHistorialPagos.png)
+![alt text](../Imagenes/CasosDeUso/consultarHistorialPagos.png)
 
 - **Actores Principales:** Asistente, Administrador/Gerente, Cliente/Propietario de Mascotas
 - **Descripción:** Permite al personal de la clínica y a los Clientes/Propietarios (para sus propios registros) consultar el historial de pagos y facturas.
@@ -317,13 +317,13 @@
 
 <div style="page-break-after: always;"></div>
 
-![PG02](CU-PG02.png)
+![PG02](../Imagenes/DiagramasDeSecuencia/CU-PG02.png)
 
 <div style="page-break-after: always;"></div>
 
 **CU-PG03: Generar Reportes Financieros**
 
-![alt text](CasosDeUso/generarReporteFinanciero.png)
+![alt text](../Imagenes/CasosDeUso/generarReporteFinanciero.png)
 
 - **Actor Principal:** Administrador/Gerente
 - **Descripción:** Permite al Administrador/Gerente generar reportes resumidos de los ingresos y otras métricas financieras de la clínica.
@@ -335,6 +335,6 @@
 
 <div style="page-break-after: always;"></div>
 
-![PG03](CU-PG03.png)
+![PG03](../Imagenes/DiagramasDeSecuencia/CU-PG03.png)
 
 <div style="page-break-after: always;"></div>

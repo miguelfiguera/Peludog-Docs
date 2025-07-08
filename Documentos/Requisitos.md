@@ -493,6 +493,7 @@ Este módulo se encarga del registro, consulta y reporte de los pagos recibidos 
   - **Objetivo de Punto de Recuperación (RPO):** En caso de una falla mayor, la pérdida de datos no debe exceder las 24 horas (copias de seguridad diarias).
   - **Objetivo de Tiempo de Recuperación (RTO):** El sistema debería ser restaurable a un estado operativo en un plazo de 4 horas tras una falla mayor.
 - **RNF-REL-003 (Tolerancia a Fallos):** El sistema debería manejar los errores comunes con elegancia (p. ej., interrupciones de red durante el envío de datos) e informar al usuario adecuadamente, intentando preservar los datos ingresados siempre que sea posible.
+- **RNF-REL-004 Offline First:** El sistema debera manejar alternativas para los casos donde se pierda la conexión con el servidor a través de localStorage tanto en movil como en web.
 
 **4. Security (Seguridad)**
 

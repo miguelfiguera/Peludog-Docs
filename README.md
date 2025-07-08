@@ -5,6 +5,7 @@
 - Miguel Figuera C.I: 23.558.789
 - Iromy Leon C.I: V-30.243.131
 - Alejandra Herde C.I: V-23.711.974
+- Tutor: Yuly Delgado.
 
 ### **Resumen:**
 
@@ -183,22 +184,28 @@ Proveer atención médica veterinaria de alta calidad para mantener y mejorar la
 **Objetivos Específicos (S.M.A.R.T.)**
 
 1. **Satisfacción del Cliente:**
-   1. Lograr una tasa de retencion de clientes del 85% para el cierre del año en curso, medida como el porcentaje de clientes que regresan para una segunda cita o servicio en un periodo de 12 meses.
-   2. Implementar encuestas de satisfacción automatizadas post-consulta en el primer mes, y alcanzar un puntaje promedio de 75/100 o superior para el final del primer trimestre, manteniendo o mejorando ese nivel durante el resto del año
-   3. Aumentar los referidos directos inscritos en la plataforma de gestión CRM (recomendaciones de clientes y pacientes satisfechos) en un 50% en los proximos 3 meses.
+
+- Lograr una tasa de retencion de clientes del 85% para el cierre del año en curso, medida como el porcentaje de clientes que regresan para una segunda cita o servicio en un periodo de 12 meses.
+- Implementar encuestas de satisfacción automatizadas post-consulta en el primer mes, y alcanzar un puntaje promedio de 75/100 o superior para el final del primer trimestre, manteniendo o mejorando ese nivel durante el resto del año
+- Aumentar los referidos directos inscritos en la plataforma de gestión CRM (recomendaciones de clientes y pacientes satisfechos) en un 50% en los proximos 3 meses.
+
 2. **Eficiencia Operativa**:
-   1. Reducir el número de discrepancias en las auditorías de caja semanales en un 90% para final de año, pasando de un promedio de 20 errores a 2 errores por semana.
-   2. Reducir en un 15% el tiempo promedio por consulta (sin sacrificar calidad) mediante la digitalización de historiales clínicos y el uso de plantillas predefinidas para diagnósticos comunes, a implementar en 4 meses.
-   3. Reducir el tiempo invertido en recordatorios de citas en un 70% dentro de los primeros 2 meses.
+
+- Reducir el número de discrepancias en las auditorías de caja semanales en un 90% para final de año, pasando de un promedio de 20 errores a 2 errores por semana.
+- Reducir en un 15% el tiempo promedio por consulta (sin sacrificar calidad) mediante la digitalización de historiales clínicos y el uso de plantillas predefinidas para diagnósticos comunes, a implementar en 4 meses.
+- Reducir el tiempo invertido en recordatorios de citas en un 70% dentro de los primeros 2 meses.
+
 3. **Rentabilidad y Sostenibilidad**:
-   1. Aumentar el número de clientes nuevos en un 20% para finales de año..
-   2. Aumentar el número total de citas facturadas en un 15% para finales de año.
-   3. Aumentar la tasa de cumplimiento del esquema de vacunación en un 50% en los próximos 6 meses, medido por el número de mascotas que reciben su dosis de refuerzo a tiempo gracias a los recordatorios automatizados.
+
+- Aumentar el número de clientes nuevos en un 20% para finales de año..
+- Aumentar el número total de citas facturadas en un 15% para finales de año.
+- Aumentar la tasa de cumplimiento del esquema de vacunación en un 50% en los próximos 6 meses, medido por el número de mascotas que reciben su dosis de refuerzo a tiempo gracias a los recordatorios automatizados.
+
 4. **Cumplimiento Normativo**:
 
-   1. Mantener un 100% del cumplimiento con todas las normativas del colegio de Médicos veterinarios de Venezuela y las regulaciones sanitarias a través del proceso presente en el software para las consultas veterinarias y su historial.
-   ![alt text](Imagenes/modeloJerarquicoDeObjetivos.png)
-      <div style="page-break-before: always;"></div>
+- Mantener un 100% del cumplimiento con todas las normativas del colegio de Médicos veterinarios de Venezuela y las regulaciones sanitarias a través del proceso presente en el software para las consultas veterinarias y su historial.
+  ![alt text](Imagenes/modeloJerarquicoDeObjetivos.png)
+  <div style="page-break-before: always;"></div>
 
 ## **3)Procesos de Negocio Principales del Consultorio Veterinario:**
 

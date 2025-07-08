@@ -119,14 +119,16 @@
       }
       li {
         color: #000000;
-        font-size: 11pt;
+        font-size: 13pt;
         font-family: "Arial";
+        text-align: justify;
       }
       p {
         margin: 0;
         color: #000000;
-        font-size: 11pt;
+        font-size: 13pt;
         font-family: "Arial";
+        text-align: justify;
       }
       h1 {
         padding-top: 20pt;
@@ -244,6 +246,26 @@
     <p class="c6"><span class="c0">Alejandra Herde C.I: V-23.711.974</span></p>
     <p class="c6"><span class="c0">Tutor: Yuly Delgado</span></p>
     <p class="c3"><span class="c4"></span></p>
+        <p class="c3"><span class="c4"></span></p>
+    <p class="c3"><span class="c4"></span></p>
+    <p class="c3"><span class="c4"></span></p>
+    <p class="c3"><span class="c4"></span></p>
+    <p class="c3"><span class="c4"></span></p>
+    <p class="c3"><span class="c4"></span></p>
+    <p class="c2"><span class="c0"></span></p>
+    <p class="c2"><span class="c0"></span></p>
+    <p class="c2"><span class="c0"></span></p>
+    <p class="c2"><span class="c0"></span></p>
+    <p class="c2"><span class="c0"></span></p> <p class="c3"><span class="c4"></span></p>
+    <p class="c3"><span class="c4"></span></p>
+    <p class="c3"><span class="c4"></span></p>
+    <p class="c3"><span class="c4"></span></p>
+    <p class="c3"><span class="c4"></span></p>
+    <p class="c2"><span class="c0"></span></p>
+    <p class="c2"><span class="c0"></span></p>
+    <p class="c2"><span class="c0"></span></p>
+    <p class="c2"><span class="c0"></span></p>
+    <p class="c2"><span class="c0"></span></p>
     <p class="c8"><span class="c0">Venezuela, Julio 2025</span></p>
     <p class="c5"><span class="c0"></span></p>
   </body>
@@ -423,22 +445,28 @@ Proveer atención médica veterinaria de alta calidad para mantener y mejorar la
 **Objetivos Específicos (S.M.A.R.T.)**
 
 1. **Satisfacción del Cliente:**
-   1. Lograr una tasa de retencion de clientes del 85% para el cierre del año en curso, medida como el porcentaje de clientes que regresan para una segunda cita o servicio en un periodo de 12 meses.
-   2. Implementar encuestas de satisfacción automatizadas post-consulta en el primer mes, y alcanzar un puntaje promedio de 75/100 o superior para el final del primer trimestre, manteniendo o mejorando ese nivel durante el resto del año
-   3. Aumentar los referidos directos inscritos en la plataforma de gestión CRM (recomendaciones de clientes y pacientes satisfechos) en un 50% en los proximos 3 meses.
+
+- Lograr una tasa de retencion de clientes del 85% para el cierre del año en curso, medida como el porcentaje de clientes que regresan para una segunda cita o servicio en un periodo de 12 meses.
+- Implementar encuestas de satisfacción automatizadas post-consulta en el primer mes, y alcanzar un puntaje promedio de 75/100 o superior para el final del primer trimestre, manteniendo o mejorando ese nivel durante el resto del año
+- Aumentar los referidos directos inscritos en la plataforma de gestión CRM (recomendaciones de clientes y pacientes satisfechos) en un 50% en los proximos 3 meses.
+
 2. **Eficiencia Operativa**:
-   1. Reducir el número de discrepancias en las auditorías de caja semanales en un 90% para final de año, pasando de un promedio de 20 errores a 2 errores por semana.
-   2. Reducir en un 15% el tiempo promedio por consulta (sin sacrificar calidad) mediante la digitalización de historiales clínicos y el uso de plantillas predefinidas para diagnósticos comunes, a implementar en 4 meses.
-   3. Reducir el tiempo invertido en recordatorios de citas en un 70% dentro de los primeros 2 meses.
+
+- Reducir el número de discrepancias en las auditorías de caja semanales en un 90% para final de año, pasando de un promedio de 20 errores a 2 errores por semana.
+- Reducir en un 15% el tiempo promedio por consulta (sin sacrificar calidad) mediante la digitalización de historiales clínicos y el uso de plantillas predefinidas para diagnósticos comunes, a implementar en 4 meses.
+- Reducir el tiempo invertido en recordatorios de citas en un 70% dentro de los primeros 2 meses.
+
 3. **Rentabilidad y Sostenibilidad**:
-   1. Aumentar el número de clientes nuevos en un 20% para finales de año..
-   2. Aumentar el número total de citas facturadas en un 15% para finales de año.
-   3. Aumentar la tasa de cumplimiento del esquema de vacunación en un 50% en los próximos 6 meses, medido por el número de mascotas que reciben su dosis de refuerzo a tiempo gracias a los recordatorios automatizados.
+
+- Aumentar el número de clientes nuevos en un 20% para finales de año..
+- Aumentar el número total de citas facturadas en un 15% para finales de año.
+- Aumentar la tasa de cumplimiento del esquema de vacunación en un 50% en los próximos 6 meses, medido por el número de mascotas que reciben su dosis de refuerzo a tiempo gracias a los recordatorios automatizados.
+
 4. **Cumplimiento Normativo**:
 
-   1. Mantener un 100% del cumplimiento con todas las normativas del colegio de Médicos veterinarios de Venezuela y las regulaciones sanitarias a través del proceso presente en el software para las consultas veterinarias y su historial.
-   ![alt text](Imagenes/modeloJerarquicoDeObjetivos.png)
-      <div style="page-break-before: always;"></div>
+- Mantener un 100% del cumplimiento con todas las normativas del colegio de Médicos veterinarios de Venezuela y las regulaciones sanitarias a través del proceso presente en el software para las consultas veterinarias y su historial.
+  ![alt text](Imagenes/modeloJerarquicoDeObjetivos.png)
+  <div style="page-break-before: always;"></div>
 
 ## **3)Procesos de Negocio Principales del Consultorio Veterinario:**
 
@@ -544,7 +572,7 @@ Estos son los principales "conceptos" o "entidades" con los que el consultorio v
 
   - **Atributos Clave:** Nombre, Apellido, DNI/Identificación, Dirección, Teléfono, Email.
 
-  - **Relación con Procesos:** Creado en "Gestión de Clientes y Pacientes Nuevos". Utilizado en "Gestión de Agenda", "Atención Clínica", "Ingresos/Egresos", "Seguimiento", “Recordatorios de vacunacion y consultas”..
+  - **Relación con Procesos:** Creado en "Gestión de Clientes y Pacientes Nuevos". Utilizado en "Gestión de Agenda", "Atención Clínica", "Ingresos/Egresos", "Seguimiento", "Recordatorios de vacunacion y consultas"..
 
   - **Relación con otros Objetos:** Un Cliente _tiene_ una o más Mascotas. Un Cliente _recibe_ Notas de pago.
 
@@ -564,7 +592,7 @@ Estos son los principales "conceptos" o "entidades" con los que el consultorio v
 
   - **Atributos Clave:** Fecha, Hora, Veterinario Asignado, Mascota, Cliente, Motivo de la Cita, Estado (Programada, Confirmada, Cancelada, Realizada, No Asistió).
 
-  - **Relación con Procesos:** Creada, modificada y gestionada en "Gestión de Agenda y Citas". Da origen a una "Consulta" dentro de la "Atención Clínica", da origen a un “Recordatorio”.
+  - **Relación con Procesos:** Creada, modificada y gestionada en "Gestión de Agenda y Citas". Da origen a una "Consulta" dentro de la "Atención Clínica", da origen a un "Recordatorio".
 
   - **Relación con otros Objetos:** Una Cita _es para_ una Mascota (y su Cliente). Una Cita _es atendida por_ un Veterinario, una cita genera una entrada nueva en historia clinica.
 

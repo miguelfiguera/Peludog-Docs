@@ -1,0 +1,684 @@
+{
+  "requisitosFuncionales": [
+    {
+      "id": "RF-GP001",
+      "nombre": "Registrar Nuevo Cliente",
+      "modulo": "Gestión de Pacientes (Clientes y Mascotas)",
+      "casoDeUsoId": "CU-GP01",
+      "descripcion": "El Asistente o el Cliente/Propietario de Mascota podrán registrar la información de un nuevo dueño de mascota en el sistema.",
+      "prioridad": "Alta",
+      "criteriosDeAceptacion": [
+        "El sistema debe mostrar un formulario para el ingreso de datos del cliente (ej. nombre, apellido, DNI, teléfono, email, dirección).",
+        "El sistema debe validar los campos obligatorios (ej. nombre, teléfono).",
+        "Al guardar, el nuevo cliente debe crearse en la base de datos.",
+        "El sistema debe permitir asociar una o más mascotas a este cliente durante el registro o posteriormente."
+      ]
+    },
+    {
+      "id": "RF-GP002",
+      "nombre": "Registrar Nueva Mascota",
+      "modulo": "Gestión de Pacientes (Clientes y Mascotas)",
+      "casoDeUsoId": "CU-GP01",
+      "descripcion": "El Asistente, Cliente/Propietario de Mascota o Veterinario podrá registrar la información de una nueva mascota, asociándola a un cliente existente (o al propio cliente si es él quien realiza la acción).",
+      "prioridad": "Alta",
+      "criteriosDeAceptacion": [
+        "El sistema debe permitir seleccionar un cliente existente al cual asociar la mascota (si registra el Asistente/Veterinario) o asociarla automáticamente al perfil del Cliente/Propietario (si es él quien registra).",
+        "El sistema debe mostrar un formulario para el ingreso de datos de la mascota (ej. nombre, especie, raza, sexo, fecha de nacimiento, número de chip, color, señas particulares, foto).",
+        "El sistema debe validar los campos obligatorios (ej. nombre de mascota, especie).",
+        "Al guardar, la nueva mascota debe crearse y vincularse correctamente al cliente."
+      ]
+    },
+    {
+      "id": "RF-GP003",
+      "nombre": "Buscar Cliente y/o Mascota",
+      "modulo": "Gestión de Pacientes (Clientes y Mascotas)",
+      "casoDeUsoId": "CU-GP01",
+      "descripcion": "El Asistente o Veterinario podrá buscar clientes y/o mascotas existentes en el sistema utilizando diversos criterios.",
+      "prioridad": "Alta",
+      "criteriosDeAceptacion": [
+        "El sistema debe proveer campos de búsqueda para clientes (ej. por nombre, DNI, teléfono).",
+        "El sistema debe proveer campos de búsqueda para mascotas (ej. por nombre, número de chip, nombre del dueño).",
+        "Los resultados de la búsqueda deben mostrar información clave para identificar al cliente/mascota.",
+        "El usuario debe poder seleccionar un cliente/mascota de los resultados para ver su información detallada."
+      ]
+    },
+    {
+      "id": "RF-GP004",
+      "nombre": "Visualizar y Actualizar Datos de Cliente (Staff)",
+      "modulo": "Gestión de Pacientes (Clientes y Mascotas)",
+      "casoDeUsoId": "CU-GP01",
+      "descripcion": "El Asistente o Veterinario podrá ver y modificar la información de un cliente existente.",
+      "prioridad": "Alta",
+      "criteriosDeAceptacion": [
+        "Tras seleccionar un cliente, el sistema debe mostrar toda su información registrada.",
+        "El sistema debe permitir la edición de los campos del cliente.",
+        "El sistema debe guardar los cambios realizados en la base de datos.",
+        "El sistema debe mostrar la lista de mascotas asociadas al cliente, con acceso a sus perfiles."
+      ]
+    },
+    {
+      "id": "RF-GP005",
+      "nombre": "Visualizar y Actualizar Datos de Mascota (Staff)",
+      "modulo": "Gestión de Pacientes (Clientes y Mascotas)",
+      "casoDeUsoId": "CU-GP01",
+      "descripcion": "El Asistente o Veterinario podrá ver y modificar la información general de una mascota existente.",
+      "prioridad": "Alta",
+      "criteriosDeAceptacion": [
+        "Tras seleccionar una mascota, el sistema debe mostrar toda su información general registrada (no la historia clínica detallada, que es parte de otro CU).",
+        "El sistema debe permitir la edición de los campos de la mascota.",
+        "El sistema debe guardar los cambios realizados en la base de datos.",
+        "El sistema debe mostrar la información del cliente dueño de la mascota."
+      ]
+    },
+    {
+      "id": "RF-GP006",
+      "nombre": "Visualizar y Actualizar Datos de Mascota (Cliente/Propietario)",
+      "modulo": "Gestión de Pacientes (Clientes y Mascotas)",
+      "casoDeUsoId": "CU-GP01",
+      "descripcion": "El Cliente/Propietario de Mascota podrá ver y modificar la información de sus propias mascotas registradas.",
+      "prioridad": "Alta",
+      "criteriosDeAceptacion": [
+        "Tras seleccionar una de sus mascotas, el sistema debe mostrar toda su información general registrada (no la historia clínica detallada).",
+        "El sistema debe permitir la edición de los campos de la mascota por parte de su dueño.",
+        "El sistema debe guardar los cambios realizados en la base de datos."
+      ]
+    },
+    {
+      "id": "RF-GP007",
+      "nombre": "Visualizar y Actualizar Datos Personales (Cliente/Propietario)",
+      "modulo": "Gestión de Pacientes (Clientes y Mascotas)",
+      "casoDeUsoId": "CU-GP01",
+      "descripcion": "El Cliente/Propietario de Mascota podrá ver y modificar la información de su propio perfil.",
+      "prioridad": "Alta",
+      "criteriosDeAceptacion": [
+        "Tras acceder a su perfil, el sistema debe mostrar al Cliente/Propietario toda su información personal registrada.",
+        "El sistema debe permitir la edición de sus propios campos.",
+        "El sistema debe guardar los cambios realizados en la base de datos."
+      ]
+    },
+    {
+      "id": "RF-GA001",
+      "nombre": "Consultar Disponibilidad Horaria",
+      "modulo": "Gestión de Agenda y Citas",
+      "casoDeUsoId": "CU-GA01",
+      "descripcion": "El Asistente o Cliente/Propietario de Mascota podrá consultar los horarios disponibles en la agenda del consultorio o de un veterinario específico.",
+      "prioridad": "Alta",
+      "criteriosDeAceptacion": [
+        "El sistema debe mostrar una vista de calendario (diaria, semanal, mensual).",
+        "El sistema debe permitir filtrar la disponibilidad por veterinario (si hay más de uno).",
+        "Los bloques horarios ocupados deben estar claramente diferenciados de los disponibles."
+      ]
+    },
+    {
+      "id": "RF-GA002",
+      "nombre": "Agendar Nueva Cita",
+      "modulo": "Gestión de Agenda y Citas",
+      "casoDeUsoId": "CU-GA01",
+      "descripcion": "El Asistente o Cliente/Propietario de Mascota podrá reservar una nueva cita para una mascota, seleccionando un horario disponible.",
+      "prioridad": "Alta",
+      "criteriosDeAceptacion": [
+        "El sistema debe permitir seleccionar una mascota existente (o enlazar con CU-GP01/RF-GP002 si es nueva o el cliente gestiona sus mascotas).",
+        "El sistema debe permitir seleccionar un veterinario (si aplica), fecha y hora de la cita de entre los disponibles.",
+        "El sistema debe permitir ingresar el motivo de la cita.",
+        "Al confirmar, la cita debe registrarse y el horario debe marcarse como ocupado.",
+        "(Opcional) El sistema debe poder enviar una confirmación de cita al cliente (email/SMS)."
+      ]
+    },
+    {
+      "id": "RF-GA003",
+      "nombre": "Reprogramar Cita",
+      "modulo": "Gestión de Agenda y Citas",
+      "casoDeUsoId": "CU-GA01",
+      "descripcion": "El Asistente o Cliente/Propietario de Mascota podrá cambiar la fecha y/o hora de una cita existente (el cliente solo las suyas).",
+      "prioridad": "Media",
+      "criteriosDeAceptacion": [
+        "El sistema debe permitir buscar y seleccionar una cita existente.",
+        "El sistema debe permitir elegir una nueva fecha/hora disponible.",
+        "Al confirmar, la cita original debe actualizarse y el bloqueo horario debe moverse.",
+        "(Opcional) El sistema debe poder enviar una notificación de reprogramación al cliente."
+      ]
+    },
+    {
+      "id": "RF-GA004",
+      "nombre": "Cancelar Cita",
+      "modulo": "Gestión de Agenda y Citas",
+      "casoDeUsoId": "CU-GA01",
+      "descripcion": "El Asistente o Cliente/Propietario de Mascota podrá cancelar una cita agendada (el cliente solo las suyas).",
+      "prioridad": "Media",
+      "criteriosDeAceptacion": [
+        "El sistema debe permitir buscar y seleccionar una cita existente.",
+        "Al confirmar la cancelación, la cita debe marcarse como cancelada y el horario liberarse.",
+        "(Opcional) El sistema debe poder enviar una notificación de cancelación al cliente."
+      ]
+    },
+    {
+      "id": "RF-GA005",
+      "nombre": "Consultar Agenda (Vista Staff)",
+      "modulo": "Gestión de Agenda y Citas",
+      "casoDeUsoId": "CU-GA01",
+      "descripcion": "El Asistente o Veterinario podrá visualizar la agenda de citas programadas.",
+      "prioridad": "Alta",
+      "criteriosDeAceptacion": [
+        "El sistema debe mostrar una vista de calendario con todas las citas (diaria, semanal, mensual).",
+        "Debe ser posible filtrar por veterinario.",
+        "Cada cita en la agenda debe mostrar información clave (hora, mascota, cliente, motivo).",
+        "El sistema debe permitir al Asistente confirmar la asistencia del cliente a una cita."
+      ]
+    },
+    {
+      "id": "RF-GA006",
+      "nombre": "Enviar Recordatorio Automático de Cita",
+      "modulo": "Gestión de Agenda y Citas",
+      "casoDeUsoId": "CU-GA02",
+      "descripcion": "El sistema enviará recordatorios automáticos a los clientes sobre sus próximas citas.",
+      "prioridad": "Alta",
+      "criteriosDeAceptacion": [
+        "El sistema debe permitir configurar el canal de envío (ej. email, SMS).",
+        "El sistema debe permitir configurar la antelación del recordatorio (ej. 24 horas antes).",
+        "El recordatorio debe incluir los detalles de la cita (fecha, hora, mascota).",
+        "(Opcional) El recordatorio puede incluir un enlace para confirmar o cancelar la cita (enlazando con RF-GA003, RF-GA004)."
+      ]
+    },
+    {
+      "id": "RF-AC001",
+      "nombre": "Visualizar Historial Clínico Completo",
+      "modulo": "Atención Clínica (Historia Clínica Electrónica)",
+      "casoDeUsoId": "CU-AC01",
+      "descripcion": "El Veterinario podrá ver todas las entradas previas del historial clínico de la mascota seleccionada.",
+      "prioridad": "Alta",
+      "criteriosDeAceptacion": [
+        "El sistema debe mostrar las entradas del historial en orden cronológico inverso (o permitir ordenamiento).",
+        "Cada entrada debe mostrar como mínimo: fecha, motivo de consulta, diagnóstico(s) principal(es), y veterinario que atendió.",
+        "El usuario debe poder expandir una entrada para ver todos sus detalles (anamnesis, examen, tratamientos, notas, etc.)."
+      ]
+    },
+    {
+      "id": "RF-AC002",
+      "nombre": "Visualizar Resumen de Alergias y Datos Relevantes",
+      "modulo": "Atención Clínica (Historia Clínica Electrónica)",
+      "casoDeUsoId": "CU-AC01",
+      "descripcion": "El sistema mostrará información crucial de la mascota de forma destacada al consultar su historial.",
+      "prioridad": "Alta",
+      "criteriosDeAceptacion": [
+        "El sistema debe mostrar claramente las alergias conocidas de la mascota, si existen.",
+        "El sistema debe mostrar datos básicos de la mascota (especie, raza, sexo, edad/fecha de nacimiento, último peso registrado)."
+      ]
+    },
+    {
+      "id": "RF-AC003",
+      "nombre": "Visualizar Archivos Adjuntos del Historial",
+      "modulo": "Atención Clínica (Historia Clínica Electrónica)",
+      "casoDeUsoId": "CU-AC01",
+      "descripcion": "El Veterinario podrá acceder a los archivos digitales asociados a las entradas del historial clínico.",
+      "prioridad": "Alta",
+      "criteriosDeAceptacion": [
+        "Para cada entrada del historial, el sistema debe listar los archivos adjuntos.",
+        "El sistema debe permitir la visualización o descarga de estos archivos.",
+        "Se deben mostrar las descripciones o etiquetas de los archivos adjuntos."
+      ]
+    },
+    {
+      "id": "RF-AC004",
+      "nombre": "Consultar Registros Específicos de Vacunación y Desparasitación",
+      "modulo": "Atención Clínica (Historia Clínica Electrónica)",
+      "casoDeUsoId": "CU-AC01",
+      "descripcion": "El Veterinario podrá filtrar o acceder a una vista específica del historial para ver únicamente los registros de vacunación y desparasitación.",
+      "prioridad": "Media",
+      "criteriosDeAceptacion": [
+        "El sistema debe permitir filtrar el historial para mostrar solo eventos de vacunación.",
+        "Para cada vacuna: mostrar fecha, nombre de vacuna, lote, vencimiento, próxima revacunación.",
+        "El sistema debe permitir filtrar el historial para mostrar solo eventos de desparasitación.",
+        "Para cada desparasitación: mostrar fecha, producto, dosis, próxima desparasitación."
+      ]
+    },
+    {
+      "id": "RF-AC005",
+      "nombre": "Iniciar Nueva Entrada de Historial Clínico",
+      "modulo": "Atención Clínica (Historia Clínica Electrónica)",
+      "casoDeUsoId": "CU-AC02",
+      "descripcion": "El Veterinario podrá crear una nueva entrada en el historial clínico para la mascota en consulta.",
+      "prioridad": "Alta",
+      "criteriosDeAceptacion": [
+        "El sistema debe permitir seleccionar la mascota (si no viene de una cita preseleccionada).",
+        "La fecha y hora de la consulta deben autocompletarse con la actual, pero ser editables.",
+        "La entrada debe asociarse al veterinario que está logueado."
+      ]
+    },
+    {
+      "id": "RF-AC006",
+      "nombre": "Registrar Datos de la Consulta",
+      "modulo": "Atención Clínica (Historia Clínica Electrónica)",
+      "casoDeUsoId": "CU-AC02",
+      "descripcion": "El Veterinario podrá registrar toda la información clínica relevante de la consulta.",
+      "prioridad": "Alta",
+      "criteriosDeAceptacion": [
+        "El sistema debe proveer campos para: Peso, Temperatura.",
+        "El sistema debe proveer campo para Motivo de la consulta (texto libre y/o selección predefinida).",
+        "El sistema debe proveer campo para Anamnesis (texto libre).",
+        "El sistema debe proveer campo para Hallazgos del examen físico (texto libre, opcionalmente estructurado por sistema).",
+        "El sistema debe proveer campo para Diagnóstico(s) (texto libre y/o selección de catálogo - ej. CIE-Vet como opcional RF023/RF027).",
+        "El sistema debe proveer campo para Plan de tratamiento (texto libre general).",
+        "El sistema debe proveer campo para Notas adicionales.",
+        "Al guardar, la nueva entrada se añade al historial de la mascota."
+      ]
+    },
+    {
+      "id": "RF-AC007",
+      "nombre": "Prescribir Tratamiento (Generar Récipe)",
+      "modulo": "Atención Clínica (Historia Clínica Electrónica)",
+      "casoDeUsoId": "CU-AC02",
+      "descripcion": "Dentro de una consulta, el Veterinario podrá añadir prescripciones de medicamentos y generar un récipe.",
+      "prioridad": "Alta",
+      "criteriosDeAceptacion": [
+        "El sistema debe permitir añadir uno o más medicamentos a la prescripción.",
+        "Para cada medicamento: registrar nombre, presentación/concentración, dosis, vía, frecuencia, duración.",
+        "(Opcional Medio) El sistema puede ofrecer un catálogo de medicamentos para autocompletar.",
+        "Las prescripciones deben quedar guardadas como parte de la entrada del historial clínico.",
+        "El sistema debe permitir generar un documento de récipe (PDF imprimible) con datos del consultorio, veterinario, dueño, mascota, fecha y medicamentos prescritos."
+      ]
+    },
+    {
+      "id": "RF-AC008",
+      "nombre": "Solicitar Exámenes de Laboratorio",
+      "modulo": "Atención Clínica (Historia Clínica Electrónica)",
+      "casoDeUsoId": "CU-AC02",
+      "descripcion": "Dentro de una consulta, el Veterinario podrá solicitar exámenes de laboratorio y generar una orden.",
+      "prioridad": "Alta",
+      "criteriosDeAceptacion": [
+        "El sistema debe permitir seleccionar o ingresar los exámenes solicitados.",
+        "(Opcional Medio) El sistema puede ofrecer un catálogo de exámenes disponibles.",
+        "Las solicitudes de exámenes deben quedar guardadas como parte de la entrada del historial clínico.",
+        "El sistema debe permitir generar una orden de exámenes (PDF imprimible) con datos del consultorio, veterinario, dueño, mascota, fecha y exámenes solicitados."
+      ]
+    },
+    {
+      "id": "RF-AC009",
+      "nombre": "Adjuntar Archivos a la Entrada Clínica",
+      "modulo": "Atención Clínica (Historia Clínica Electrónica)",
+      "casoDeUsoId": "CU-AC02",
+      "descripcion": "Durante la creación o edición de una entrada clínica, el Veterinario podrá adjuntar archivos digitales.",
+      "prioridad": "Alta",
+      "criteriosDeAceptacion": [
+        "El sistema debe permitir cargar uno o más archivos.",
+        "El sistema debe soportar formatos comunes (PDF, JPG, PNG, DOCX, DICOM).",
+        "Los archivos deben quedar vinculados a la entrada específica del historial.",
+        "El sistema debe permitir añadir una descripción/etiqueta a cada archivo."
+      ]
+    },
+    {
+      "id": "RF-AC010",
+      "nombre": "Registrar Aplicación de Vacunas y Desparasitantes",
+      "modulo": "Atención Clínica (Historia Clínica Electrónica)",
+      "casoDeUsoId": "CU-AC02",
+      "descripcion": "El Veterinario podrá registrar la aplicación de vacunas o desparasitantes como parte de la consulta.",
+      "prioridad": "Alta",
+      "criteriosDeAceptacion": [
+        "El sistema debe permitir seleccionar/ingresar el nombre de la vacuna, lote, fecha de vencimiento del producto.",
+        "El sistema debe permitir calcular y/o registrar la próxima fecha de revacunación.",
+        "El sistema debe permitir seleccionar/ingresar el nombre del desparasitante, dosis.",
+        "El sistema debe permitir calcular y/o registrar la próxima fecha de desparasitación.",
+        "Esta información debe quedar registrada en la entrada del historial clínico y ser visible en la consulta de registros específicos (RF-AC004)."
+      ]
+    },
+    {
+      "id": "RF-AC011",
+      "nombre": "Editar Entrada de Historial Clínico Reciente",
+      "modulo": "Atención Clínica (Historia Clínica Electrónica)",
+      "casoDeUsoId": "CU-AC02",
+      "descripcion": "El Veterinario podrá modificar una entrada de historial clínico recientemente creada, con auditoría.",
+      "prioridad": "Media",
+      "criteriosDeAceptacion": [
+        "El sistema debe permitir la edición de una entrada dentro de un período configurable (ej. 24h, antes del cierre diario).",
+        "Cualquier modificación debe registrarse en una bitácora de auditoría (quién, qué, cuándo).",
+        "Los campos críticos (ej. diagnóstico, prescripción) podrían tener restricciones adicionales o requerir justificación."
+      ]
+    },
+    {
+      "id": "RF-RH001",
+      "nombre": "Registrar Nuevo Empleado",
+      "modulo": "Gestión de Recursos Humanos y Servicios Internos",
+      "casoDeUsoId": "CU-RH01",
+      "descripcion": "El Administrador/Gerente podrá registrar la información de un nuevo empleado en el sistema.",
+      "prioridad": "Alta",
+      "criteriosDeAceptacion": [
+        "El sistema debe mostrar un formulario para el ingreso de datos del empleado (ej. nombre, apellido, DNI, teléfono, email, dirección, fecha de contratación).",
+        "El sistema debe validar los campos obligatorios (ej. nombre, DNI, rol).",
+        "Al guardar, el nuevo empleado debe crearse en la base de datos.",
+        "El sistema debe permitir asignar uno o más roles al empleado (ej. Veterinario, Asistente, Peluquero Canino, Limpieza, Administrativo)."
+      ]
+    },
+    {
+      "id": "RF-RH002",
+      "nombre": "Visualizar y Actualizar Datos de Empleado",
+      "modulo": "Gestión de Recursos Humanos y Servicios Internos",
+      "casoDeUsoId": "CU-RH01",
+      "descripcion": "El Administrador/Gerente podrá ver y modificar la información de un empleado existente.",
+      "prioridad": "Alta",
+      "criteriosDeAceptacion": [
+        "Tras seleccionar un empleado, el sistema debe mostrar toda su información registrada.",
+        "El sistema debe permitir la edición de los campos del empleado.",
+        "El sistema debe guardar los cambios realizados en la base de datos."
+      ]
+    },
+    {
+      "id": "RF-RH003",
+      "nombre": "Asignar/Modificar Rol de Empleado",
+      "modulo": "Gestión de Recursos Humanos y Servicios Internos",
+      "casoDeUsoId": "CU-RH01",
+      "descripcion": "El Administrador/Gerente podrá asignar o modificar los roles de un empleado.",
+      "prioridad": "Alta",
+      "criteriosDeAceptacion": [
+        "El sistema debe permitir seleccionar uno o varios roles predefinidos para un empleado.",
+        "El sistema debe actualizar los permisos de acceso del empleado según su rol."
+      ]
+    },
+    {
+      "id": "RF-RH004",
+      "nombre": "Desactivar/Activar Empleado",
+      "modulo": "Gestión de Recursos Humanos y Servicios Internos",
+      "casoDeUsoId": "CU-RH01",
+      "descripcion": "El Administrador/Gerente podrá desactivar temporal o permanentemente la cuenta de un empleado, impidiendo su acceso al sistema, o reactivarla.",
+      "prioridad": "Media",
+      "criteriosDeAceptacion": [
+        "El sistema debe permitir cambiar el estado de un empleado a 'activo' o 'inactivo'.",
+        "Los empleados inactivos no deben poder iniciar sesión.",
+        "El historial de acciones del empleado debe conservarse."
+      ]
+    },
+    {
+      "id": "RF-RH005",
+      "nombre": "Crear/Modificar Turno",
+      "modulo": "Gestión de Recursos Humanos y Servicios Internos",
+      "casoDeUsoId": "CU-RH02",
+      "descripcion": "El Administrador/Gerente podrá definir y modificar los tipos de turnos y guardias (ej. 'Turno Mañana', 'Guardia Nocturna', 'Descanso').",
+      "prioridad": "Alta",
+      "criteriosDeAceptacion": [
+        "El sistema debe permitir definir un nombre, hora de inicio y fin para cada tipo de turno.",
+        "El sistema debe permitir asociar un turno a un día específico o a un rango de fechas."
+      ]
+    },
+    {
+      "id": "RF-RH006",
+      "nombre": "Asignar Turno a Empleado",
+      "modulo": "Gestión de Recursos Humanos y Servicios Internos",
+      "casoDeUsoId": "CU-RH02",
+      "descripcion": "El Administrador/Gerente podrá asignar turnos y guardias a empleados específicos para un período determinado.",
+      "prioridad": "Alta",
+      "criteriosDeAceptacion": [
+        "El sistema debe permitir seleccionar un empleado y asignarle uno o más turnos para días específicos.",
+        "El sistema debe mostrar posibles conflictos de horario al asignar turnos.",
+        "El sistema debe guardar las asignaciones de turnos."
+      ]
+    },
+    {
+      "id": "RF-RH007",
+      "nombre": "Consultar Horario de Empleado",
+      "modulo": "Gestión de Recursos Humanos y Servicios Internos",
+      "casoDeUsoId": "CU-RH02",
+      "descripcion": "Cualquier empleado podrá consultar su propio horario de turnos y guardias asignados. El Administrador/Gerente podrá consultar el horario de cualquier empleado.",
+      "prioridad": "Alta",
+      "criteriosDeAceptacion": [
+        "El sistema debe mostrar una vista de calendario con los turnos asignados al empleado.",
+        "Debe ser posible filtrar por semana o mes."
+      ]
+    },
+    {
+      "id": "RF-RH008",
+      "nombre": "Consultar Disponibilidad de Personal",
+      "modulo": "Gestión de Recursos Humanos y Servicios Internos",
+      "casoDeUsoId": "CU-RH02",
+      "descripcion": "El Administrador/Gerente podrá consultar la disponibilidad general del personal para planificar turnos o asignar tareas.",
+      "prioridad": "Media",
+      "criteriosDeAceptacion": [
+        "El sistema debe mostrar una vista consolidada de los turnos de todo el personal.",
+        "Debe ser posible filtrar por rol o por fecha."
+      ]
+    },
+    {
+      "id": "RF-RH009",
+      "nombre": "Crear/Modificar Tipo de Servicio Interno",
+      "modulo": "Gestión de Recursos Humanos y Servicios Internos",
+      "casoDeUsoId": "CU-RH03",
+      "descripcion": "El Administrador/Gerente podrá definir nuevos tipos de servicios que la clínica ofrece (ej. 'Servicio de Emergencia', 'Farmacia', 'Delivery de Medicamentos', 'Atención a Domicilio', 'Hospedaje').",
+      "prioridad": "Alta",
+      "criteriosDeAceptacion": [
+        "El sistema debe permitir crear un nombre y una descripción para cada servicio.",
+        "El sistema debe permitir activar o desactivar un servicio."
+      ]
+    },
+    {
+      "id": "RF-RH010",
+      "nombre": "Asignar Personal a Servicio Interno",
+      "modulo": "Gestión de Recursos Humanos y Servicios Internos",
+      "casoDeUsoId": "CU-RH03",
+      "descripcion": "El Administrador/Gerente podrá asignar personal específico como responsable o participante de un tipo de servicio interno.",
+      "prioridad": "Media",
+      "criteriosDeAceptacion": [
+        "El sistema debe permitir seleccionar uno o más empleados para asociarlos a un tipo de servicio.",
+        "Esta asignación puede influir en la visibilidad de tareas o reportes relacionados con ese servicio."
+      ]
+    },
+    {
+      "id": "RF-RH011",
+      "nombre": "Consultar Servicios Internos Activos",
+      "modulo": "Gestión de Recursos Humanos y Servicios Internos",
+      "casoDeUsoId": "CU-RH03",
+      "descripcion": "El Administrador/Gerente podrá consultar la lista de servicios internos que la clínica tiene definidos y activos.",
+      "prioridad": "Baja",
+      "criteriosDeAceptacion": [
+        "El sistema debe mostrar una lista de todos los servicios internos con su estado (activo/inactivo) y descripción."
+      ]
+    },
+    {
+      "id": "RF-PG001",
+      "nombre": "Registrar Pago de Servicio/Producto",
+      "modulo": "Gestión de Pagos y Facturación",
+      "casoDeUsoId": "CU-PG01",
+      "descripcion": "El Asistente podrá registrar un pago recibido de un cliente, asociándolo a uno o varios servicios o productos.",
+      "prioridad": "Alta",
+      "criteriosDeAceptacion": [
+        "El sistema debe permitir seleccionar el cliente y/o la mascota asociada al pago.",
+        "El sistema debe permitir seleccionar los servicios o productos por los cuales se realiza el pago (idealmente vinculados a una factura o consulta previa).",
+        "El sistema debe permitir ingresar el monto pagado.",
+        "El sistema debe permitir seleccionar el método de pago (ej. efectivo, tarjeta de crédito/débito, transferencia, cheque).",
+        "El sistema debe validar que el monto pagado sea consistente con el total a pagar (o registrar un saldo pendiente/a favor).",
+        "Al guardar, el pago debe registrarse en la base de datos."
+      ]
+    },
+    {
+      "id": "RF-PG002",
+      "nombre": "Generar Comprobante de Pago",
+      "modulo": "Gestión de Pagos y Facturación",
+      "casoDeUsoId": "CU-PG01",
+      "descripcion": "El sistema debe poder generar un comprobante o recibo de pago para el cliente.",
+      "prioridad": "Alta",
+      "criteriosDeAceptacion": [
+        "El comprobante debe incluir detalles del consultorio, fecha, monto, método de pago, y los servicios/productos pagados.",
+        "El comprobante debe ser imprimible (ej. PDF)."
+      ]
+    },
+    {
+      "id": "RF-PG003",
+      "nombre": "Consultar Pagos por Cliente/Mascota (Staff)",
+      "modulo": "Gestión de Pagos y Facturación",
+      "casoDeUsoId": "CU-PG02",
+      "descripcion": "El Asistente o Administrador/Gerente podrá consultar todos los pagos realizados por un cliente o para una mascota específica.",
+      "prioridad": "Alta",
+      "criteriosDeAceptacion": [
+        "El sistema debe permitir buscar pagos asociados a un cliente o mascota.",
+        "Los resultados deben mostrar la fecha, monto, servicios/productos pagados y método de pago."
+      ]
+    },
+    {
+      "id": "RF-PG004",
+      "nombre": "Consultar Pagos por Fecha/Servicio (Staff)",
+      "modulo": "Gestión de Pagos y Facturación",
+      "casoDeUsoId": "CU-PG02",
+      "descripcion": "El Administrador/Gerente podrá consultar pagos filtrados por rango de fechas o por tipo de servicio.",
+      "prioridad": "Media",
+      "criteriosDeAceptacion": [
+        "El sistema debe permitir filtrar pagos por un rango de fechas.",
+        "El sistema debe permitir filtrar pagos por uno o varios tipos de servicio/producto."
+      ]
+    },
+    {
+      "id": "RF-PG006",
+      "nombre": "Consultar Propio Historial de Pagos y Facturas (Cliente/Propietario)",
+      "modulo": "Gestión de Pagos y Facturación",
+      "casoDeUsoId": "CU-PG02",
+      "descripcion": "El Cliente/Propietario de Mascota podrá consultar su propio historial de pagos y descargar las facturas asociadas.",
+      "prioridad": "Media",
+      "criteriosDeAceptacion": [
+        "El sistema debe mostrar al Cliente/Propietario una lista de sus pagos realizados, con fecha, monto y concepto.",
+        "El sistema debe permitir al Cliente/Propietario visualizar y/o descargar las facturas o comprobantes asociados a sus pagos."
+      ]
+    },
+    {
+      "id": "RF-PG005",
+      "nombre": "Generar Reporte de Ingresos",
+      "modulo": "Gestión de Pagos y Facturación",
+      "casoDeUsoId": "CU-PG03",
+      "descripcion": "El sistema debe poder generar reportes de ingresos consolidados por períodos (diario, semanal, mensual, anual).",
+      "prioridad": "Alta",
+      "criteriosDeAceptacion": [
+        "El reporte debe mostrar el total de ingresos para el período seleccionado.",
+        "El reporte puede desglosar los ingresos por tipo de servicio/producto o método de pago.",
+        "El reporte debe ser exportable (ej. CSV, PDF)."
+      ]
+    }
+  ],
+  "requisitosNoFuncionales": [
+    {
+      "id": "RNF-USA-001",
+      "categoria": "Usabilidad",
+      "nombre": "Facilidad de Aprendizaje",
+      "descripcion": "Un veterinario o asistente nuevo, con conocimientos informáticos básicos, debería poder realizar tareas principales (p. ej., crear una nueva entrada clínica, consultar el historial, prescribir medicación) con menos de 2 horas de formación."
+    },
+    {
+      "id": "RNF-USA-002",
+      "categoria": "Usabilidad",
+      "nombre": "Eficiencia de Uso",
+      "descripcion": "Una vez que dominen el sistema, los usuarios deben poder completar tareas comunes y frecuentes (p. ej., crear una receta estándar después de ingresar un diagnóstico) en un promedio de 3-5 interacciones del usuario (clics o selecciones)."
+    },
+    {
+      "id": "RNF-USA-003",
+      "categoria": "Usabilidad",
+      "nombre": "Satisfacción del Usuario",
+      "descripcion": "El sistema debería alcanzar una puntuación de satisfacción del usuario de al menos 7/10 en encuestas posteriores a la implementación centradas en la facilidad de uso y el soporte al flujo de trabajo."
+    },
+    {
+      "id": "RNF-USA-004",
+      "categoria": "Usabilidad",
+      "nombre": "Prevención y Recuperación de Errores",
+      "descripcion": "El sistema debería proporcionar mensajes de confirmación claros para acciones críticas (p. ej., guardar un registro clínico, eliminar un archivo adjunto) y permitir la corrección fácil de errores de ingreso de datos antes del envío final, cuando sea apropiado. La eliminación de datos críticos debería requerir una confirmación explícita."
+    },
+    {
+      "id": "RNF-PER-001",
+      "categoria": "Rendimiento y Escalabilidad",
+      "nombre": "Tiempo de Respuesta",
+      "descripcion": "La carga del historial clínico completo de una mascota (hasta 50 entradas) no debería tardar más de 3 segundos. El guardado de una nueva entrada clínica (incluyendo datos básicos de consulta, una receta y una orden de laboratorio) debería completarse en 2 segundos. Los resultados de búsqueda de pacientes o clientes deberían aparecer en 2 segundos para consultas típicas."
+    },
+    {
+      "id": "RNF-PER-002",
+      "categoria": "Rendimiento y Escalabilidad",
+      "nombre": "Usuarios Concurrentes",
+      "descripcion": "El sistema debe soportar hasta 10 usuarios concurrentes activos (veterinarios y asistentes) realizando tareas clínicas y administrativas típicas sin una degradación notable del rendimiento (es decir, los tiempos de respuesta no deberían aumentar en más del 20% en comparación con un escenario de un solo usuario)."
+    },
+    {
+      "id": "RNF-PER-003",
+      "categoria": "Rendimiento y Escalabilidad",
+      "nombre": "Volumen de Datos",
+      "descripcion": "El sistema debe gestionar y recuperar datos de manera eficiente para al menos 10.000 mascotas y 500.000 entradas de historial clínico durante 5 años sin una degradación significativa del rendimiento."
+    },
+    {
+      "id": "RNF-SCL-001",
+      "categoria": "Rendimiento y Escalabilidad",
+      "nombre": "Escalabilidad",
+      "descripcion": "La arquitectura del sistema debería permitir un aumento del 50% en el número de usuarios y del 100% en el volumen de datos durante los próximos 3 años solo con escalado de hardware o cambios mínimos de configuración de software, sin requerir una re-arquitectura importante."
+    },
+    {
+      "id": "RNF-AVA-001",
+      "categoria": "Disponibilidad y Fiabilidad",
+      "nombre": "Tiempo de Actividad del Sistema",
+      "descripcion": "El módulo clínico debe estar disponible el 99.5% del tiempo durante las horas operativas definidas de la clínica (p. ej., de lunes a sábado, de 8 AM a 8 PM)."
+    },
+    {
+      "id": "RNF-REL-001",
+      "categoria": "Disponibilidad y Fiabilidad",
+      "nombre": "Integridad de los Datos",
+      "descripcion": "Todos los datos clínicos guardados en el sistema deben almacenarse y recuperarse con precisión sin corrupción ni pérdida. Las transacciones (p. ej., guardar una entrada clínica) deben ser atómicas."
+    },
+    {
+      "id": "RNF-REL-002",
+      "categoria": "Disponibilidad y Fiabilidad",
+      "nombre": "Copia de Seguridad y Recuperación",
+      "descripcion": "Objetivo de Punto de Recuperación (RPO): En caso de una falla mayor, la pérdida de datos no debe exceder las 24 horas (copias de seguridad diarias). Objetivo de Tiempo de Recuperación (RTO): El sistema debería ser restaurable a un estado operativo en un plazo de 4 horas tras una falla mayor."
+    },
+    {
+      "id": "RNF-REL-003",
+      "categoria": "Disponibilidad y Fiabilidad",
+      "nombre": "Tolerancia a Fallos",
+      "descripcion": "El sistema debería manejar los errores comunes con elegancia (p. ej., interrupciones de red durante el envío de datos) e informar al usuario adecuadamente, intentando preservar los datos ingresados siempre que sea posible."
+    },
+    {
+      "id": "RNF-REL-004",
+      "categoria": "Disponibilidad y Fiabilidad",
+      "nombre": "Offline First",
+      "descripcion": "El sistema debera manejar alternativas para los casos donde se pierda la conexión con el servidor a través de localStorage tanto en movil como en web."
+    },
+    {
+      "id": "RNF-SEC-001",
+      "categoria": "Seguridad",
+      "nombre": "Control de Acceso",
+      "descripcion": "El acceso a los datos clínicos del paciente debe estar restringido según los roles de usuario (p. ej., el Veterinario puede crear/editar/ver todos los datos clínicos; el Asistente puede tener acceso de solo lectura al historial clínico o acceso de escritura restringido a ciertas secciones)."
+    },
+    {
+      "id": "RNF-SEC-002",
+      "categoria": "Seguridad",
+      "nombre": "Confidencialidad de los Datos",
+      "descripcion": "Los datos sensibles de pacientes y clientes (información de identificación personal, registros clínicos) deben protegerse contra el acceso no autorizado. Los datos deberían estar encriptados en tránsito (p. ej., HTTPS) y en reposo (para la base de datos)."
+    },
+    {
+      "id": "RNF-SEC-003",
+      "categoria": "Seguridad",
+      "nombre": "Pistas de Auditoría",
+      "descripcion": "Todas las creaciones, modificaciones y eliminaciones de registros clínicos, recetas y órdenes de laboratorio deben registrarse con el ID de usuario, la marca de tiempo y los detalles del cambio."
+    },
+    {
+      "id": "RNF-SEC-004",
+      "categoria": "Seguridad",
+      "nombre": "Autenticación",
+      "descripcion": "Los usuarios deben ser autenticados mediante un mecanismo seguro de nombre de usuario y contraseña. Se deben aplicar políticas de contraseña (complejidad, caducidad, bloqueo)."
+    },
+    {
+      "id": "RNF-SEC-005",
+      "categoria": "Seguridad",
+      "nombre": "Validación de Entradas",
+      "descripcion": "El sistema debe validar todas las entradas del usuario para prevenir vulnerabilidades de seguridad comunes como la inyección SQL o Cross-Site Scripting (XSS)."
+    },
+    {
+      "id": "RNF-MAI-001",
+      "categoria": "Mantenibilidad y Compatibilidad",
+      "nombre": "Modularidad",
+      "descripcion": "El módulo clínico debería desarrollarse con un diseño modular para facilitar actualizaciones, correcciones de errores y futuras mejoras con un impacto mínimo en otras partes del CRM."
+    },
+    {
+      "id": "RNF-MAI-002",
+      "categoria": "Mantenibilidad y Compatibilidad",
+      "nombre": "Testeabilidad",
+      "descripcion": "El sistema debería diseñarse para permitir pruebas automatizadas de funcionalidades clave."
+    },
+    {
+      "id": "RNF-COM-001",
+      "categoria": "Mantenibilidad y Compatibilidad",
+      "nombre": "Compatibilidad con Navegadores",
+      "descripcion": "La interfaz de usuario debe ser completamente funcional y mostrarse correctamente en las dos últimas versiones de los principales navegadores web (p. ej., Chrome, Firefox, Edge, Safari)."
+    },
+    {
+      "id": "RNF-COM-002",
+      "categoria": "Mantenibilidad y Compatibilidad",
+      "nombre": "Exportación de Datos",
+      "descripcion": "El sistema debería proporcionar un mecanismo para que los usuarios autorizados exporten datos clínicos de pacientes en un formato común y estructurado (p. ej., CSV, PDF) para mascotas individuales si se requiere para transferencia o por razones legales."
+    }
+  ]
+}

@@ -1293,6 +1293,14 @@ El siguiente diagrama muestra una visión consolidada de los principales casos d
 
 ![FA-AU01-02](../Imagenes/FlujosAlternativosCasosDeUso/FA-AU01-02.png)
 
+<div style="page-break-after: always;"></div>
+
+![FA-AU01-03](../Imagenes/FlujosAlternativosCasosDeUso/FA-AU01-03.png)
+
+<div style="page-break-after: always;"></div>
+
+![FA-AU01-04](../Imagenes/FlujosAlternativosCasosDeUso/FA-AU01-04.png)
+
 #### **Módulo: Atención Clínica**
 
 ![Consultar Historia Clínica](../Imagenes/CasosDeUso/consultarHistoriaClinico.png)

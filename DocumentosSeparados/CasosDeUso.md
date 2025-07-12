@@ -176,6 +176,24 @@ A continuación, se detallan los casos de uso individuales, agrupados por módul
 
 <div style="page-break-after: always;"></div>
 
+### Flujos Alternativos
+
+![FA-AU01-01](../Imagenes/FlujosAlternativosCasosDeUso/FA-AU01-01.png)
+
+<div style="page-break-after: always;"></div>
+
+![FA-AU01-02](../Imagenes/FlujosAlternativosCasosDeUso/FA-AU01-02.png)
+
+<div style="page-break-after: always;"></div>
+
+![FA-AU01-03](../Imagenes/FlujosAlternativosCasosDeUso/FA-AU01-03.png)
+
+<div style="page-break-after: always;"></div>
+
+![FA-AU01-04](../Imagenes/FlujosAlternativosCasosDeUso/FA-AU01-04.png)
+
+<div style="page-break-after: always;"></div>
+
 ---
 
 ### **Módulo: Atención Clínica (Historia Clínica Electrónica)**

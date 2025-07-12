@@ -8,6 +8,7 @@ actor "Administrador/Gerente" as Admin
 actor Sistema
 
 rectangle "PeluDog CRM" {
+  usecase "Autenticar Usuario" as CU_AU01
   usecase "Gestionar Información de Clientes y Mascotas" as CU_GP01
   usecase "Gestionar Citas" as CU_GA01
   usecase "Gestionar Recordatorios de Citas" as CU_GA02
@@ -21,6 +22,7 @@ rectangle "PeluDog CRM" {
   usecase "Generar Reportes Financieros" as CU_PG03
 }
 
+Asistente -- CU_AU01
 Asistente -- CU_GP01
 Asistente -- CU_GA01
 Asistente -- CU_AC01
@@ -28,16 +30,19 @@ Asistente -- CU_RH02
 Asistente -- CU_PG01
 Asistente -- CU_PG02
 
+Veterinario -- CU_AU01
 Veterinario -- CU_GP01
 Veterinario -- CU_GA01
 Veterinario -- CU_AC01
 Veterinario -- CU_AC02
 Veterinario -- CU_RH02
 
+Cliente -- CU_AU01
 Cliente -- CU_GP01
 Cliente -- CU_GA01
 Cliente -- CU_PG02
 
+Admin -- CU_AU01
 Admin -- CU_RH01
 Admin -- CU_RH02
 Admin -- CU_RH03

@@ -1,0 +1,128 @@
+@startuml
+' --- Estilos para mejorar la legibilidad ---
+<style>
+title {
+  FontSize 18
+  FontColor #333333
+}
+participant {
+  BackgroundColor #E3F2FD
+  BorderColor #1565C0
+  FontColor #1A237E
+}
+activate {
+  BackgroundColor #BBDEFB
+  BorderColor #1565C0
+}
+</style>
+
+title Diagrama de Secuencia: CU-AU01 - Autenticar Usuario
+
+actor "Usuario" as Usuario
+participant "Sistema de Login" as Login
+participant "Validador de Credenciales" as Validador
+participant "Gestor de Sesiones" as Sesiones
+participant "Gestor de Políticas" as Politicas
+participant "Servicio de Email" as Email
+database "Base de Datos" as BD
+
+== Iniciar Sesión ==
+Usuario -> Login: Accede a página de login
+activate Login
+Login --> Usuario: Muestra formulario de login
+Usuario -> Login: Ingresa credenciales (usuario, contraseña)
+Login -> Validador: Valida credenciales
+activate Validador
+
+Validador -> BD: Consulta usuario y contraseña
+activate BD
+BD --> Validador: Retorna datos del usuario
+deactivate BD
+
+Validador -> Politicas: Verifica políticas de contraseña
+activate Politicas
+Politicas --> Validador: Valida estado de contraseña
+deactivate Politicas
+
+alt Credenciales válidas
+    Validador --> Login: Credenciales correctas
+    Login -> Sesiones: Crear sesión para usuario
+    activate Sesiones
+    Sesiones -> BD: Registra sesión activa
+    BD --> Sesiones: Sesión creada
+    Sesiones --> Login: Token de sesión
+    deactivate Sesiones
+    Login --> Usuario: Redirige a dashboard principal
+else Credenciales inválidas
+    Validador -> BD: Registra intento fallido
+    Validador --> Login: Credenciales incorrectas
+    Login --> Usuario: Muestra error y aplica políticas de bloqueo
+end
+
+deactivate Validador
+deactivate Login
+
+== Gestión de Sesión Activa ==
+note over Usuario, BD
+  Usuario interactúa con el sistema
+  La sesión se mantiene activa
+end note
+
+== Cerrar Sesión ==
+Usuario -> Login: Selecciona "Cerrar Sesión"
+activate Login
+Login -> Sesiones: Invalidar sesión
+activate Sesiones
+Sesiones -> BD: Elimina sesión activa
+BD --> Sesiones: Sesión eliminada
+Sesiones --> Login: Sesión invalidada
+deactivate Sesiones
+Login --> Usuario: Redirige a página de login
+deactivate Login
+
+== Recuperación de Contraseña ==
+Usuario -> Login: Selecciona "Recuperar Contraseña"
+activate Login
+Login --> Usuario: Solicita email registrado
+Usuario -> Login: Ingresa email
+Login -> BD: Verifica si email existe
+activate BD
+BD --> Login: Confirma usuario existente
+deactivate BD
+
+Login -> Politicas: Genera token temporal
+activate Politicas
+Politicas --> Login: Token seguro generado
+deactivate Politicas
+
+Login -> Email: Envía enlace de recuperación
+activate Email
+Email --> Login: Email enviado
+deactivate Email
+
+Login --> Usuario: Confirma envío de email
+deactivate Login
+
+Usuario -> Login: Accede a enlace de recuperación
+activate Login
+Login -> Politicas: Valida token temporal
+activate Politicas
+Politicas --> Login: Token válido
+deactivate Politicas
+
+Login --> Usuario: Muestra formulario de nueva contraseña
+Usuario -> Login: Ingresa nueva contraseña
+Login -> Politicas: Valida nueva contraseña
+activate Politicas
+Politicas --> Login: Contraseña cumple políticas
+deactivate Politicas
+
+Login -> BD: Actualiza contraseña
+activate BD
+BD --> Login: Contraseña actualizada
+deactivate BD
+
+Login --> Usuario: Confirma cambio exitoso
+deactivate Login
+
+@enduml 

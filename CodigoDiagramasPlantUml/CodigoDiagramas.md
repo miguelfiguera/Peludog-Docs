@@ -2,6 +2,8 @@
 
 A continuación se presentan los códigos finales para cada uno de los diagramas realizados:
 
+> **Nota:** Los diagramas específicos del módulo de autenticación se encuentran en el archivo `DiagramasAutenticacion.md`
+
 ---
 
 ### **1. Modelo de Unidades Organizacionales (Organigrama)**

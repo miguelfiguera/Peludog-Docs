@@ -12,13 +12,12 @@ A continuación, se presenta el diagrama general que muestra una visión consoli
 
 A continuación, se detallan los casos de uso individuales, agrupados por módulo funcional.
 
-
 **Actores Principales del CRM (Reconfirmados):**
 
-- **Asistente:** Encargado de la gestión de citas, registro de clientes y mascotas, facturación y comunicación inicial.
-- **Veterinario:** Encargado de la atención clínica, registro de diagnósticos, tratamientos, prescripciones y seguimiento.
-- **Cliente/Propietario de Mascotas:** Propietario de la mascota que interactúa con el sistema para ciertas funciones (ej. portal de citas, gestión de su información y la de sus mascotas, consulta de historial de pagos).
-- **Administrador/Gerente:** Responsable de la gestión de personal, configuración de servicios, reportes financieros y supervisión general.
+- **Asistente:** Encargado de la gestión de citas, registro de clientes y mascotas, facturación y comunicación inicial. Requiere autenticación para acceder al sistema.
+- **Veterinario:** Encargado de la atención clínica, registro de diagnósticos, tratamientos, prescripciones y seguimiento. Requiere autenticación para acceder al sistema.
+- **Cliente/Propietario de Mascotas:** Propietario de la mascota que interactúa con el sistema para ciertas funciones (ej. portal de citas, gestión de su información y la de sus mascotas, consulta de historial de pagos). Requiere autenticación para acceder al portal.
+- **Administrador/Gerente:** Responsable de la gestión de personal, configuración de servicios, reportes financieros y supervisión general. Requiere autenticación y tiene privilegios administrativos.
 - **Sistema:** Realiza acciones automáticas (ej. envío de recordatorios).
 
 ---
@@ -128,6 +127,52 @@ A continuación, se detallan los casos de uso individuales, agrupados por módul
 <div style="page-break-after: always;"></div>
 
 ![GA02](../Imagenes/DiagramasDeSecuencia/CU-GA02.png)
+
+<div style="page-break-after: always;"></div>
+
+---
+
+### **Módulo: Autenticación y Gestión de Usuarios**
+
+**CU-AU01: Autenticar Usuario**
+
+![alt text](../Imagenes/CasosDeUso/autenticacionUsuarios.png)
+
+- **Actores Principales:** Todos los usuarios del sistema
+- **Descripción:** Permite a los usuarios acceder al sistema mediante credenciales válidas y gestionar su sesión activa, incluyendo el inicio de sesión, cierre de sesión y recuperación de contraseña.
+- **Flujo Principal:**
+
+  1. El usuario accede al sistema e inicia el proceso de autenticación.
+  2. **Para iniciar sesión (invoca RF-AU001):**
+     a. El Sistema presenta el formulario de login con campos de usuario y contraseña.
+     b. El usuario ingresa sus credenciales.
+     c. El Sistema valida las credenciales contra la base de datos.
+     d. Si las credenciales son válidas, el Sistema crea una sesión activa y redirige al usuario al dashboard principal según su rol.
+     e. Si las credenciales son inválidas, el Sistema muestra un mensaje de error y aplica políticas de bloqueo tras múltiples intentos.
+  3. **Para cerrar sesión (invoca RF-AU002):**
+     a. El usuario selecciona la opción "Cerrar sesión" desde cualquier parte del sistema.
+     b. El Sistema invalida completamente la sesión del usuario.
+     c. El Sistema redirige al usuario a la página de login.
+  4. **Para recuperar contraseña (invoca RF-AU004):**
+     a. Desde la página de login, el usuario selecciona "Recuperar contraseña".
+     b. El Sistema solicita el email registrado del usuario.
+     c. El Sistema genera un enlace temporal y seguro, enviándolo al email del usuario.
+     d. El usuario accede al enlace y establece una nueva contraseña que cumpla las políticas de seguridad (invoca RF-AU003).
+     e. El Sistema actualiza la contraseña y permite al usuario iniciar sesión.
+  5. **Aplicación continua de políticas de contraseña (invoca RF-AU003):**
+     a. El Sistema valida que las contraseñas cumplan los requisitos de seguridad (longitud, complejidad).
+     b. El Sistema fuerza el cambio de contraseña según la política configurada.
+     c. El Sistema bloquea cuentas tras múltiples intentos fallidos consecutivos.
+
+- **Flujos Alternativos:**
+  - **FA-AU01-01:** Credenciales incorrectas - El sistema muestra mensaje de error específico y registra el intento.
+  - **FA-AU01-02:** Cuenta bloqueada - El sistema muestra mensaje informativo y requiere intervención del administrador.
+  - **FA-AU01-03:** Contraseña expirada - El sistema fuerza el cambio de contraseña antes de permitir el acceso.
+  - **FA-AU01-04:** Enlace de recuperación expirado - El sistema informa al usuario y permite solicitar un nuevo enlace.
+
+<div style="page-break-after: always;"></div>
+
+![AU01](../Imagenes/DiagramasDeSecuencia/CU-AU01.png)
 
 <div style="page-break-after: always;"></div>
 

@@ -305,6 +305,63 @@ Este módulo es el núcleo para el Veterinario, donde se gestiona toda la activi
 
 ---
 
+### **Módulo: Autenticación y Gestión de Usuarios**
+
+Este módulo maneja el acceso al sistema mediante la autenticación de usuarios y la gestión de sesiones.
+
+**CU-AU01: Autenticar Usuario**
+
+- **Actores Principales:** Todos los usuarios del sistema
+- **Descripción:** Permite a los usuarios acceder al sistema mediante credenciales válidas.
+- **RFs Asociados:**
+
+  - **RF-AU001: Iniciar Sesión**
+
+    - Descripción: Los usuarios podrán iniciar sesión en el sistema usando nombre de usuario y contraseña.
+    - Prioridad: Alta
+    - Justificación: Acceso básico al sistema que garantiza seguridad y control de acceso.
+    - Criterios de Aceptación:
+      - El sistema debe mostrar un formulario de login con campos de usuario y contraseña.
+      - El sistema debe validar las credenciales contra la base de datos.
+      - El sistema debe crear una sesión válida tras una autenticación exitosa.
+      - El sistema debe mostrar mensajes de error apropiados para credenciales inválidas.
+      - El sistema debe aplicar políticas de bloqueo tras múltiples intentos fallidos.
+
+  - **RF-AU002: Cerrar Sesión**
+
+    - Descripción: Los usuarios podrán cerrar su sesión activa en el sistema.
+    - Prioridad: Alta
+    - Justificación: Garantiza la seguridad permitiendo terminación explícita de sesiones.
+    - Criterios de Aceptación:
+      - El sistema debe proporcionar una opción visible para cerrar sesión.
+      - El sistema debe invalidar completamente la sesión del usuario.
+      - El sistema debe redirigir al usuario a la página de login tras cerrar sesión.
+
+  - **RF-AU003: Gestionar Políticas de Contraseña**
+
+    - Descripción: El sistema debe aplicar políticas de seguridad para contraseñas de usuario.
+    - Prioridad: Alta
+    - Justificación: Asegura que las contraseñas cumplan estándares de seguridad.
+    - Criterios de Aceptación:
+      - El sistema debe requerir contraseñas con longitud mínima de 8 caracteres.
+      - El sistema debe exigir al menos una letra mayúscula, una minúscula y un número.
+      - El sistema debe prevenir el uso de contraseñas comunes.
+      - El sistema debe forzar el cambio de contraseña según política configurable.
+      - El sistema debe bloquear cuentas tras múltiples intentos fallidos consecutivos.
+
+  - **RF-AU004: Recuperar Contraseña**
+
+    - Descripción: Los usuarios podrán recuperar el acceso a su cuenta mediante un proceso de recuperación de contraseña.
+    - Prioridad: Media
+    - Justificación: Proporciona mecanismo de recuperación para usuarios que olviden sus credenciales.
+    - Criterios de Aceptación:
+      - El sistema debe permitir solicitar recuperación mediante email registrado.
+      - El sistema debe generar un enlace temporal y seguro para restablecer contraseña.
+      - El sistema debe permitir establecer nueva contraseña mediante el enlace temporal.
+      - El enlace de recuperación debe expirar después de un tiempo configurable.
+
+---
+
 ### **Módulo: Gestión de Recursos Humanos y Servicios Internos**
 
 Este módulo se encarga del registro y administración del personal de la clínica, sus horarios y los servicios internos que ofrece el consultorio.
@@ -541,8 +598,7 @@ Este módulo se encarga del registro, consulta y reporte de los pagos recibidos 
 - **RNF-SEC-001 (Control de Acceso):** El acceso a los datos clínicos del paciente debe estar restringido según los roles de usuario (p. ej., el Veterinario puede crear/editar/ver todos los datos clínicos; el Asistente puede tener acceso de solo lectura al historial clínico o acceso de escritura restringido a ciertas secciones).
 - **RNF-SEC-002 (Confidencialidad de los Datos):** Los datos sensibles de pacientes y clientes (información de identificación personal, registros clínicos) deben protegerse contra el acceso no autorizado. Los datos deberían estar encriptados en tránsito (p. ej., HTTPS) y en reposo (para la base de datos).
 - **RNF-SEC-003 (Pistas de Auditoría):** Todas las creaciones, modificaciones y eliminaciones de registros clínicos, recetas y órdenes de laboratorio deben registrarse con el ID de usuario, la marca de tiempo y los detalles del cambio.
-- **RNF-SEC-004 (Autenticación):** Los usuarios deben ser autenticados mediante un mecanismo seguro de nombre de usuario y contraseña. Se deben aplicar políticas de contraseña (complejidad, caducidad, bloqueo).
-- **RNF-SEC-005 (Validación de Entradas):** El sistema debe validar todas las entradas del usuario para prevenir vulnerabilidades de seguridad comunes como la inyección SQL o Cross-Site Scripting (XSS).
+- **RNF-SEC-004 (Validación de Entradas):** El sistema debe validar todas las entradas del usuario para prevenir vulnerabilidades de seguridad comunes como la inyección SQL o Cross-Site Scripting (XSS).
 
 **5. Maintainability & Compatibility (Mantenibilidad y Compatibilidad)**
 

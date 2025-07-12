@@ -745,6 +745,63 @@ El sistema operará en las instalaciones del consultorio veterinario PeluDog, co
 
 ---
 
+### **Módulo: Autenticación y Gestión de Usuarios**
+
+Este módulo maneja el acceso al sistema mediante la autenticación de usuarios y la gestión de sesiones.
+
+**CU-AU01: Autenticar Usuario**
+
+- **Actores Principales:** Todos los usuarios del sistema
+- **Descripción:** Permite a los usuarios acceder al sistema mediante credenciales válidas.
+- **RFs Asociados:**
+
+  - **RF-AU001: Iniciar Sesión**
+
+    - **Descripción:** Los usuarios podrán iniciar sesión en el sistema usando nombre de usuario y contraseña.
+    - **Prioridad:** Alta
+    - **Justificación:** Acceso básico al sistema que garantiza seguridad y control de acceso.
+    - **Criterios de Aceptación:**
+      - El sistema debe mostrar un formulario de login con campos de usuario y contraseña
+      - El sistema debe validar las credenciales contra la base de datos
+      - El sistema debe crear una sesión válida tras una autenticación exitosa
+      - El sistema debe mostrar mensajes de error apropiados para credenciales inválidas
+      - El sistema debe aplicar políticas de bloqueo tras múltiples intentos fallidos
+
+  - **RF-AU002: Cerrar Sesión**
+
+    - **Descripción:** Los usuarios podrán cerrar su sesión activa en el sistema.
+    - **Prioridad:** Alta
+    - **Justificación:** Garantiza la seguridad permitiendo terminación explícita de sesiones.
+    - **Criterios de Aceptación:**
+      - El sistema debe proporcionar una opción visible para cerrar sesión
+      - El sistema debe invalidar completamente la sesión del usuario
+      - El sistema debe redirigir al usuario a la página de login tras cerrar sesión
+
+  - **RF-AU003: Gestionar Políticas de Contraseña**
+
+    - **Descripción:** El sistema debe aplicar políticas de seguridad para contraseñas de usuario.
+    - **Prioridad:** Alta
+    - **Justificación:** Asegura que las contraseñas cumplan estándares de seguridad.
+    - **Criterios de Aceptación:**
+      - El sistema debe requerir contraseñas con longitud mínima de 8 caracteres
+      - El sistema debe exigir al menos una letra mayúscula, una minúscula y un número
+      - El sistema debe prevenir el uso de contraseñas comunes
+      - El sistema debe forzar el cambio de contraseña según política configurable
+      - El sistema debe bloquear cuentas tras múltiples intentos fallidos consecutivos
+
+  - **RF-AU004: Recuperar Contraseña**
+
+    - **Descripción:** Los usuarios podrán recuperar el acceso a su cuenta mediante un proceso de recuperación de contraseña.
+    - **Prioridad:** Media
+    - **Justificación:** Proporciona mecanismo de recuperación para usuarios que olviden sus credenciales.
+    - **Criterios de Aceptación:**
+      - El sistema debe permitir solicitar recuperación mediante email registrado
+      - El sistema debe generar un enlace temporal y seguro para restablecer contraseña
+      - El sistema debe permitir establecer nueva contraseña mediante el enlace temporal
+      - El enlace de recuperación debe expirar después de un tiempo configurable
+
+---
+
 ### **Módulo: Gestión de Recursos Humanos y Servicios Internos**
 
 **CU-RH01: Gestionar Personal de la Clínica**
@@ -1008,7 +1065,7 @@ El sistema debería manejar los errores comunes con elegancia (interrupciones de
 
 #### **RNF-REL-004: Offline First**
 
-El sistema deberá manejar alternativas para los casos donde se pierda la conexión con el servidor a través de localStorage tanto en móvil como en web.
+El sistema deberá manejar alternativas para los casos donde se pierda la conexión con el servidor a través de localStorage en movil.
 
 ### **4. Seguridad**
 
@@ -1024,11 +1081,7 @@ Los datos sensibles de pacientes y clientes (información de identificación per
 
 Todas las creaciones, modificaciones y eliminaciones de registros clínicos, recetas y órdenes de laboratorio deben registrarse con el ID de usuario, la marca de tiempo y los detalles del cambio.
 
-#### **RNF-SEC-004: Autenticación**
-
-Los usuarios deben ser autenticados mediante un mecanismo seguro de nombre de usuario y contraseña. Se deben aplicar políticas de contraseña (complejidad, caducidad, bloqueo).
-
-#### **RNF-SEC-005: Validación de Entradas**
+#### **RNF-SEC-004: Validación de Entradas**
 
 El sistema debe validar todas las entradas del usuario para prevenir vulnerabilidades de seguridad comunes como la inyección SQL o Cross-Site Scripting (XSS).
 
@@ -1064,10 +1117,10 @@ El siguiente diagrama muestra una visión consolidada de los principales casos d
 
 ### **Actores Principales del Sistema**
 
-- **Asistente:** Encargado de la gestión de citas, registro de clientes y mascotas, facturación y comunicación inicial
-- **Veterinario:** Encargado de la atención clínica, registro de diagnósticos, tratamientos, prescripciones y seguimiento
-- **Cliente/Propietario de Mascotas:** Propietario de la mascota que interactúa con el sistema para ciertas funciones (portal de citas, gestión de información)
-- **Administrador/Gerente:** Responsable de la gestión de personal, configuración de servicios, reportes financieros y supervisión general
+- **Asistente:** Encargado de la gestión de citas, registro de clientes y mascotas, facturación y comunicación inicial. Requiere autenticación para acceder al sistema.
+- **Veterinario:** Encargado de la atención clínica, registro de diagnósticos, tratamientos, prescripciones y seguimiento. Requiere autenticación para acceder al sistema.
+- **Cliente/Propietario de Mascotas:** Propietario de la mascota que interactúa con el sistema para ciertas funciones (portal de citas, gestión de información). Requiere autenticación para acceder al portal.
+- **Administrador/Gerente:** Responsable de la gestión de personal, configuración de servicios, reportes financieros y supervisión general. Requiere autenticación y tiene privilegios administrativos.
 - **Sistema:** Realiza acciones automáticas (envío de recordatorios)
 
 ### **Casos de Uso Detallados por Módulo**
@@ -1086,6 +1139,40 @@ El siguiente diagrama muestra una visión consolidada de los principales casos d
   3. Se ejecutan las operaciones correspondientes (registro, búsqueda, actualización)
   4. El sistema valida y guarda los cambios
 
+<div style="page-break-after: always;"></div>
+
+![Diagrama de Secuencia CU-RH03](../Imagenes/DiagramasDeSecuencia/CU-RH03.png)
+
+<div style="page-break-after: always;"></div>
+
+### Flujos Alternativos
+
+![FA-RH03-01](../Imagenes/FlujosAlternativosCasosDeUso/FA-RH03-01.png)
+
+<div style="page-break-after: always;"></div>
+
+![Diagrama de Secuencia CU-RH01](../Imagenes/DiagramasDeSecuencia/CU-RH01.png)
+
+<div style="page-break-after: always;"></div>
+
+### Flujos Alternativos
+
+![FA-RH01-01](../Imagenes/FlujosAlternativosCasosDeUso/FA-RH01-01.png)
+
+<div style="page-break-after: always;"></div>
+
+![Diagrama de Secuencia CU-GP01](../Imagenes/DiagramasDeSecuencia/CU-GP01.png)
+
+<div style="page-break-after: always;"></div>
+
+### Flujos Alternativos
+
+![FA-GP01-01](../Imagenes/FlujosAlternativosCasosDeUso/FA-GP01-01.png)
+
+<div style="page-break-after: always;"></div>
+
+![FA-GP01-02](../Imagenes/FlujosAlternativosCasosDeUso/FA-GP01-02.png)
+
 #### **Módulo: Gestión de Agenda y Citas**
 
 ![Gestión de Citas](../Imagenes/CasosDeUso/gestionDeCitas.png)
@@ -1100,6 +1187,34 @@ El siguiente diagrama muestra una visión consolidada de los principales casos d
   3. El sistema registra la cita y actualiza la agenda
   4. Se envían confirmaciones automáticas
 
+<div style="page-break-after: always;"></div>
+
+![Diagrama de Secuencia CU-PG01](../Imagenes/DiagramasDeSecuencia/CU-PG01.png)
+
+<div style="page-break-after: always;"></div>
+
+### Flujos Alternativos
+
+![FA-PG01-01](../Imagenes/FlujosAlternativosCasosDeUso/FA-PG01-01.png)
+
+<div style="page-break-after: always;"></div>
+
+![FA-PG01-02](../Imagenes/FlujosAlternativosCasosDeUso/FA-PG01-02.png)
+
+<div style="page-break-after: always;"></div>
+
+![Diagrama de Secuencia CU-GA01](../Imagenes/DiagramasDeSecuencia/CU-GA01.png)
+
+<div style="page-break-after: always;"></div>
+
+### Flujos Alternativos
+
+![FA-GA01-01](../Imagenes/FlujosAlternativosCasosDeUso/FA-GA01-01.png)
+
+<div style="page-break-after: always;"></div>
+
+![FA-GA01-02](../Imagenes/FlujosAlternativosCasosDeUso/FA-GA01-02.png)
+
 ![Recordatorios de Citas](../Imagenes/CasosDeUso/confirmacionDeCitas.png)
 
 **CU-GA02: Gestionar Recordatorios de Citas**
@@ -1110,6 +1225,73 @@ El siguiente diagrama muestra una visión consolidada de los principales casos d
   1. El sistema identifica citas próximas
   2. Genera y envía recordatorios automáticos
   3. Los clientes pueden confirmar o solicitar cambios
+
+<div style="page-break-after: always;"></div>
+
+![Diagrama de Secuencia CU-PG02](../Imagenes/DiagramasDeSecuencia/CU-PG02.png)
+
+<div style="page-break-after: always;"></div>
+
+![Diagrama de Secuencia CU-RH02](../Imagenes/DiagramasDeSecuencia/CU-RH02.png)
+
+<div style="page-break-after: always;"></div>
+
+### Flujos Alternativos
+
+![FA-RH02-01](../Imagenes/FlujosAlternativosCasosDeUso/FA-RH02-01.png)
+
+<div style="page-break-after: always;"></div>
+
+![Diagrama de Secuencia CU-GA02](../Imagenes/DiagramasDeSecuencia/CU-GA02.png)
+
+<div style="page-break-after: always;"></div>
+
+### Flujos Alternativos
+
+![FA-GA02-01](../Imagenes/FlujosAlternativosCasosDeUso/FA-GA02-01.png)
+
+#### **Módulo: Autenticación y Gestión de Usuarios**
+
+![Autenticación de Usuarios](../Imagenes/CasosDeUso/autenticacionUsuarios.png)
+
+**CU-AU01: Autenticar Usuario**
+
+- **Actores:** Todos los usuarios del sistema
+- **Descripción:** Permite a los usuarios acceder al sistema mediante credenciales válidas y gestionar su sesión
+- **Flujo Principal:**
+  1. **Para iniciar sesión (RF-AU001):**
+     - El usuario accede a la página de login
+     - Ingresa nombre de usuario y contraseña
+     - El sistema valida las credenciales
+     - Si son válidas, se crea una sesión activa
+     - El usuario es redirigido al dashboard principal
+  2. **Para cerrar sesión (RF-AU002):**
+     - El usuario selecciona la opción "Cerrar sesión"
+     - El sistema invalida la sesión actual
+     - El usuario es redirigido a la página de login
+  3. **Para recuperar contraseña (RF-AU004):**
+     - El usuario solicita recuperación desde el login
+     - Ingresa su email registrado
+     - El sistema genera y envía un enlace temporal
+     - El usuario establece una nueva contraseña
+- **Flujos Alternativos:**
+  - **FA-AU01-01:** Credenciales incorrectas - mostrar error y aplicar políticas de bloqueo
+  - **FA-AU01-02:** Cuenta bloqueada - mostrar mensaje informativo
+  - **FA-AU01-03:** Contraseña expirada - forzar cambio de contraseña
+
+<div style="page-break-after: always;"></div>
+
+![Diagrama de Secuencia CU-AU01](../Imagenes/DiagramasDeSecuencia/CU-AU01.png)
+
+<div style="page-break-after: always;"></div>
+
+### Flujos Alternativos
+
+![FA-AU01-01](../Imagenes/FlujosAlternativosCasosDeUso/FA-AU01-01.png)
+
+<div style="page-break-after: always;"></div>
+
+![FA-AU01-02](../Imagenes/FlujosAlternativosCasosDeUso/FA-AU01-02.png)
 
 #### **Módulo: Atención Clínica**
 
@@ -1125,6 +1307,16 @@ El siguiente diagrama muestra una visión consolidada de los principales casos d
   3. Acceso a archivos adjuntos y registros específicos
   4. Consulta de alergias y datos relevantes
 
+<div style="page-break-after: always;"></div>
+
+![Diagrama de Secuencia CU-AC01](../Imagenes/DiagramasDeSecuencia/CU-AC01.png)
+
+<div style="page-break-after: always;"></div>
+
+### Flujos Alternativos
+
+![FA-AC01-01](../Imagenes/FlujosAlternativosCasosDeUso/FA-AC01-01.png)
+
 ![Actualizar Historia Clínica](../Imagenes/CasosDeUso/ActualizarHistoriaClinica.png)
 
 **CU-AC02: Registrar Nueva Consulta / Actualizar Historia Clínica**
@@ -1138,6 +1330,30 @@ El siguiente diagrama muestra una visión consolidada de los principales casos d
   4. Solicitud de exámenes
   5. Adjuntar archivos digitales
   6. Registro de vacunas y desparasitantes
+
+<div style="page-break-after: always;"></div>
+
+![Diagrama de Secuencia CU-PG03](../Imagenes/DiagramasDeSecuencia/CU-PG03.png)
+
+<div style="page-break-after: always;"></div>
+
+### Flujos Alternativos
+
+![FA-PG03-01](../Imagenes/FlujosAlternativosCasosDeUso/FA-PG03-01.png)
+
+<div style="page-break-after: always;"></div>
+
+![Diagrama de Secuencia CU-AC02](../Imagenes/DiagramasDeSecuencia/CU-AC02.png)
+
+<div style="page-break-after: always;"></div>
+
+### Flujos Alternativos
+
+![FA-AC02-01](../Imagenes/FlujosAlternativosCasosDeUso/FA-AC02-01.png)
+
+<div style="page-break-after: always;"></div>
+
+![FA-AC02-02](../Imagenes/FlujosAlternativosCasosDeUso/FA-AC02-02.png)
 
 ---
 
@@ -1363,8 +1579,8 @@ El siguiente diagrama representa los objetos de negocio del dominio y sus relaci
 
 | ID Requisito | Caso de Uso | Módulo            | Prioridad | Estado        | Responsable | Fecha      |
 | ------------ | ----------- | ----------------- | --------- | ------------- | ----------- | ---------- |
-| RF-GP001     | CU-GP01     | Gestión Pacientes | Alta      | En Desarrollo | Dev Team    | 2024-01-15 |
-| RF-GA001     | CU-GA01     | Gestión Citas     | Alta      | Planificado   | Dev Team    | 2024-01-20 |
+| RF-GP001     | CU-GP01     | Gestión Pacientes | Alta      | En Desarrollo | Dev Team    | 2025-08-15 |
+| RF-GA001     | CU-GA01     | Gestión Citas     | Alta      | Planificado   | Dev Team    | 2025-08-20 |
 
 #### **Herramientas de Seguimiento**
 
@@ -1442,7 +1658,6 @@ El enfoque participativo adoptado, junto con las estrategias de validación y se
 
 ---
 
-**Documento preparado por:** Equipo de Desarrollo PST-II  
-**Fecha:** Enero 2024  
-**Versión:** 1.0  
-**Estado:** Aprobado para Desarrollo
+**Documento preparado por:** Miguel Figuera, Alejandra Herder, Iromy Valero  
+**Fecha:** Julio 2025  
+**Versión:** 1.0

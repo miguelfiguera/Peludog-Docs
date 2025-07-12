@@ -4,7 +4,166 @@ A continuación se presentan los códigos para modelar los flujos alternativos y
 
 ---
 
-### **1. CU-GP01: Gestionar Información de Clientes y Mascotas**
+### **1. CU-AU01: Autenticar Usuario**
+
+#### **Flujo Alternativo: Credenciales incorrectas**
+
+```plantuml
+@startuml
+title FA-AU01-01: Credenciales incorrectas
+
+actor "Usuario" as Usuario
+participant "Sistema de Login" as Login
+participant "Validador de Credenciales" as Validador
+participant "Gestor de Políticas" as Politicas
+database "Base de Datos" as BD
+
+activate Usuario
+Usuario -> Login: Ingresa credenciales incorrectas
+activate Login
+Login -> Validador: Valida credenciales
+activate Validador
+
+Validador -> BD: Consulta usuario
+activate BD
+BD --> Validador: Usuario encontrado
+deactivate BD
+
+Validador -> Validador: Compara contraseñas
+note right: Contraseña no coincide
+
+Validador -> Politicas: Registra intento fallido
+activate Politicas
+Politicas -> BD: Incrementa contador de intentos fallidos
+activate BD
+BD --> Politicas: Contador actualizado
+deactivate BD
+
+Politicas -> Politicas: Verifica si supera límite (ej. 3 intentos)
+
+alt Intentos dentro del límite
+    Politicas --> Validador: Continúa permitiendo intentos
+    Validador --> Login: Credenciales incorrectas
+    Login --> Usuario: "Usuario o contraseña incorrectos. Intentos restantes: X"
+else Límite de intentos superado
+    Politicas -> BD: Bloquea cuenta temporalmente
+    activate BD
+    BD --> Politicas: Cuenta bloqueada
+    deactivate BD
+    Politicas --> Validador: Cuenta bloqueada
+    Validador --> Login: Cuenta bloqueada
+    Login --> Usuario: "Cuenta bloqueada temporalmente. Contacte al administrador."
+end
+
+deactivate Politicas
+deactivate Validador
+deactivate Login
+deactivate Usuario
+@enduml
+```
+
+#### **Flujo Alternativo: Cuenta bloqueada**
+
+```plantuml
+@startuml
+title FA-AU01-02: Cuenta bloqueada
+
+actor "Usuario" as Usuario
+participant "Sistema de Login" as Login
+participant "Validador de Credenciales" as Validador
+participant "Gestor de Políticas" as Politicas
+database "Base de Datos" as BD
+
+activate Usuario
+Usuario -> Login: Intenta iniciar sesión
+activate Login
+Login -> Validador: Valida credenciales
+activate Validador
+
+Validador -> BD: Consulta estado de la cuenta
+activate BD
+BD --> Validador: Cuenta bloqueada (timestamp del bloqueo)
+deactivate BD
+
+Validador -> Politicas: Verifica tiempo de bloqueo
+activate Politicas
+Politicas -> Politicas: Calcula tiempo transcurrido desde bloqueo
+
+alt Tiempo de bloqueo no ha expirado
+    Politicas --> Validador: Cuenta aún bloqueada
+    Validador --> Login: Acceso denegado - cuenta bloqueada
+    Login --> Usuario: "Su cuenta está bloqueada. Tiempo restante: X minutos."
+else Tiempo de bloqueo ha expirado
+    Politicas -> BD: Desbloquea cuenta automáticamente
+    activate BD
+    BD --> Politicas: Cuenta desbloqueada
+    deactivate BD
+    Politicas -> BD: Resetea contador de intentos fallidos
+    BD --> Politicas: Contador reseteado
+    Politicas --> Validador: Cuenta desbloqueada - proceder con validación
+    Validador --> Login: Continúa con proceso normal de login
+    Login --> Usuario: Procede con autenticación normal
+end
+
+deactivate Politicas
+deactivate Validador
+deactivate Login
+deactivate Usuario
+@enduml
+```
+
+#### **Flujo Alternativo: Enlace de recuperación expirado**
+
+```plantuml
+@startuml
+title FA-AU01-03: Enlace de recuperación expirado
+
+actor "Usuario" as Usuario
+participant "Sistema de Login" as Login
+participant "Gestor de Políticas" as Politicas
+database "Base de Datos" as BD
+
+activate Usuario
+Usuario -> Login: Accede a enlace de recuperación
+activate Login
+Login -> Politicas: Valida token de recuperación
+activate Politicas
+
+Politicas -> BD: Consulta token y fecha de expiración
+activate BD
+BD --> Politicas: Token encontrado con timestamp
+deactivate BD
+
+Politicas -> Politicas: Verifica si token ha expirado (ej. > 24 horas)
+
+alt Token expirado
+    Politicas -> BD: Invalida token expirado
+    activate BD
+    BD --> Politicas: Token eliminado
+    deactivate BD
+    Politicas --> Login: Token expirado
+    Login --> Usuario: "El enlace de recuperación ha expirado."
+
+    Login --> Usuario: Muestra opción "Solicitar nuevo enlace"
+    Usuario -> Login: Solicita nuevo enlace de recuperación
+    Login --> Usuario: Redirige a formulario de recuperación
+    note right: Inicia proceso de recuperación nuevamente
+
+else Token vigente
+    Politicas --> Login: Token válido
+    Login --> Usuario: Muestra formulario de nueva contraseña
+    note right: Continúa con proceso normal de recuperación
+end
+
+deactivate Politicas
+deactivate Login
+deactivate Usuario
+@enduml
+```
+
+---
+
+### **2. CU-GP01: Gestionar Información de Clientes y Mascotas**
 
 #### **Flujo Alternativo: Cliente ya existe al intentar registrar**
 
@@ -55,7 +214,7 @@ deactivate Actor
 
 ---
 
-### **2. CU-GA01: Gestionar Citas**
+### **3. CU-GA01: Gestionar Citas**
 
 #### **Flujo Alternativo: Horario seleccionado ya no está disponible**
 
@@ -105,7 +264,7 @@ deactivate Actor
 
 ---
 
-### **3. CU-AC02: Registrar Nueva Consulta**
+### **4. CU-AC02: Registrar Nueva Consulta**
 
 #### **Flujo Alternativo: Intento de edición de historial clínico fuera de plazo**
 
@@ -149,7 +308,7 @@ deactivate Veterinario
 
 ---
 
-### **4. CU-PG01: Registrar Pagos**
+### **5. CU-PG01: Registrar Pagos**
 
 #### **Flujo Alternativo: Se registra un pago parcial**
 
@@ -176,7 +335,7 @@ deactivate Asistente
 
 ---
 
-### **5. CU-AC01: Consultar Historial Clínico**
+### **6. CU-AC01: Consultar Historial Clínico**
 
 #### **Flujo Alternativo: Búsqueda de mascota sin resultados**
 
@@ -201,7 +360,7 @@ deactivate Actor
 
 ---
 
-### **6. CU-GA02: Gestionar Recordatorios de Citas**
+### **7. CU-GA02: Gestionar Recordatorios de Citas**
 
 #### **Flujo Alternativo: Falla en el servicio de envío de notificaciones**
 
@@ -235,7 +394,7 @@ deactivate Scheduler
 
 ---
 
-### **7. CU-PG01: Registrar Pagos**
+### **8. CU-PG01: Registrar Pagos**
 
 #### **Flujo Alternativo: Transacción de pago con tarjeta rechazada**
 
@@ -264,7 +423,7 @@ deactivate Asistente
 
 ---
 
-### **8. CU-PG03: Generar Reportes Financieros**
+### **9. CU-PG03: Generar Reportes Financieros**
 
 #### **Flujo Alternativo: Generación de reporte sin datos**
 
@@ -290,7 +449,7 @@ deactivate Admin
 
 ---
 
-### **9. CU-RH01: Gestionar Personal de la Clínica**
+### **10. CU-RH01: Gestionar Personal de la Clínica**
 
 #### **Flujo Alternativo: Intento de registrar empleado con DNI/email duplicado**
 
@@ -315,7 +474,7 @@ deactivate Admin
 
 ---
 
-### **10. CU-RH02: Gestionar Turnos y Guardias**
+### **11. CU-RH02: Gestionar Turnos y Guardias**
 
 #### **Flujo Alternativo: Conflicto de horario al asignar turno**
 
@@ -341,7 +500,7 @@ deactivate Admin
 
 ---
 
-### **11. CU-RH03: Gestionar Servicios de la Clínica**
+### **12. CU-RH03: Gestionar Servicios de la Clínica**
 
 #### **Flujo Alternativo: Intento de crear servicio con nombre duplicado**
 

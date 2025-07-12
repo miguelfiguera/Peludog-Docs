@@ -142,7 +142,7 @@ body {
 | Campo | Valor |
 |-------|-------|
 | **Módulo/Área** | Gestión de Agenda y Citas |
-| **Prioridad** | Alta |
+| **Prioridad** | Alta - Reduce inasistencias enviando recordatorios automáticos; vital para eficiencia operativa (CU-GA02). |
 | **Caso de Uso** | CU-GA02 |
 
 
@@ -170,7 +170,7 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 <div class="footer">
 
-*Plantilla Volere generada automáticamente - Proyecto CRM PeluDog*
+*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
 
 </div>
 

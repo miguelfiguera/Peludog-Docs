@@ -14,6 +14,7 @@ Este módulo se encarga del registro y administración de la información de los
 
     - Descripción: El Asistente o el Cliente/Propietario de Mascota podrán registrar la información de un nuevo dueño de mascota en el sistema.
     - Prioridad: Alta
+    - Justificación: Necesario para iniciar el flujo de alta de clientes descrito en CU-GP01 y para disponer de datos de contacto confiables.
     - Criterios de Aceptación:
       - El sistema debe mostrar un formulario para el ingreso de datos del cliente (ej. nombre, apellido, DNI, teléfono, email, dirección).
       - El sistema debe validar los campos obligatorios (ej. nombre, teléfono).
@@ -24,6 +25,7 @@ Este módulo se encarga del registro y administración de la información de los
 
     - Descripción: El Asistente, Cliente/Propietario de Mascota o Veterinario podrá registrar la información de una nueva mascota, asociándola a un cliente existente (o al propio cliente si es él quien realiza la acción).
     - Prioridad: Alta
+    - Justificación: Esencial para asociar mascotas a sus propietarios según CU-GP01 y mantener la base clínica completa.
     - Criterios de Aceptación:
       - El sistema debe permitir seleccionar un cliente existente al cual asociar la mascota (si registra el Asistente/Veterinario) o asociarla automáticamente al perfil del Cliente/Propietario (si es él quien registra).
       - El sistema debe mostrar un formulario para el ingreso de datos de la mascota (ej. nombre, especie, raza, sexo, fecha de nacimiento, número de chip, color, señas particulares, foto).
@@ -34,6 +36,7 @@ Este módulo se encarga del registro y administración de la información de los
 
     - Descripción: El Asistente o Veterinario podrá buscar clientes y/o mascotas existentes en el sistema utilizando diversos criterios.
     - Prioridad: Alta
+    - Justificación: Facilita la localización rápida de clientes y mascotas durante la atención, soportando CU-GP01.
     - Criterios de Aceptación:
       - El sistema debe proveer campos de búsqueda para clientes (ej. por nombre, DNI, teléfono).
       - El sistema debe proveer campos de búsqueda para mascotas (ej. por nombre, número de chip, nombre del dueño).
@@ -44,6 +47,7 @@ Este módulo se encarga del registro y administración de la información de los
 
     - Descripción: El Asistente o Veterinario podrá ver y modificar la información de un cliente existente.
     - Prioridad: Alta
+    - Justificación: Permite mantener actualizada la información de los clientes, mejorando la calidad de los datos según CU-GP01.
     - Criterios de Aceptación:
       - Tras seleccionar un cliente, el sistema debe mostrar toda su información registrada.
       - El sistema debe permitir la edición de los campos del cliente.
@@ -54,6 +58,7 @@ Este módulo se encarga del registro y administración de la información de los
 
     - Descripción: El Asistente o Veterinario podrá ver y modificar la información general de una mascota existente.
     - Prioridad: Alta
+    - Justificación: Asegura que la información de las mascotas esté actualizada para decisiones clínicas, acorde a CU-GP01.
     - Criterios de Aceptación:
       - Tras seleccionar una mascota, el sistema debe mostrar toda su información general registrada (no la historia clínica detallada, que es parte de otro CU).
       - El sistema debe permitir la edición de los campos de la mascota.
@@ -64,6 +69,7 @@ Este módulo se encarga del registro y administración de la información de los
 
     - Descripción: El Cliente/Propietario de Mascota podrá ver y modificar la información de sus propias mascotas registradas.
     - Prioridad: Alta
+    - Justificación: Empodera al cliente para gestionar los datos de sus mascotas, reduciendo carga administrativa; parte de CU-GP01.
     - Criterios de Aceptación:
       - Tras seleccionar una de sus mascotas, el sistema debe mostrar toda su información general registrada (no la historia clínica detallada).
       - El sistema debe permitir la edición de los campos de la mascota por parte de su dueño.
@@ -72,6 +78,7 @@ Este módulo se encarga del registro y administración de la información de los
   - **RF-GP007: Visualizar y Actualizar Datos Personales (Cliente/Propietario)**
     - Descripción: El Cliente/Propietario de Mascota podrá ver y modificar la información de su propio perfil.
     - Prioridad: Alta
+    - Justificación: Permite al cliente mantener sus datos actualizados, garantizando la exactitud de contacto y cumplimiento de CU-GP01.
     - Criterios de Aceptación:
       - Tras acceder a su perfil, el sistema debe mostrar al Cliente/Propietario toda su información personal registrada.
       - El sistema debe permitir la edición de sus propios campos.
@@ -93,6 +100,7 @@ Este módulo maneja la programación, consulta y seguimiento de las citas.
 
     - Descripción: El Asistente o Cliente/Propietario de Mascota podrá consultar los horarios disponibles en la agenda del consultorio o de un veterinario específico.
     - Prioridad: Alta
+    - Justificación: Proporciona visibilidad de horarios disponibles indispensable para programar citas según CU-GA01.
     - Criterios de Aceptación:
       - El sistema debe mostrar una vista de calendario (diaria, semanal, mensual).
       - El sistema debe permitir filtrar la disponibilidad por veterinario (si hay más de uno).
@@ -102,6 +110,7 @@ Este módulo maneja la programación, consulta y seguimiento de las citas.
 
     - Descripción: El Asistente o Cliente/Propietario de Mascota podrá reservar una nueva cita para una mascota, seleccionando un horario disponible.
     - Prioridad: Alta
+    - Justificación: Habilita el flujo de reserva de citas descrito en CU-GA01, pieza clave del servicio.
     - Criterios de Aceptación:
       - El sistema debe permitir seleccionar una mascota existente (o enlazar con CU-GP01/RF-GP002 si es nueva o el cliente gestiona sus mascotas).
       - El sistema debe permitir seleccionar un veterinario (si aplica), fecha y hora de la cita de entre los disponibles.
@@ -113,6 +122,7 @@ Este módulo maneja la programación, consulta y seguimiento de las citas.
 
     - Descripción: El Asistente o Cliente/Propietario de Mascota podrá cambiar la fecha y/o hora de una cita existente (el cliente solo las suyas).
     - Prioridad: Media
+    - Justificación: Ofrece flexibilidad a clientes y staff para cambios de agenda, evitando cancelaciones; CU-GA01.
     - Criterios de Aceptación:
       - El sistema debe permitir buscar y seleccionar una cita existente.
       - El sistema debe permitir elegir una nueva fecha/hora disponible.
@@ -123,6 +133,7 @@ Este módulo maneja la programación, consulta y seguimiento de las citas.
 
     - Descripción: El Asistente o Cliente/Propietario de Mascota podrá cancelar una cita agendada (el cliente solo las suyas).
     - Prioridad: Media
+    - Justificación: Gestiona anulaciones de citas liberando horarios y evitando ausencias; CU-GA01.
     - Criterios de Aceptación:
       - El sistema debe permitir buscar y seleccionar una cita existente.
       - Al confirmar la cancelación, la cita debe marcarse como cancelada y el horario liberarse.
@@ -131,6 +142,7 @@ Este módulo maneja la programación, consulta y seguimiento de las citas.
   - **RF-GA005: Consultar Agenda (Vista Staff)**
     - Descripción: El Asistente o Veterinario podrá visualizar la agenda de citas programadas.
     - Prioridad: Alta
+    - Justificación: Permite al personal visualizar la carga de trabajo y confirmar asistencia; CU-GA01.
     - Criterios de Aceptación:
       - El sistema debe mostrar una vista de calendario con todas las citas (diaria, semanal, mensual).
       - Debe ser posible filtrar por veterinario.
@@ -146,6 +158,7 @@ Este módulo maneja la programación, consulta y seguimiento de las citas.
   - **RF-GA006: Enviar Recordatorio Automático de Cita**
     - Descripción: El sistema enviará recordatorios automáticos a los clientes sobre sus próximas citas.
     - Prioridad: Alta
+    - Justificación: Reduce inasistencias enviando recordatorios automáticos; vital para eficiencia operativa (CU-GA02).
     - Criterios de Aceptación:
       - El sistema debe permitir configurar el canal de envío (ej. email, SMS).
       - El sistema debe permitir configurar la antelación del recordatorio (ej. 24 horas antes).
@@ -169,6 +182,7 @@ Este módulo es el núcleo para el Veterinario, donde se gestiona toda la activi
 
     - Descripción: El Veterinario podrá ver todas las entradas previas del historial clínico de la mascota seleccionada.
     - Prioridad: Alta
+    - Justificación: Permite revisión completa de antecedentes clínicos para mejor diagnóstico; CU-AC01.
     - Criterios de Aceptación:
       - El sistema debe mostrar las entradas del historial en orden cronológico inverso (o permitir ordenamiento).
       - Cada entrada debe mostrar como mínimo: fecha, motivo de consulta, diagnóstico(s) principal(es), y veterinario que atendió.
@@ -178,6 +192,7 @@ Este módulo es el núcleo para el Veterinario, donde se gestiona toda la activi
 
     - Descripción: El sistema mostrará información crucial de la mascota de forma destacada al consultar su historial.
     - Prioridad: Alta
+    - Justificación: Destaca información crítica (alergias) mejorando la seguridad clínica; CU-AC01.
     - Criterios de Aceptación:
       - El sistema debe mostrar claramente las alergias conocidas de la mascota, si existen.
       - El sistema debe mostrar datos básicos de la mascota (especie, raza, sexo, edad/fecha de nacimiento, último peso registrado).
@@ -186,6 +201,7 @@ Este módulo es el núcleo para el Veterinario, donde se gestiona toda la activi
 
     - Descripción: El Veterinario podrá acceder a los archivos digitales asociados a las entradas del historial clínico.
     - Prioridad: Alta
+    - Justificación: Facilita acceso a pruebas complementarias adjuntas, esencial en CU-AC01.
     - Criterios de Aceptación:
       - Para cada entrada del historial, el sistema debe listar los archivos adjuntos.
       - El sistema debe permitir la visualización o descarga de estos archivos.
@@ -194,6 +210,7 @@ Este módulo es el núcleo para el Veterinario, donde se gestiona toda la activi
   - **RF-AC004: Consultar Registros Específicos de Vacunación y Desparasitación** (Corresponde a RF011, RF012, RF014, RF015 del original)
     - Descripción: El Veterinario podrá filtrar o acceder a una vista específica del historial para ver únicamente los registros de vacunación y desparasitación.
     - Prioridad: Media
+    - Justificación: Agiliza consulta de vacunas/desparasitaciones para cumplimiento sanitario; CU-AC01.
     - Criterios de Aceptación:
       - El sistema debe permitir filtrar el historial para mostrar solo eventos de vacunación.
       - Para cada vacuna: mostrar fecha, nombre de vacuna, lote, vencimiento, próxima revacunación.
@@ -210,6 +227,7 @@ Este módulo es el núcleo para el Veterinario, donde se gestiona toda la activi
 
     - Descripción: El Veterinario podrá crear una nueva entrada en el historial clínico para la mascota en consulta.
     - Prioridad: Alta
+    - Justificación: Inicia la documentación de una consulta, base de la historia clínica; CU-AC02.
     - Criterios de Aceptación:
       - El sistema debe permitir seleccionar la mascota (si no viene de una cita preseleccionada).
       - La fecha y hora de la consulta deben autocompletarse con la actual, pero ser editables.
@@ -219,6 +237,7 @@ Este módulo es el núcleo para el Veterinario, donde se gestiona toda la activi
 
     - Descripción: El Veterinario podrá registrar toda la información clínica relevante de la consulta.
     - Prioridad: Alta
+    - Justificación: Captura la información detallada de la consulta asegurando continuidad clínica; CU-AC02.
     - Criterios de Aceptación:
       - El sistema debe proveer campos para: Peso, Temperatura.
       - El sistema debe proveer campo para Motivo de la consulta (texto libre y/o selección predefinida).
@@ -233,6 +252,7 @@ Este módulo es el núcleo para el Veterinario, donde se gestiona toda la activi
 
     - Descripción: Dentro de una consulta, el Veterinario podrá añadir prescripciones de medicamentos y generar un récipe.
     - Prioridad: Alta
+    - Justificación: Estandariza y registra prescripciones, generando récipe imprimible; CU-AC02.
     - Criterios de Aceptación:
       - El sistema debe permitir añadir uno o más medicamentos a la prescripción.
       - Para cada medicamento: registrar nombre, presentación/concentración, dosis, vía, frecuencia, duración.
@@ -244,6 +264,7 @@ Este módulo es el núcleo para el Veterinario, donde se gestiona toda la activi
 
     - Descripción: Dentro de una consulta, el Veterinario podrá solicitar exámenes de laboratorio y generar una orden.
     - Prioridad: Alta
+    - Justificación: Permite solicitudes de laboratorio integradas en la historia, evitando papel; CU-AC02.
     - Criterios de Aceptación:
       - El sistema debe permitir seleccionar o ingresar los exámenes solicitados.
       - (Opcional Medio) El sistema puede ofrecer un catálogo de exámenes disponibles.
@@ -254,6 +275,7 @@ Este módulo es el núcleo para el Veterinario, donde se gestiona toda la activi
 
     - Descripción: Durante la creación o edición de una entrada clínica, el Veterinario podrá adjuntar archivos digitales.
     - Prioridad: Alta
+    - Justificación: Conserva evidencias (imágenes, documentos) ligadas a la consulta; CU-AC02.
     - Criterios de Aceptación:
       - El sistema debe permitir cargar uno o más archivos.
       - El sistema debe soportar formatos comunes (PDF, JPG, PNG, DOCX, DICOM).
@@ -264,6 +286,7 @@ Este módulo es el núcleo para el Veterinario, donde se gestiona toda la activi
 
     - Descripción: El Veterinario podrá registrar la aplicación de vacunas o desparasitantes como parte de la consulta.
     - Prioridad: Alta
+    - Justificación: Registra vacunaciones y desparasitaciones con recordatorios futuros; CU-AC02 & AC004.
     - Criterios de Aceptación:
       - El sistema debe permitir seleccionar/ingresar el nombre de la vacuna, lote, fecha de vencimiento del producto.
       - El sistema debe permitir calcular y/o registrar la próxima fecha de revacunación.
@@ -274,6 +297,7 @@ Este módulo es el núcleo para el Veterinario, donde se gestiona toda la activi
   - **RF-AC011: Editar Entrada de Historial Clínico Reciente** (Corresponde a RF010 del original)
     - Descripción: El Veterinario podrá modificar una entrada de historial clínico recientemente creada, con auditoría.
     - Prioridad: Media
+    - Justificación: Ofrece ventana de corrección con trazabilidad auditada; CU-AC02.
     - Criterios de Aceptación:
       - El sistema debe permitir la edición de una entrada dentro de un período configurable (ej. 24h, antes del cierre diario).
       - Cualquier modificación debe registrarse en una bitácora de auditoría (quién, qué, cuándo).
@@ -295,6 +319,7 @@ Este módulo se encarga del registro y administración del personal de la clíni
 
     - Descripción: El Administrador/Gerente podrá registrar la información de un nuevo empleado en el sistema.
     - Prioridad: Alta
+    - Justificación: Impulsa la gestión de personal creando cuentas de empleados; CU-RH01.
     - Criterios de Aceptación:
       - El sistema debe mostrar un formulario para el ingreso de datos del empleado (ej. nombre, apellido, DNI, teléfono, email, dirección, fecha de contratación).
       - El sistema debe validar los campos obligatorios (ej. nombre, DNI, rol).
@@ -305,6 +330,7 @@ Este módulo se encarga del registro y administración del personal de la clíni
 
     - Descripción: El Administrador/Gerente podrá ver y modificar la información de un empleado existente.
     - Prioridad: Alta
+    - Justificación: Mantiene actualizados los datos del personal para procesos internos; CU-RH01.
     - Criterios de Aceptación:
       - Tras seleccionar un empleado, el sistema debe mostrar toda su información registrada.
       - El sistema debe permitir la edición de los campos del empleado.
@@ -314,6 +340,7 @@ Este módulo se encarga del registro y administración del personal de la clíni
 
     - Descripción: El Administrador/Gerente podrá asignar o modificar los roles de un empleado.
     - Prioridad: Alta
+    - Justificación: Controla roles y permisos del personal garantizando seguridad; CU-RH01.
     - Criterios de Aceptación:
       - El sistema debe permitir seleccionar uno o varios roles predefinidos para un empleado.
       - El sistema debe actualizar los permisos de acceso del empleado según su rol.
@@ -321,6 +348,7 @@ Este módulo se encarga del registro y administración del personal de la clíni
   - **RF-RH004: Desactivar/Activar Empleado**
     - Descripción: El Administrador/Gerente podrá desactivar temporal o permanentemente la cuenta de un empleado, impidiendo su acceso al sistema, o reactivarla.
     - Prioridad: Media
+    - Justificación: Permite gestionar altas/bajas de empleados asegurando control de acceso; CU-RH01.
     - Criterios de Aceptación:
       - El sistema debe permitir cambiar el estado de un empleado a "activo" o "inactivo".
       - Los empleados inactivos no deben poder iniciar sesión.
@@ -336,6 +364,7 @@ Este módulo se encarga del registro y administración del personal de la clíni
 
     - Descripción: El Administrador/Gerente podrá definir y modificar los tipos de turnos y guardias (ej. "Turno Mañana", "Guardia Nocturna", "Descanso").
     - Prioridad: Alta
+    - Justificación: Define turnos tipo necesarios para programación; CU-RH02.
     - Criterios de Aceptación:
       - El sistema debe permitir definir un nombre, hora de inicio y fin para cada tipo de turno.
       - El sistema debe permitir asociar un turno a un día específico o a un rango de fechas.
@@ -344,6 +373,7 @@ Este módulo se encarga del registro y administración del personal de la clíni
 
     - Descripción: El Administrador/Gerente podrá asignar turnos y guardias a empleados específicos para un período determinado.
     - Prioridad: Alta
+    - Justificación: Asigna turnos a empleados, clave en planificación operativa; CU-RH02.
     - Criterios de Aceptación:
       - El sistema debe permitir seleccionar un empleado y asignarle uno o más turnos para días específicos.
       - El sistema debe mostrar posibles conflictos de horario al asignar turnos.
@@ -353,6 +383,7 @@ Este módulo se encarga del registro y administración del personal de la clíni
 
     - Descripción: Cualquier empleado podrá consultar su propio horario de turnos y guardias asignados. El Administrador/Gerente podrá consultar el horario de cualquier empleado.
     - Prioridad: Alta
+    - Justificación: Da visibilidad al personal de su horario, reduciendo confusión; CU-RH02.
     - Criterios de Aceptación:
       - El sistema debe mostrar una vista de calendario con los turnos asignados al empleado.
       - Debe ser posible filtrar por semana o mes.
@@ -360,6 +391,7 @@ Este módulo se encarga del registro y administración del personal de la clíni
   - **RF-RH008: Consultar Disponibilidad de Personal**
     - Descripción: El Administrador/Gerente podrá consultar la disponibilidad general del personal para planificar turnos o asignar tareas.
     - Prioridad: Media
+    - Justificación: Brinda vista global de disponibilidad para planificación; CU-RH02.
     - Criterios de Aceptación:
       - El sistema debe mostrar una vista consolidada de los turnos de todo el personal.
       - Debe ser posible filtrar por rol o por fecha.
@@ -374,6 +406,7 @@ Este módulo se encarga del registro y administración del personal de la clíni
 
     - Descripción: El Administrador/Gerente podrá definir nuevos tipos de servicios que la clínica ofrece (ej. "Servicio de Emergencia", "Farmacia", "Delivery de Medicamentos", "Atención a Domicilio", "Hospedaje").
     - Prioridad: Alta
+    - Justificación: Permite definir servicios internos que mejoran oferta clínica; CU-RH03.
     - Criterios de Aceptación:
       - El sistema debe permitir crear un nombre y una descripción para cada servicio.
       - El sistema debe permitir activar o desactivar un servicio.
@@ -382,6 +415,7 @@ Este módulo se encarga del registro y administración del personal de la clíni
 
     - Descripción: El Administrador/Gerente podrá asignar personal específico como responsable o participante de un tipo de servicio interno.
     - Prioridad: Media
+    - Justificación: Asigna responsables a servicios internos asegurando seguimiento; CU-RH03.
     - Criterios de Aceptación:
       - El sistema debe permitir seleccionar uno o más empleados para asociarlos a un tipo de servicio.
       - Esta asignación puede influir en la visibilidad de tareas o reportes relacionados con ese servicio.
@@ -389,6 +423,7 @@ Este módulo se encarga del registro y administración del personal de la clíni
   - **RF-RH011: Consultar Servicios Internos Activos**
     - Descripción: El Administrador/Gerente podrá consultar la lista de servicios internos que la clínica tiene definidos y activos.
     - Prioridad: Baja
+    - Justificación: Ofrece inventario de servicios activos para control y reporte; CU-RH03.
     - Criterios de Aceptación:
       - El sistema debe mostrar una lista de todos los servicios internos con su estado (activo/inactivo) y descripción.
 
@@ -408,6 +443,7 @@ Este módulo se encarga del registro, consulta y reporte de los pagos recibidos 
 
     - Descripción: El Asistente podrá registrar un pago recibido de un cliente, asociándolo a uno o varios servicios o productos.
     - Prioridad: Alta
+    - Justificación: Registra ingresos de manera formal y asocia servicios, base financiera; CU-PG01.
     - Criterios de Aceptación:
       - El sistema debe permitir seleccionar el cliente y/o la mascota asociada al pago.
       - El sistema debe permitir seleccionar los servicios o productos por los cuales se realiza el pago (idealmente vinculados a una factura o consulta previa).
@@ -419,6 +455,7 @@ Este módulo se encarga del registro, consulta y reporte de los pagos recibidos 
   - **RF-PG002: Generar Comprobante de Pago**
     - Descripción: El sistema debe poder generar un comprobante o recibo de pago para el cliente.
     - Prioridad: Alta
+    - Justificación: Genera notas de pago para transparencia con clientes; CU-PG01.
     - Criterios de Aceptación:
       - El comprobante debe incluir detalles del consultorio, fecha, monto, método de pago, y los servicios/productos pagados.
       - El comprobante debe ser imprimible (ej. PDF).
@@ -433,6 +470,7 @@ Este módulo se encarga del registro, consulta y reporte de los pagos recibidos 
 
     - Descripción: El Asistente o Administrador/Gerente podrá consultar todos los pagos realizados por un cliente o para una mascota específica.
     - Prioridad: Alta
+    - Justificación: Permite rastrear pagos por cliente, apoyo a atención y cobranza; CU-PG02.
     - Criterios de Aceptación:
       - El sistema debe permitir buscar pagos asociados a un cliente o mascota.
       - Los resultados deben mostrar la fecha, monto, servicios/productos pagados y método de pago.
@@ -441,6 +479,7 @@ Este módulo se encarga del registro, consulta y reporte de los pagos recibidos 
 
     - Descripción: El Administrador/Gerente podrá consultar pagos filtrados por rango de fechas o por tipo de servicio.
     - Prioridad: Media
+    - Justificación: Facilita análisis histórico de ingresos por fechas/servicios; CU-PG02.
     - Criterios de Aceptación:
       - El sistema debe permitir filtrar pagos por un rango de fechas.
       - El sistema debe permitir filtrar pagos por uno o varios tipos de servicio/producto.
@@ -448,6 +487,7 @@ Este módulo se encarga del registro, consulta y reporte de los pagos recibidos 
   - **RF-PG006: Consultar Propio Historial de Pagos y Facturas (Cliente/Propietario)**
     - Descripción: El Cliente/Propietario de Mascota podrá consultar su propio historial de pagos y descargar las facturas asociadas.
     - Prioridad: Media
+    - Justificación: Empodera al cliente a revisar sus pagos, fomentando confianza; CU-PG02.
     - Criterios de Aceptación:
       - El sistema debe mostrar al Cliente/Propietario una lista de sus pagos realizados, con fecha, monto y concepto.
       - El sistema debe permitir al Cliente/Propietario visualizar y/o descargar las facturas o comprobantes asociados a sus pagos.
@@ -461,6 +501,7 @@ Este módulo se encarga del registro, consulta y reporte de los pagos recibidos 
   - **RF-PG005: Generar Reporte de Ingresos**
     - Descripción: El sistema debe poder generar reportes de ingresos consolidados por períodos (diario, semanal, mensual, anual).
     - Prioridad: Alta
+    - Justificación: Provee reportes de ingresos para decisiones financieras; CU-PG03.
     - Criterios de Aceptación:
       - El reporte debe mostrar el total de ingresos para el período seleccionado.
       - El reporte puede desglosar los ingresos por tipo de servicio/producto o método de pago.

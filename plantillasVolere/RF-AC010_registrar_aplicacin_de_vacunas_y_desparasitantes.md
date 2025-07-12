@@ -142,7 +142,7 @@ body {
 | Campo | Valor |
 |-------|-------|
 | **Módulo/Área** | Atención Clínica (Historia Clínica Electrónica) |
-| **Prioridad** | Alta |
+| **Prioridad** | Alta - Registra vacunaciones y desparasitaciones con recordatorios futuros; CU-AC02 & AC004. |
 | **Caso de Uso** | CU-AC02 |
 
 
@@ -171,7 +171,7 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 <div class="footer">
 
-*Plantilla Volere generada automáticamente - Proyecto CRM PeluDog*
+*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
 
 </div>
 

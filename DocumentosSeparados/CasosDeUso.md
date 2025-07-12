@@ -1,5 +1,18 @@
 # **VI Caso de uso**:
 
+## **Diagrama General de Casos de Uso**
+
+A continuación, se presenta el diagrama general que muestra una visión consolidada de los principales casos de uso del sistema PeluDog CRM y las interacciones de los actores con ellos.
+
+![Diagrama General de Casos de Uso](../Imagenes/DiagramaDeCasosDeUsoGeneral.png)
+
+<div style="page-break-after: always;"></div>
+
+## **Detalle de Casos de Uso por Módulo**
+
+A continuación, se detallan los casos de uso individuales, agrupados por módulo funcional.
+
+
 **Actores Principales del CRM (Reconfirmados):**
 
 - **Asistente:** Encargado de la gestión de citas, registro de clientes y mascotas, facturación y comunicación inicial.

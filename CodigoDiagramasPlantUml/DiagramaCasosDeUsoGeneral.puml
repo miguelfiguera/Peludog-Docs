@@ -1,0 +1,49 @@
+@startuml
+left to right direction
+
+actor Asistente
+actor Veterinario
+actor "Cliente/Propietario" as Cliente
+actor "Administrador/Gerente" as Admin
+actor Sistema
+
+rectangle "PeluDog CRM" {
+  usecase "Gestionar Información de Clientes y Mascotas" as CU_GP01
+  usecase "Gestionar Citas" as CU_GA01
+  usecase "Gestionar Recordatorios de Citas" as CU_GA02
+  usecase "Consultar Historial Clínico" as CU_AC01
+  usecase "Registrar Nueva Consulta" as CU_AC02
+  usecase "Gestionar Personal" as CU_RH01
+  usecase "Gestionar Turnos" as CU_RH02
+  usecase "Gestionar Servicios" as CU_RH03
+  usecase "Registrar Pagos" as CU_PG01
+  usecase "Consultar Historial de Pagos" as CU_PG02
+  usecase "Generar Reportes Financieros" as CU_PG03
+}
+
+Asistente -- CU_GP01
+Asistente -- CU_GA01
+Asistente -- CU_AC01
+Asistente -- CU_RH02
+Asistente -- CU_PG01
+Asistente -- CU_PG02
+
+Veterinario -- CU_GP01
+Veterinario -- CU_GA01
+Veterinario -- CU_AC01
+Veterinario -- CU_AC02
+Veterinario -- CU_RH02
+
+Cliente -- CU_GP01
+Cliente -- CU_GA01
+Cliente -- CU_PG02
+
+Admin -- CU_RH01
+Admin -- CU_RH02
+Admin -- CU_RH03
+Admin -- CU_PG02
+Admin -- CU_PG03
+
+Sistema -- CU_GA02
+
+@enduml

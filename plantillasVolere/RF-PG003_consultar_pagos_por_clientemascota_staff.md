@@ -142,7 +142,7 @@ body {
 | Campo | Valor |
 |-------|-------|
 | **Módulo/Área** | Gestión de Pagos y Facturación |
-| **Prioridad** | Alta |
+| **Prioridad** | Alta - Permite rastrear pagos por cliente, apoyo a atención y cobranza; CU-PG02. |
 | **Caso de Uso** | CU-PG02 |
 
 
@@ -168,7 +168,7 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 <div class="footer">
 
-*Plantilla Volere generada automáticamente - Proyecto CRM PeluDog*
+*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
 
 </div>
 

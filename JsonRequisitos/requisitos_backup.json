@@ -6,10 +6,7 @@
       "modulo": "Gestión de Pacientes (Clientes y Mascotas)",
       "casoDeUsoId": "CU-GP01",
       "descripcion": "El Asistente o el Cliente/Propietario de Mascota podrán registrar la información de un nuevo dueño de mascota en el sistema.",
-      "prioridad": {
-        "nivel": "Alta",
-        "justificacion": "Necesario para iniciar el flujo de alta de clientes descrito en CU-GP01 y para disponer de datos de contacto confiables."
-      },
+      "prioridad": "Alta",
       "criteriosDeAceptacion": [
         "El sistema debe mostrar un formulario para el ingreso de datos del cliente (ej. nombre, apellido, DNI, teléfono, email, dirección).",
         "El sistema debe validar los campos obligatorios (ej. nombre, teléfono).",
@@ -23,10 +20,7 @@
       "modulo": "Gestión de Pacientes (Clientes y Mascotas)",
       "casoDeUsoId": "CU-GP01",
       "descripcion": "El Asistente, Cliente/Propietario de Mascota o Veterinario podrá registrar la información de una nueva mascota, asociándola a un cliente existente (o al propio cliente si es él quien realiza la acción).",
-      "prioridad": {
-        "nivel": "Alta",
-        "justificacion": "Esencial para asociar mascotas a sus propietarios según CU-GP01 y mantener la base clínica completa."
-      },
+      "prioridad": "Alta",
       "criteriosDeAceptacion": [
         "El sistema debe permitir seleccionar un cliente existente al cual asociar la mascota (si registra el Asistente/Veterinario) o asociarla automáticamente al perfil del Cliente/Propietario (si es él quien registra).",
         "El sistema debe mostrar un formulario para el ingreso de datos de la mascota (ej. nombre, especie, raza, sexo, fecha de nacimiento, número de chip, color, señas particulares, foto).",
@@ -40,10 +34,7 @@
       "modulo": "Gestión de Pacientes (Clientes y Mascotas)",
       "casoDeUsoId": "CU-GP01",
       "descripcion": "El Asistente o Veterinario podrá buscar clientes y/o mascotas existentes en el sistema utilizando diversos criterios.",
-      "prioridad": {
-        "nivel": "Alta",
-        "justificacion": "Facilita la localización rápida de clientes y mascotas durante la atención, soportando CU-GP01."
-      },
+      "prioridad": "Alta",
       "criteriosDeAceptacion": [
         "El sistema debe proveer campos de búsqueda para clientes (ej. por nombre, DNI, teléfono).",
         "El sistema debe proveer campos de búsqueda para mascotas (ej. por nombre, número de chip, nombre del dueño).",
@@ -57,10 +48,7 @@
       "modulo": "Gestión de Pacientes (Clientes y Mascotas)",
       "casoDeUsoId": "CU-GP01",
       "descripcion": "El Asistente o Veterinario podrá ver y modificar la información de un cliente existente.",
-      "prioridad": {
-        "nivel": "Alta",
-        "justificacion": "Permite mantener actualizada la información de los clientes, mejorando la calidad de los datos según CU-GP01."
-      },
+      "prioridad": "Alta",
       "criteriosDeAceptacion": [
         "Tras seleccionar un cliente, el sistema debe mostrar toda su información registrada.",
         "El sistema debe permitir la edición de los campos del cliente.",
@@ -74,10 +62,7 @@
       "modulo": "Gestión de Pacientes (Clientes y Mascotas)",
       "casoDeUsoId": "CU-GP01",
       "descripcion": "El Asistente o Veterinario podrá ver y modificar la información general de una mascota existente.",
-      "prioridad": {
-        "nivel": "Alta",
-        "justificacion": "Asegura que la información de las mascotas esté actualizada para decisiones clínicas, acorde a CU-GP01."
-      },
+      "prioridad": "Alta",
       "criteriosDeAceptacion": [
         "Tras seleccionar una mascota, el sistema debe mostrar toda su información general registrada (no la historia clínica detallada, que es parte de otro CU).",
         "El sistema debe permitir la edición de los campos de la mascota.",
@@ -91,10 +76,7 @@
       "modulo": "Gestión de Pacientes (Clientes y Mascotas)",
       "casoDeUsoId": "CU-GP01",
       "descripcion": "El Cliente/Propietario de Mascota podrá ver y modificar la información de sus propias mascotas registradas.",
-      "prioridad": {
-        "nivel": "Alta",
-        "justificacion": "Empodera al cliente para gestionar los datos de sus mascotas, reduciendo carga administrativa; parte de CU-GP01."
-      },
+      "prioridad": "Alta",
       "criteriosDeAceptacion": [
         "Tras seleccionar una de sus mascotas, el sistema debe mostrar toda su información general registrada (no la historia clínica detallada).",
         "El sistema debe permitir la edición de los campos de la mascota por parte de su dueño.",
@@ -107,10 +89,7 @@
       "modulo": "Gestión de Pacientes (Clientes y Mascotas)",
       "casoDeUsoId": "CU-GP01",
       "descripcion": "El Cliente/Propietario de Mascota podrá ver y modificar la información de su propio perfil.",
-      "prioridad": {
-        "nivel": "Alta",
-        "justificacion": "Permite al cliente mantener sus datos actualizados, garantizando la exactitud de contacto y cumplimiento de CU-GP01."
-      },
+      "prioridad": "Alta",
       "criteriosDeAceptacion": [
         "Tras acceder a su perfil, el sistema debe mostrar al Cliente/Propietario toda su información personal registrada.",
         "El sistema debe permitir la edición de sus propios campos.",
@@ -123,10 +102,7 @@
       "modulo": "Gestión de Agenda y Citas",
       "casoDeUsoId": "CU-GA01",
       "descripcion": "El Asistente o Cliente/Propietario de Mascota podrá consultar los horarios disponibles en la agenda del consultorio o de un veterinario específico.",
-      "prioridad": {
-        "nivel": "Alta",
-        "justificacion": "Proporciona visibilidad de horarios disponibles indispensable para programar citas según CU-GA01."
-      },
+      "prioridad": "Alta",
       "criteriosDeAceptacion": [
         "El sistema debe mostrar una vista de calendario (diaria, semanal, mensual).",
         "El sistema debe permitir filtrar la disponibilidad por veterinario (si hay más de uno).",
@@ -139,10 +115,7 @@
       "modulo": "Gestión de Agenda y Citas",
       "casoDeUsoId": "CU-GA01",
       "descripcion": "El Asistente o Cliente/Propietario de Mascota podrá reservar una nueva cita para una mascota, seleccionando un horario disponible.",
-      "prioridad": {
-        "nivel": "Alta",
-        "justificacion": "Habilita el flujo de reserva de citas descrito en CU-GA01, pieza clave del servicio."
-      },
+      "prioridad": "Alta",
       "criteriosDeAceptacion": [
         "El sistema debe permitir seleccionar una mascota existente (o enlazar con CU-GP01/RF-GP002 si es nueva o el cliente gestiona sus mascotas).",
         "El sistema debe permitir seleccionar un veterinario (si aplica), fecha y hora de la cita de entre los disponibles.",
@@ -157,10 +130,7 @@
       "modulo": "Gestión de Agenda y Citas",
       "casoDeUsoId": "CU-GA01",
       "descripcion": "El Asistente o Cliente/Propietario de Mascota podrá cambiar la fecha y/o hora de una cita existente (el cliente solo las suyas).",
-      "prioridad": {
-        "nivel": "Media",
-        "justificacion": "Ofrece flexibilidad a clientes y staff para cambios de agenda, evitando cancelaciones; CU-GA01."
-      },
+      "prioridad": "Media",
       "criteriosDeAceptacion": [
         "El sistema debe permitir buscar y seleccionar una cita existente.",
         "El sistema debe permitir elegir una nueva fecha/hora disponible.",
@@ -174,10 +144,7 @@
       "modulo": "Gestión de Agenda y Citas",
       "casoDeUsoId": "CU-GA01",
       "descripcion": "El Asistente o Cliente/Propietario de Mascota podrá cancelar una cita agendada (el cliente solo las suyas).",
-      "prioridad": {
-        "nivel": "Media",
-        "justificacion": "Gestiona anulaciones de citas liberando horarios y evitando ausencias; CU-GA01."
-      },
+      "prioridad": "Media",
       "criteriosDeAceptacion": [
         "El sistema debe permitir buscar y seleccionar una cita existente.",
         "Al confirmar la cancelación, la cita debe marcarse como cancelada y el horario liberarse.",
@@ -190,10 +157,7 @@
       "modulo": "Gestión de Agenda y Citas",
       "casoDeUsoId": "CU-GA01",
       "descripcion": "El Asistente o Veterinario podrá visualizar la agenda de citas programadas.",
-      "prioridad": {
-        "nivel": "Alta",
-        "justificacion": "Permite al personal visualizar la carga de trabajo y confirmar asistencia; CU-GA01."
-      },
+      "prioridad": "Alta",
       "criteriosDeAceptacion": [
         "El sistema debe mostrar una vista de calendario con todas las citas (diaria, semanal, mensual).",
         "Debe ser posible filtrar por veterinario.",
@@ -207,10 +171,7 @@
       "modulo": "Gestión de Agenda y Citas",
       "casoDeUsoId": "CU-GA02",
       "descripcion": "El sistema enviará recordatorios automáticos a los clientes sobre sus próximas citas.",
-      "prioridad": {
-        "nivel": "Alta",
-        "justificacion": "Reduce inasistencias enviando recordatorios automáticos; vital para eficiencia operativa (CU-GA02)."
-      },
+      "prioridad": "Alta",
       "criteriosDeAceptacion": [
         "El sistema debe permitir configurar el canal de envío (ej. email, SMS).",
         "El sistema debe permitir configurar la antelación del recordatorio (ej. 24 horas antes).",
@@ -224,10 +185,7 @@
       "modulo": "Atención Clínica (Historia Clínica Electrónica)",
       "casoDeUsoId": "CU-AC01",
       "descripcion": "El Veterinario podrá ver todas las entradas previas del historial clínico de la mascota seleccionada.",
-      "prioridad": {
-        "nivel": "Alta",
-        "justificacion": "Permite revisión completa de antecedentes clínicos para mejor diagnóstico; CU-AC01."
-      },
+      "prioridad": "Alta",
       "criteriosDeAceptacion": [
         "El sistema debe mostrar las entradas del historial en orden cronológico inverso (o permitir ordenamiento).",
         "Cada entrada debe mostrar como mínimo: fecha, motivo de consulta, diagnóstico(s) principal(es), y veterinario que atendió.",
@@ -240,10 +198,7 @@
       "modulo": "Atención Clínica (Historia Clínica Electrónica)",
       "casoDeUsoId": "CU-AC01",
       "descripcion": "El sistema mostrará información crucial de la mascota de forma destacada al consultar su historial.",
-      "prioridad": {
-        "nivel": "Alta",
-        "justificacion": "Destaca información crítica (alergias) mejorando la seguridad clínica; CU-AC01."
-      },
+      "prioridad": "Alta",
       "criteriosDeAceptacion": [
         "El sistema debe mostrar claramente las alergias conocidas de la mascota, si existen.",
         "El sistema debe mostrar datos básicos de la mascota (especie, raza, sexo, edad/fecha de nacimiento, último peso registrado)."
@@ -255,10 +210,7 @@
       "modulo": "Atención Clínica (Historia Clínica Electrónica)",
       "casoDeUsoId": "CU-AC01",
       "descripcion": "El Veterinario podrá acceder a los archivos digitales asociados a las entradas del historial clínico.",
-      "prioridad": {
-        "nivel": "Alta",
-        "justificacion": "Facilita acceso a pruebas complementarias adjuntas, esencial en CU-AC01."
-      },
+      "prioridad": "Alta",
       "criteriosDeAceptacion": [
         "Para cada entrada del historial, el sistema debe listar los archivos adjuntos.",
         "El sistema debe permitir la visualización o descarga de estos archivos.",
@@ -271,10 +223,7 @@
       "modulo": "Atención Clínica (Historia Clínica Electrónica)",
       "casoDeUsoId": "CU-AC01",
       "descripcion": "El Veterinario podrá filtrar o acceder a una vista específica del historial para ver únicamente los registros de vacunación y desparasitación.",
-      "prioridad": {
-        "nivel": "Media",
-        "justificacion": "Agiliza consulta de vacunas/desparasitaciones para cumplimiento sanitario; CU-AC01."
-      },
+      "prioridad": "Media",
       "criteriosDeAceptacion": [
         "El sistema debe permitir filtrar el historial para mostrar solo eventos de vacunación.",
         "Para cada vacuna: mostrar fecha, nombre de vacuna, lote, vencimiento, próxima revacunación.",
@@ -288,10 +237,7 @@
       "modulo": "Atención Clínica (Historia Clínica Electrónica)",
       "casoDeUsoId": "CU-AC02",
       "descripcion": "El Veterinario podrá crear una nueva entrada en el historial clínico para la mascota en consulta.",
-      "prioridad": {
-        "nivel": "Alta",
-        "justificacion": "Inicia la documentación de una consulta, base de la historia clínica; CU-AC02."
-      },
+      "prioridad": "Alta",
       "criteriosDeAceptacion": [
         "El sistema debe permitir seleccionar la mascota (si no viene de una cita preseleccionada).",
         "La fecha y hora de la consulta deben autocompletarse con la actual, pero ser editables.",
@@ -304,10 +250,7 @@
       "modulo": "Atención Clínica (Historia Clínica Electrónica)",
       "casoDeUsoId": "CU-AC02",
       "descripcion": "El Veterinario podrá registrar toda la información clínica relevante de la consulta.",
-      "prioridad": {
-        "nivel": "Alta",
-        "justificacion": "Captura la información detallada de la consulta asegurando continuidad clínica; CU-AC02."
-      },
+      "prioridad": "Alta",
       "criteriosDeAceptacion": [
         "El sistema debe proveer campos para: Peso, Temperatura.",
         "El sistema debe proveer campo para Motivo de la consulta (texto libre y/o selección predefinida).",
@@ -325,10 +268,7 @@
       "modulo": "Atención Clínica (Historia Clínica Electrónica)",
       "casoDeUsoId": "CU-AC02",
       "descripcion": "Dentro de una consulta, el Veterinario podrá añadir prescripciones de medicamentos y generar un récipe.",
-      "prioridad": {
-        "nivel": "Alta",
-        "justificacion": "Estandariza y registra prescripciones, generando récipe imprimible; CU-AC02."
-      },
+      "prioridad": "Alta",
       "criteriosDeAceptacion": [
         "El sistema debe permitir añadir uno o más medicamentos a la prescripción.",
         "Para cada medicamento: registrar nombre, presentación/concentración, dosis, vía, frecuencia, duración.",
@@ -343,10 +283,7 @@
       "modulo": "Atención Clínica (Historia Clínica Electrónica)",
       "casoDeUsoId": "CU-AC02",
       "descripcion": "Dentro de una consulta, el Veterinario podrá solicitar exámenes de laboratorio y generar una orden.",
-      "prioridad": {
-        "nivel": "Alta",
-        "justificacion": "Permite solicitudes de laboratorio integradas en la historia, evitando papel; CU-AC02."
-      },
+      "prioridad": "Alta",
       "criteriosDeAceptacion": [
         "El sistema debe permitir seleccionar o ingresar los exámenes solicitados.",
         "(Opcional Medio) El sistema puede ofrecer un catálogo de exámenes disponibles.",
@@ -360,10 +297,7 @@
       "modulo": "Atención Clínica (Historia Clínica Electrónica)",
       "casoDeUsoId": "CU-AC02",
       "descripcion": "Durante la creación o edición de una entrada clínica, el Veterinario podrá adjuntar archivos digitales.",
-      "prioridad": {
-        "nivel": "Alta",
-        "justificacion": "Conserva evidencias (imágenes, documentos) ligadas a la consulta; CU-AC02."
-      },
+      "prioridad": "Alta",
       "criteriosDeAceptacion": [
         "El sistema debe permitir cargar uno o más archivos.",
         "El sistema debe soportar formatos comunes (PDF, JPG, PNG, DOCX, DICOM).",
@@ -377,10 +311,7 @@
       "modulo": "Atención Clínica (Historia Clínica Electrónica)",
       "casoDeUsoId": "CU-AC02",
       "descripcion": "El Veterinario podrá registrar la aplicación de vacunas o desparasitantes como parte de la consulta.",
-      "prioridad": {
-        "nivel": "Alta",
-        "justificacion": "Registra vacunaciones y desparasitaciones con recordatorios futuros; CU-AC02 & AC004."
-      },
+      "prioridad": "Alta",
       "criteriosDeAceptacion": [
         "El sistema debe permitir seleccionar/ingresar el nombre de la vacuna, lote, fecha de vencimiento del producto.",
         "El sistema debe permitir calcular y/o registrar la próxima fecha de revacunación.",
@@ -395,10 +326,7 @@
       "modulo": "Atención Clínica (Historia Clínica Electrónica)",
       "casoDeUsoId": "CU-AC02",
       "descripcion": "El Veterinario podrá modificar una entrada de historial clínico recientemente creada, con auditoría.",
-      "prioridad": {
-        "nivel": "Media",
-        "justificacion": "Ofrece ventana de corrección con trazabilidad auditada; CU-AC02."
-      },
+      "prioridad": "Media",
       "criteriosDeAceptacion": [
         "El sistema debe permitir la edición de una entrada dentro de un período configurable (ej. 24h, antes del cierre diario).",
         "Cualquier modificación debe registrarse en una bitácora de auditoría (quién, qué, cuándo).",
@@ -411,10 +339,7 @@
       "modulo": "Gestión de Recursos Humanos y Servicios Internos",
       "casoDeUsoId": "CU-RH01",
       "descripcion": "El Administrador/Gerente podrá registrar la información de un nuevo empleado en el sistema.",
-      "prioridad": {
-        "nivel": "Alta",
-        "justificacion": "Impulsa la gestión de personal creando cuentas de empleados; CU-RH01."
-      },
+      "prioridad": "Alta",
       "criteriosDeAceptacion": [
         "El sistema debe mostrar un formulario para el ingreso de datos del empleado (ej. nombre, apellido, DNI, teléfono, email, dirección, fecha de contratación).",
         "El sistema debe validar los campos obligatorios (ej. nombre, DNI, rol).",
@@ -428,10 +353,7 @@
       "modulo": "Gestión de Recursos Humanos y Servicios Internos",
       "casoDeUsoId": "CU-RH01",
       "descripcion": "El Administrador/Gerente podrá ver y modificar la información de un empleado existente.",
-      "prioridad": {
-        "nivel": "Alta",
-        "justificacion": "Mantiene actualizados los datos del personal para procesos internos; CU-RH01."
-      },
+      "prioridad": "Alta",
       "criteriosDeAceptacion": [
         "Tras seleccionar un empleado, el sistema debe mostrar toda su información registrada.",
         "El sistema debe permitir la edición de los campos del empleado.",
@@ -444,10 +366,7 @@
       "modulo": "Gestión de Recursos Humanos y Servicios Internos",
       "casoDeUsoId": "CU-RH01",
       "descripcion": "El Administrador/Gerente podrá asignar o modificar los roles de un empleado.",
-      "prioridad": {
-        "nivel": "Alta",
-        "justificacion": "Controla roles y permisos del personal garantizando seguridad; CU-RH01."
-      },
+      "prioridad": "Alta",
       "criteriosDeAceptacion": [
         "El sistema debe permitir seleccionar uno o varios roles predefinidos para un empleado.",
         "El sistema debe actualizar los permisos de acceso del empleado según su rol."
@@ -459,10 +378,7 @@
       "modulo": "Gestión de Recursos Humanos y Servicios Internos",
       "casoDeUsoId": "CU-RH01",
       "descripcion": "El Administrador/Gerente podrá desactivar temporal o permanentemente la cuenta de un empleado, impidiendo su acceso al sistema, o reactivarla.",
-      "prioridad": {
-        "nivel": "Media",
-        "justificacion": "Permite gestionar altas/bajas de empleados asegurando control de acceso; CU-RH01."
-      },
+      "prioridad": "Media",
       "criteriosDeAceptacion": [
         "El sistema debe permitir cambiar el estado de un empleado a 'activo' o 'inactivo'.",
         "Los empleados inactivos no deben poder iniciar sesión.",
@@ -475,10 +391,7 @@
       "modulo": "Gestión de Recursos Humanos y Servicios Internos",
       "casoDeUsoId": "CU-RH02",
       "descripcion": "El Administrador/Gerente podrá definir y modificar los tipos de turnos y guardias (ej. 'Turno Mañana', 'Guardia Nocturna', 'Descanso').",
-      "prioridad": {
-        "nivel": "Alta",
-        "justificacion": "Define turnos tipo necesarios para programación; CU-RH02."
-      },
+      "prioridad": "Alta",
       "criteriosDeAceptacion": [
         "El sistema debe permitir definir un nombre, hora de inicio y fin para cada tipo de turno.",
         "El sistema debe permitir asociar un turno a un día específico o a un rango de fechas."
@@ -490,10 +403,7 @@
       "modulo": "Gestión de Recursos Humanos y Servicios Internos",
       "casoDeUsoId": "CU-RH02",
       "descripcion": "El Administrador/Gerente podrá asignar turnos y guardias a empleados específicos para un período determinado.",
-      "prioridad": {
-        "nivel": "Alta",
-        "justificacion": "Asigna turnos a empleados, clave en planificación operativa; CU-RH02."
-      },
+      "prioridad": "Alta",
       "criteriosDeAceptacion": [
         "El sistema debe permitir seleccionar un empleado y asignarle uno o más turnos para días específicos.",
         "El sistema debe mostrar posibles conflictos de horario al asignar turnos.",
@@ -506,10 +416,7 @@
       "modulo": "Gestión de Recursos Humanos y Servicios Internos",
       "casoDeUsoId": "CU-RH02",
       "descripcion": "Cualquier empleado podrá consultar su propio horario de turnos y guardias asignados. El Administrador/Gerente podrá consultar el horario de cualquier empleado.",
-      "prioridad": {
-        "nivel": "Alta",
-        "justificacion": "Da visibilidad al personal de su horario, reduciendo confusión; CU-RH02."
-      },
+      "prioridad": "Alta",
       "criteriosDeAceptacion": [
         "El sistema debe mostrar una vista de calendario con los turnos asignados al empleado.",
         "Debe ser posible filtrar por semana o mes."
@@ -521,10 +428,7 @@
       "modulo": "Gestión de Recursos Humanos y Servicios Internos",
       "casoDeUsoId": "CU-RH02",
       "descripcion": "El Administrador/Gerente podrá consultar la disponibilidad general del personal para planificar turnos o asignar tareas.",
-      "prioridad": {
-        "nivel": "Media",
-        "justificacion": "Brinda vista global de disponibilidad para planificación; CU-RH02."
-      },
+      "prioridad": "Media",
       "criteriosDeAceptacion": [
         "El sistema debe mostrar una vista consolidada de los turnos de todo el personal.",
         "Debe ser posible filtrar por rol o por fecha."
@@ -536,10 +440,7 @@
       "modulo": "Gestión de Recursos Humanos y Servicios Internos",
       "casoDeUsoId": "CU-RH03",
       "descripcion": "El Administrador/Gerente podrá definir nuevos tipos de servicios que la clínica ofrece (ej. 'Servicio de Emergencia', 'Farmacia', 'Delivery de Medicamentos', 'Atención a Domicilio', 'Hospedaje').",
-      "prioridad": {
-        "nivel": "Alta",
-        "justificacion": "Permite definir servicios internos que mejoran oferta clínica; CU-RH03."
-      },
+      "prioridad": "Alta",
       "criteriosDeAceptacion": [
         "El sistema debe permitir crear un nombre y una descripción para cada servicio.",
         "El sistema debe permitir activar o desactivar un servicio."
@@ -551,10 +452,7 @@
       "modulo": "Gestión de Recursos Humanos y Servicios Internos",
       "casoDeUsoId": "CU-RH03",
       "descripcion": "El Administrador/Gerente podrá asignar personal específico como responsable o participante de un tipo de servicio interno.",
-      "prioridad": {
-        "nivel": "Media",
-        "justificacion": "Asigna responsables a servicios internos asegurando seguimiento; CU-RH03."
-      },
+      "prioridad": "Media",
       "criteriosDeAceptacion": [
         "El sistema debe permitir seleccionar uno o más empleados para asociarlos a un tipo de servicio.",
         "Esta asignación puede influir en la visibilidad de tareas o reportes relacionados con ese servicio."
@@ -566,10 +464,7 @@
       "modulo": "Gestión de Recursos Humanos y Servicios Internos",
       "casoDeUsoId": "CU-RH03",
       "descripcion": "El Administrador/Gerente podrá consultar la lista de servicios internos que la clínica tiene definidos y activos.",
-      "prioridad": {
-        "nivel": "Baja",
-        "justificacion": "Ofrece inventario de servicios activos para control y reporte; CU-RH03."
-      },
+      "prioridad": "Baja",
       "criteriosDeAceptacion": [
         "El sistema debe mostrar una lista de todos los servicios internos con su estado (activo/inactivo) y descripción."
       ]
@@ -580,10 +475,7 @@
       "modulo": "Gestión de Pagos y Facturación",
       "casoDeUsoId": "CU-PG01",
       "descripcion": "El Asistente podrá registrar un pago recibido de un cliente, asociándolo a uno o varios servicios o productos.",
-      "prioridad": {
-        "nivel": "Alta",
-        "justificacion": "Registra ingresos de manera formal y asocia servicios, base financiera; CU-PG01."
-      },
+      "prioridad": "Alta",
       "criteriosDeAceptacion": [
         "El sistema debe permitir seleccionar el cliente y/o la mascota asociada al pago.",
         "El sistema debe permitir seleccionar los servicios o productos por los cuales se realiza el pago (idealmente vinculados a una factura o consulta previa).",
@@ -599,10 +491,7 @@
       "modulo": "Gestión de Pagos y Facturación",
       "casoDeUsoId": "CU-PG01",
       "descripcion": "El sistema debe poder generar un comprobante o recibo de pago para el cliente.",
-      "prioridad": {
-        "nivel": "Alta",
-        "justificacion": "Genera notas de pago para transparencia con clientes; CU-PG01."
-      },
+      "prioridad": "Alta",
       "criteriosDeAceptacion": [
         "El comprobante debe incluir detalles del consultorio, fecha, monto, método de pago, y los servicios/productos pagados.",
         "El comprobante debe ser imprimible (ej. PDF)."
@@ -614,10 +503,7 @@
       "modulo": "Gestión de Pagos y Facturación",
       "casoDeUsoId": "CU-PG02",
       "descripcion": "El Asistente o Administrador/Gerente podrá consultar todos los pagos realizados por un cliente o para una mascota específica.",
-      "prioridad": {
-        "nivel": "Alta",
-        "justificacion": "Permite rastrear pagos por cliente, apoyo a atención y cobranza; CU-PG02."
-      },
+      "prioridad": "Alta",
       "criteriosDeAceptacion": [
         "El sistema debe permitir buscar pagos asociados a un cliente o mascota.",
         "Los resultados deben mostrar la fecha, monto, servicios/productos pagados y método de pago."
@@ -629,10 +515,7 @@
       "modulo": "Gestión de Pagos y Facturación",
       "casoDeUsoId": "CU-PG02",
       "descripcion": "El Administrador/Gerente podrá consultar pagos filtrados por rango de fechas o por tipo de servicio.",
-      "prioridad": {
-        "nivel": "Media",
-        "justificacion": "Facilita análisis histórico de ingresos por fechas/servicios; CU-PG02."
-      },
+      "prioridad": "Media",
       "criteriosDeAceptacion": [
         "El sistema debe permitir filtrar pagos por un rango de fechas.",
         "El sistema debe permitir filtrar pagos por uno o varios tipos de servicio/producto."
@@ -644,10 +527,7 @@
       "modulo": "Gestión de Pagos y Facturación",
       "casoDeUsoId": "CU-PG02",
       "descripcion": "El Cliente/Propietario de Mascota podrá consultar su propio historial de pagos y descargar las facturas asociadas.",
-      "prioridad": {
-        "nivel": "Media",
-        "justificacion": "Empodera al cliente a revisar sus pagos, fomentando confianza; CU-PG02."
-      },
+      "prioridad": "Media",
       "criteriosDeAceptacion": [
         "El sistema debe mostrar al Cliente/Propietario una lista de sus pagos realizados, con fecha, monto y concepto.",
         "El sistema debe permitir al Cliente/Propietario visualizar y/o descargar las facturas o comprobantes asociados a sus pagos."
@@ -659,10 +539,7 @@
       "modulo": "Gestión de Pagos y Facturación",
       "casoDeUsoId": "CU-PG03",
       "descripcion": "El sistema debe poder generar reportes de ingresos consolidados por períodos (diario, semanal, mensual, anual).",
-      "prioridad": {
-        "nivel": "Alta",
-        "justificacion": "Provee reportes de ingresos para decisiones financieras; CU-PG03."
-      },
+      "prioridad": "Alta",
       "criteriosDeAceptacion": [
         "El reporte debe mostrar el total de ingresos para el período seleccionado.",
         "El reporte puede desglosar los ingresos por tipo de servicio/producto o método de pago.",

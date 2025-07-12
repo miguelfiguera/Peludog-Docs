@@ -142,7 +142,7 @@ body {
 | Campo | Valor |
 |-------|-------|
 | **Módulo/Área** | Atención Clínica (Historia Clínica Electrónica) |
-| **Prioridad** | Alta |
+| **Prioridad** | Alta - Permite revisión completa de antecedentes clínicos para mejor diagnóstico; CU-AC01. |
 | **Caso de Uso** | CU-AC01 |
 
 
@@ -169,7 +169,7 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 <div class="footer">
 
-*Plantilla Volere generada automáticamente - Proyecto CRM PeluDog*
+*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
 
 </div>
 

@@ -142,7 +142,7 @@ body {
 | Campo | Valor |
 |-------|-------|
 | **Módulo/Área** | Gestión de Pagos y Facturación |
-| **Prioridad** | Alta |
+| **Prioridad** | Alta - Registra ingresos de manera formal y asocia servicios, base financiera; CU-PG01. |
 | **Caso de Uso** | CU-PG01 |
 
 
@@ -172,7 +172,7 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 <div class="footer">
 
-*Plantilla Volere generada automáticamente - Proyecto CRM PeluDog*
+*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
 
 </div>
 

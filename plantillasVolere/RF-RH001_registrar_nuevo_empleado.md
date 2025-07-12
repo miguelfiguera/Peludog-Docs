@@ -142,7 +142,7 @@ body {
 | Campo | Valor |
 |-------|-------|
 | **Módulo/Área** | Gestión de Recursos Humanos y Servicios Internos |
-| **Prioridad** | Alta |
+| **Prioridad** | Alta - Impulsa la gestión de personal creando cuentas de empleados; CU-RH01. |
 | **Caso de Uso** | CU-RH01 |
 
 
@@ -170,7 +170,7 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 <div class="footer">
 
-*Plantilla Volere generada automáticamente - Proyecto CRM PeluDog*
+*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
 
 </div>
 

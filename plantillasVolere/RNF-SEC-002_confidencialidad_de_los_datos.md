@@ -142,7 +142,7 @@ Este requisito no funcional asegura la calidad, rendimiento y confiabilidad del 
 
 <div class="footer">
 
-*Plantilla Volere generada automáticamente - Proyecto CRM PeluDog*
+*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
 
 </div>
 

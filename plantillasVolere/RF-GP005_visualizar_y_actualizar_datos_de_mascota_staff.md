@@ -142,7 +142,7 @@ body {
 | Campo | Valor |
 |-------|-------|
 | **Módulo/Área** | Gestión de Pacientes (Clientes y Mascotas) |
-| **Prioridad** | Alta |
+| **Prioridad** | Alta - Asegura que la información de las mascotas esté actualizada para decisiones clínicas, acorde a CU-GP01. |
 | **Caso de Uso** | CU-GP01 |
 
 
@@ -170,7 +170,7 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 <div class="footer">
 
-*Plantilla Volere generada automáticamente - Proyecto CRM PeluDog*
+*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
 
 </div>
 

@@ -142,7 +142,7 @@ body {
 | Campo | Valor |
 |-------|-------|
 | **Módulo/Área** | Atención Clínica (Historia Clínica Electrónica) |
-| **Prioridad** | Alta |
+| **Prioridad** | Alta - Inicia la documentación de una consulta, base de la historia clínica; CU-AC02. |
 | **Caso de Uso** | CU-AC02 |
 
 
@@ -169,7 +169,7 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 <div class="footer">
 
-*Plantilla Volere generada automáticamente - Proyecto CRM PeluDog*
+*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
 
 </div>
 

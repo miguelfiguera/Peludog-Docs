@@ -142,7 +142,7 @@ body {
 | Campo | Valor |
 |-------|-------|
 | **Módulo/Área** | Gestión de Agenda y Citas |
-| **Prioridad** | Alta |
+| **Prioridad** | Alta - Permite al personal visualizar la carga de trabajo y confirmar asistencia; CU-GA01. |
 | **Caso de Uso** | CU-GA01 |
 
 
@@ -170,7 +170,7 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 <div class="footer">
 
-*Plantilla Volere generada automáticamente - Proyecto CRM PeluDog*
+*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
 
 </div>
 

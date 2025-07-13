@@ -302,7 +302,7 @@ La implementación de un CRM para esta comunidad podria fomentar la atencion con
 Las coordenadas de peluDog según [maps.google.com](https://www.google.com/maps/place/10%C2%B013'45.9%22N+67%C2%B018'09.6%22W/@10.2293452,-67.3026976,91m/data=!3m1!1e3!4m5!3m4!4b1!8m2!3d10.2294169!4d-67.3026786?hl=es&entry=ttu&g_ep=EgoyMDI1MDYzMC4wIKXMDSoASAFQAw%3D%3D) son: long:10.2294169, lat: \-67.3026786
 
 Esta ubicado en el urbanismo La Mora I, tercera entrada, av.11 con av.36, La Victoria Edo. Aragua.
-![alt text](../Imagenes/LocacionPeluDog.png)
+![alt text](../../Imagenes/LocacionPeluDog.png)
 
    <div style="page-break-after: always;"></div>
 
@@ -478,7 +478,7 @@ Proveer atención médica veterinaria de alta calidad para mantener y mejorar la
 4. **Cumplimiento Normativo**:
 
 - Mantener un 100% del cumplimiento con todas las normativas del colegio de Médicos veterinarios de Venezuela y las regulaciones sanitarias a través del proceso presente en el software para las consultas veterinarias y su historial.
-  ![alt text](../Imagenes/modeloJerarquicoDeObjetivos.png)
+  ![alt text](../../Imagenes/modeloJerarquicoDeObjetivos.png)
   <div style="page-break-before: always;"></div>
 
 ## **3)Procesos de Negocio Principales del Consultorio Veterinario:**
@@ -548,7 +548,7 @@ Como criterio general, solo seran apoyados aquellos procesos que impacten de for
 - \*: No se puede gestionar lo que no se mide. Este proceso convierte los datos operativos diarios en inteligencia de negocio. Los reportes generados por la plataforma permiten pasar de la intuición a la toma de decisiones basada en evidencia, identificando tendencias (ej. qué servicio es más rentable), midiendo el progreso hacia los objetivos SMART (ej. tasa de retención) y detectando oportunidades de crecimiento o problemas operativos. Es el proceso que permite al director del consultorio "trabajar en el negocio", no solo "dentro del negocio".
 
 - **Apoyado por la plataforma de gestión de CRM.**
-![alt text](../Imagenes/ProcesosDeNegocio.png)
+![alt text](../../Imagenes/ProcesosDeNegocio.png)
    <div style="page-break-before: always;"></div>
 
 ## **4\) Identificar los actores y especificar cómo ellos están organizados estructuralmente; esto es, determinar cuál es la estructura organizacional del sistema de negocios y qué actores participan en la ejecución de sus procesos de negocio.**
@@ -561,7 +561,7 @@ La jerarquía dentro de PeluDog es la siguiente de acuerdo con un organigrama se
 2. **Veterinarios.**.
 3. **Asistente Administrativo.**
 4. **Veterinarios auxiliares** / **Técnicos Veterinarios** (solo para cirugía o procedimientos que los requieran).
-![alt text](../Imagenes/organigramaPelugod.png)
+![alt text](../../Imagenes/organigramaPelugod.png)
 
    <div style="page-break-before: always;"></div>
 
@@ -699,7 +699,7 @@ Estos son los principales "conceptos" o "entidades" con los que el consultorio v
 
   - **Relación con otros Objetos:** Un Pago _se aplica a_ una Factura.
 
-![alt text](../Imagenes/DiagramaDeClases.png)
+![alt text](../../Imagenes/DiagramaDeClases.png)
 
    <div style="page-break-before: always;"></div>
 
@@ -735,7 +735,7 @@ Estos son los principales "conceptos" o "entidades" con los que el consultorio v
 
 ### **Modelo de unidades:**
 
-![alt text](../Imagenes/organigramaPelugod.png)
+![alt text](../../Imagenes/organigramaPelugod.png)
 
 ### **Matriz de Relaciones: Actores/Unidades vs. Procesos de Negocio (RACI)**
 

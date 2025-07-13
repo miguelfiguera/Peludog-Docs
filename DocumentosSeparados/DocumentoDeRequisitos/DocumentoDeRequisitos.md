@@ -1113,7 +1113,7 @@ El sistema debería proporcionar un mecanismo para que los usuarios autorizados 
 
 El siguiente diagrama muestra una visión consolidada de los principales casos de uso del sistema PeluDog CRM y las interacciones de los actores con ellos:
 
-![Diagrama General de Casos de Uso](../Imagenes/DiagramaDeCasosDeUsoGeneral.png)
+![Diagrama General de Casos de Uso](../../Imagenes/DiagramaDeCasosDeUsoGeneral.png)
 
 ### **Actores Principales del Sistema**
 
@@ -1127,7 +1127,7 @@ El siguiente diagrama muestra una visión consolidada de los principales casos d
 
 #### **Módulo: Gestión de Pacientes (Clientes y Mascotas)**
 
-![Gestión de Pacientes](../Imagenes/CasosDeUso/gestionPacientesClientes.png)
+![Gestión de Pacientes](../../Imagenes/CasosDeUso/gestionPacientesClientes.png)
 
 **CU-GP01: Gestionar Información de Clientes y Mascotas**
 
@@ -1141,41 +1141,41 @@ El siguiente diagrama muestra una visión consolidada de los principales casos d
 
 <div style="page-break-after: always;"></div>
 
-![Diagrama de Secuencia CU-RH03](../Imagenes/DiagramasDeSecuencia/CU-RH03.png)
+![Diagrama de Secuencia CU-RH03](../../Imagenes/DiagramasDeSecuencia/CU-RH03.png)
 
 <div style="page-break-after: always;"></div>
 
 ### Flujos Alternativos
 
-![FA-RH03-01](../Imagenes/FlujosAlternativosCasosDeUso/FA-RH03-01.png)
+![FA-RH03-01](../../Imagenes/FlujosAlternativosCasosDeUso/FA-RH03-01.png)
 
 <div style="page-break-after: always;"></div>
 
-![Diagrama de Secuencia CU-RH01](../Imagenes/DiagramasDeSecuencia/CU-RH01.png)
-
-<div style="page-break-after: always;"></div>
-
-### Flujos Alternativos
-
-![FA-RH01-01](../Imagenes/FlujosAlternativosCasosDeUso/FA-RH01-01.png)
-
-<div style="page-break-after: always;"></div>
-
-![Diagrama de Secuencia CU-GP01](../Imagenes/DiagramasDeSecuencia/CU-GP01.png)
+![Diagrama de Secuencia CU-RH01](../../Imagenes/DiagramasDeSecuencia/CU-RH01.png)
 
 <div style="page-break-after: always;"></div>
 
 ### Flujos Alternativos
 
-![FA-GP01-01](../Imagenes/FlujosAlternativosCasosDeUso/FA-GP01-01.png)
+![FA-RH01-01](../../Imagenes/FlujosAlternativosCasosDeUso/FA-RH01-01.png)
 
 <div style="page-break-after: always;"></div>
 
-![FA-GP01-02](../Imagenes/FlujosAlternativosCasosDeUso/FA-GP01-02.png)
+![Diagrama de Secuencia CU-GP01](../../Imagenes/DiagramasDeSecuencia/CU-GP01.png)
+
+<div style="page-break-after: always;"></div>
+
+### Flujos Alternativos
+
+![FA-GP01-01](../../Imagenes/FlujosAlternativosCasosDeUso/FA-GP01-01.png)
+
+<div style="page-break-after: always;"></div>
+
+![FA-GP01-02](../../Imagenes/FlujosAlternativosCasosDeUso/FA-GP01-02.png)
 
 #### **Módulo: Gestión de Agenda y Citas**
 
-![Gestión de Citas](../Imagenes/CasosDeUso/gestionDeCitas.png)
+![Gestión de Citas](../../Imagenes/CasosDeUso/gestionDeCitas.png)
 
 **CU-GA01: Gestionar Citas**
 
@@ -1189,33 +1189,33 @@ El siguiente diagrama muestra una visión consolidada de los principales casos d
 
 <div style="page-break-after: always;"></div>
 
-![Diagrama de Secuencia CU-PG01](../Imagenes/DiagramasDeSecuencia/CU-PG01.png)
+![Diagrama de Secuencia CU-PG01](../../Imagenes/DiagramasDeSecuencia/CU-PG01.png)
 
 <div style="page-break-after: always;"></div>
 
 ### Flujos Alternativos
 
-![FA-PG01-01](../Imagenes/FlujosAlternativosCasosDeUso/FA-PG01-01.png)
+![FA-PG01-01](../../Imagenes/FlujosAlternativosCasosDeUso/FA-PG01-01.png)
 
 <div style="page-break-after: always;"></div>
 
-![FA-PG01-02](../Imagenes/FlujosAlternativosCasosDeUso/FA-PG01-02.png)
+![FA-PG01-02](../../Imagenes/FlujosAlternativosCasosDeUso/FA-PG01-02.png)
 
 <div style="page-break-after: always;"></div>
 
-![Diagrama de Secuencia CU-GA01](../Imagenes/DiagramasDeSecuencia/CU-GA01.png)
+![Diagrama de Secuencia CU-GA01](../../Imagenes/DiagramasDeSecuencia/CU-GA01.png)
 
 <div style="page-break-after: always;"></div>
 
 ### Flujos Alternativos
 
-![FA-GA01-01](../Imagenes/FlujosAlternativosCasosDeUso/FA-GA01-01.png)
+![FA-GA01-01](../../Imagenes/FlujosAlternativosCasosDeUso/FA-GA01-01.png)
 
 <div style="page-break-after: always;"></div>
 
-![FA-GA01-02](../Imagenes/FlujosAlternativosCasosDeUso/FA-GA01-02.png)
+![FA-GA01-02](../../Imagenes/FlujosAlternativosCasosDeUso/FA-GA01-02.png)
 
-![Recordatorios de Citas](../Imagenes/CasosDeUso/confirmacionDeCitas.png)
+![Recordatorios de Citas](../../Imagenes/CasosDeUso/confirmacionDeCitas.png)
 
 **CU-GA02: Gestionar Recordatorios de Citas**
 
@@ -1228,31 +1228,31 @@ El siguiente diagrama muestra una visión consolidada de los principales casos d
 
 <div style="page-break-after: always;"></div>
 
-![Diagrama de Secuencia CU-PG02](../Imagenes/DiagramasDeSecuencia/CU-PG02.png)
+![Diagrama de Secuencia CU-PG02](../../Imagenes/DiagramasDeSecuencia/CU-PG02.png)
 
 <div style="page-break-after: always;"></div>
 
-![Diagrama de Secuencia CU-RH02](../Imagenes/DiagramasDeSecuencia/CU-RH02.png)
-
-<div style="page-break-after: always;"></div>
-
-### Flujos Alternativos
-
-![FA-RH02-01](../Imagenes/FlujosAlternativosCasosDeUso/FA-RH02-01.png)
-
-<div style="page-break-after: always;"></div>
-
-![Diagrama de Secuencia CU-GA02](../Imagenes/DiagramasDeSecuencia/CU-GA02.png)
+![Diagrama de Secuencia CU-RH02](../../Imagenes/DiagramasDeSecuencia/CU-RH02.png)
 
 <div style="page-break-after: always;"></div>
 
 ### Flujos Alternativos
 
-![FA-GA02-01](../Imagenes/FlujosAlternativosCasosDeUso/FA-GA02-01.png)
+![FA-RH02-01](../../Imagenes/FlujosAlternativosCasosDeUso/FA-RH02-01.png)
+
+<div style="page-break-after: always;"></div>
+
+![Diagrama de Secuencia CU-GA02](../../Imagenes/DiagramasDeSecuencia/CU-GA02.png)
+
+<div style="page-break-after: always;"></div>
+
+### Flujos Alternativos
+
+![FA-GA02-01](../../Imagenes/FlujosAlternativosCasosDeUso/FA-GA02-01.png)
 
 #### **Módulo: Autenticación y Gestión de Usuarios**
 
-![Autenticación de Usuarios](../Imagenes/CasosDeUso/autenticacionUsuarios.png)
+![Autenticación de Usuarios](../../Imagenes/CasosDeUso/autenticacionUsuarios.png)
 
 **CU-AU01: Autenticar Usuario**
 
@@ -1281,29 +1281,29 @@ El siguiente diagrama muestra una visión consolidada de los principales casos d
 
 <div style="page-break-after: always;"></div>
 
-![Diagrama de Secuencia CU-AU01](../Imagenes/DiagramasDeSecuencia/CU-AU01.png)
+![Diagrama de Secuencia CU-AU01](../../Imagenes/DiagramasDeSecuencia/CU-AU01.png)
 
 <div style="page-break-after: always;"></div>
 
 ### Flujos Alternativos
 
-![FA-AU01-01](../Imagenes/FlujosAlternativosCasosDeUso/FA-AU01-01.png)
+![FA-AU01-01](../../Imagenes/FlujosAlternativosCasosDeUso/FA-AU01-01.png)
 
 <div style="page-break-after: always;"></div>
 
-![FA-AU01-02](../Imagenes/FlujosAlternativosCasosDeUso/FA-AU01-02.png)
+![FA-AU01-02](../../Imagenes/FlujosAlternativosCasosDeUso/FA-AU01-02.png)
 
 <div style="page-break-after: always;"></div>
 
-![FA-AU01-03](../Imagenes/FlujosAlternativosCasosDeUso/FA-AU01-03.png)
+![FA-AU01-03](../../Imagenes/FlujosAlternativosCasosDeUso/FA-AU01-03.png)
 
 <div style="page-break-after: always;"></div>
 
-![FA-AU01-04](../Imagenes/FlujosAlternativosCasosDeUso/FA-AU01-04.png)
+![FA-AU01-04](../../Imagenes/FlujosAlternativosCasosDeUso/FA-AU01-04.png)
 
 #### **Módulo: Atención Clínica**
 
-![Consultar Historia Clínica](../Imagenes/CasosDeUso/consultarHistoriaClinico.png)
+![Consultar Historia Clínica](../../Imagenes/CasosDeUso/consultarHistoriaClinico.png)
 
 **CU-AC01: Consultar Historial Clínico de Mascota**
 
@@ -1317,15 +1317,15 @@ El siguiente diagrama muestra una visión consolidada de los principales casos d
 
 <div style="page-break-after: always;"></div>
 
-![Diagrama de Secuencia CU-AC01](../Imagenes/DiagramasDeSecuencia/CU-AC01.png)
+![Diagrama de Secuencia CU-AC01](../../Imagenes/DiagramasDeSecuencia/CU-AC01.png)
 
 <div style="page-break-after: always;"></div>
 
 ### Flujos Alternativos
 
-![FA-AC01-01](../Imagenes/FlujosAlternativosCasosDeUso/FA-AC01-01.png)
+![FA-AC01-01](../../Imagenes/FlujosAlternativosCasosDeUso/FA-AC01-01.png)
 
-![Actualizar Historia Clínica](../Imagenes/CasosDeUso/ActualizarHistoriaClinica.png)
+![Actualizar Historia Clínica](../../Imagenes/CasosDeUso/ActualizarHistoriaClinica.png)
 
 **CU-AC02: Registrar Nueva Consulta / Actualizar Historia Clínica**
 
@@ -1341,27 +1341,27 @@ El siguiente diagrama muestra una visión consolidada de los principales casos d
 
 <div style="page-break-after: always;"></div>
 
-![Diagrama de Secuencia CU-PG03](../Imagenes/DiagramasDeSecuencia/CU-PG03.png)
+![Diagrama de Secuencia CU-PG03](../../Imagenes/DiagramasDeSecuencia/CU-PG03.png)
 
 <div style="page-break-after: always;"></div>
 
 ### Flujos Alternativos
 
-![FA-PG03-01](../Imagenes/FlujosAlternativosCasosDeUso/FA-PG03-01.png)
+![FA-PG03-01](../../Imagenes/FlujosAlternativosCasosDeUso/FA-PG03-01.png)
 
 <div style="page-break-after: always;"></div>
 
-![Diagrama de Secuencia CU-AC02](../Imagenes/DiagramasDeSecuencia/CU-AC02.png)
+![Diagrama de Secuencia CU-AC02](../../Imagenes/DiagramasDeSecuencia/CU-AC02.png)
 
 <div style="page-break-after: always;"></div>
 
 ### Flujos Alternativos
 
-![FA-AC02-01](../Imagenes/FlujosAlternativosCasosDeUso/FA-AC02-01.png)
+![FA-AC02-01](../../Imagenes/FlujosAlternativosCasosDeUso/FA-AC02-01.png)
 
 <div style="page-break-after: always;"></div>
 
-![FA-AC02-02](../Imagenes/FlujosAlternativosCasosDeUso/FA-AC02-02.png)
+![FA-AC02-02](../../Imagenes/FlujosAlternativosCasosDeUso/FA-AC02-02.png)
 
 ---
 
@@ -1373,7 +1373,7 @@ El siguiente diagrama muestra una visión consolidada de los principales casos d
 
 El siguiente diagrama representa los objetos de negocio del dominio y sus relaciones:
 
-![Diagrama de Clases](../Imagenes/DiagramaDeClases.png)
+![Diagrama de Clases](../../Imagenes/DiagramaDeClases.png)
 
 ### **Objetos de Negocio Principales**
 

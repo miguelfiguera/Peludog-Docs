@@ -20,8 +20,8 @@ La propuesta plantea desarrollar un sistema CRM integral para el consultorio vet
 
 ## Documentos Principales
 
-- **[Documento de Requisitos](./DocumentoDeRequisitos/DocumentoDeRequisitos.md):** Contiene la especificación completa de los requisitos funcionales y no funcionales del sistema.
-- **[Modelado de la Aplicación](./ModeladoDelDominioDeLaAplicacion/ModeladoDeDominioDeLaAplicacion.md):** Describe el modelo del dominio, los procesos de negocio, los actores y los objetos de negocio del sistema.
+- **[Documento de Requisitos](./DocumentosSeparados/DocumentoDeRequisitos/DocumentoDeRequisitos.md):** Contiene la especificación completa de los requisitos funcionales y no funcionales del sistema.
+- **[Modelado de la Aplicación](./DocumentosSeparados/ModeladoDelDominioDeLaAplicacion/ModeladoDeDominioDeLaAplicacion.md):** Describe el modelo del dominio, los procesos de negocio, los actores y los objetos de negocio del sistema.
 
 ## Estructura del Repositorio
 
@@ -29,15 +29,7 @@ Este repositorio funciona como un índice para la documentación del proyecto. A
 
 ### [DocumentosSeparados/](./DocumentosSeparados/)
 
-Alberga los documentos que describen cada una de las partes del proyecto de forma individual.
-
-### [ModeladoDelDominioDeLaAplicacion/](./ModeladoDelDominioDeLaAplicacion/)
-
-Contiene el documento dedicado al modelado completo de la aplicación.
-
-### [DocumentoDeRequisitos/](./DocumentoDeRequisitos/)
-
-Contiene la entrega final y consolidada del documento de requisitos del sistema.
+Alberga los documentos que describen cada una de las partes del proyecto de forma individual, incluyendo el documento de requisitos y el de modelado de la aplicación.
 
 ### [CodigoDiagramasPlantUml/](./CodigoDiagramasPlantUml/)
 

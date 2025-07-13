@@ -1,147 +1,151 @@
 <style>
 @page {
     size: A4;
-    margin: 2cm;
+    margin: 1.5cm;
 }
 
 body {
     font-family: Arial, sans-serif;
-    line-height: 1.6;
+    line-height: 1.4;
     color: #333;
     margin: 0;
-    padding: 20px;
+    padding: 10px;
     background: white;
 }
 
 .container {
     max-width: 800px;
     margin: 0 auto;
-    padding: 40px;
+    padding: 20px;
 }
 
 .cover-page {
     text-align: center;
-    padding: 100px 0;
-    margin-bottom: 60px;
-    border-bottom: 3px solid #2c3e50;
+    padding: 50px 0;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #2c3e50;
 }
 
 .cover-title {
-    font-size: 36px;
+    font-size: 32px;
     font-weight: bold;
     color: #2c3e50;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .cover-subtitle {
-    font-size: 24px;
+    font-size: 22px;
     color: #7f8c8d;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .cover-info {
-    font-size: 16px;
+    font-size: 15px;
     color: #2c3e50;
-    line-height: 1.8;
+    line-height: 1.6;
 }
 
+/* This is the key change: hide the page break element for screen view */
 .page-break {
-    page-break-before: always;
+    display: none;
 }
 
 .header {
     text-align: center;
-    border-bottom: 3px solid #2c3e50;
-    padding-bottom: 20px;
-    margin-bottom: 40px;
+    border-bottom: 2px solid #2c3e50;
+    padding-bottom: 10px;
+    margin-top: 30px; /* Add margin to separate templates */
+    margin-bottom: 20px;
 }
 
 .volere-title {
-    font-size: 28px;
+    font-size: 24px;
     font-weight: bold;
     color: #2c3e50;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .requisito-id {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     color: #e74c3c;
     background: #f8f9fa;
-    padding: 8px 16px;
+    padding: 6px 12px;
     border-radius: 4px;
     display: inline-block;
 }
 
 .section {
-    margin: 25px 0;
+    margin: 15px 0;
     text-align: left;
 }
 
 .section-title {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     color: #2c3e50;
-    margin-bottom: 10px;
-    border-left: 4px solid #3498db;
-    padding-left: 15px;
+    margin-bottom: 8px;
+    border-left: 3px solid #3498db;
+    padding-left: 10px;
 }
 
 .section-content {
-    font-size: 14px;
-    padding: 10px 0;
+    font-size: 13px;
+    padding: 5px 0;
     text-align: justify;
 }
 
 .metadata {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin: 20px 0;
+    gap: 15px;
+    margin: 15px 0;
 }
 
 .metadata-item {
     background: #f8f9fa;
-    padding: 15px;
-    border-radius: 6px;
-    border-left: 4px solid #3498db;
+    padding: 10px;
+    border-radius: 4px;
+    border-left: 3px solid #3498db;
 }
 
 .metadata-label {
     font-weight: bold;
     color: #2c3e50;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
+    font-size: 13px;
 }
 
 .criterios {
     background: #f8f9fa;
-    padding: 20px;
-    border-radius: 6px;
-    border-left: 4px solid #27ae60;
+    padding: 15px;
+    border-radius: 4px;
+    border-left: 3px solid #27ae60;
 }
 
 .criterios ul {
-    margin: 10px 0;
-    padding-left: 20px;
+    margin: 8px 0;
+    padding-left: 18px;
 }
 
 .criterios li {
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     text-align: justify;
+    font-size: 13px;
 }
 
 .footer {
     text-align: center;
-    margin-top: 40px;
-    padding-top: 20px;
+    margin-top: 20px;
+    padding-top: 10px;
     border-top: 1px solid #bdc3c7;
-    font-size: 12px;
+    font-size: 11px;
     color: #7f8c8d;
 }
 
 /* Estilos para requisitos no funcionales */
 .nf-header {
-    border-bottom: 3px solid #8e44ad;
+    border-bottom: 2px solid #8e44ad;
 }
 
 .nf-title {
@@ -150,11 +154,11 @@ body {
 
 .nf-section-title {
     color: #8e44ad;
-    border-left: 4px solid #9b59b6;
+    border-left: 3px solid #9b59b6;
 }
 
 .nf-metadata-item {
-    border-left: 4px solid #9b59b6;
+    border-left: 3px solid #9b59b6;
 }
 
 @media print {
@@ -162,6 +166,7 @@ body {
         print-color-adjust: exact;
     }
     .page-break {
+        display: block; /* Re-enable for printing */
         page-break-before: always;
     }
 }
@@ -202,12 +207,11 @@ Requisitos Funcionales y No Funcionales<br/>
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
-| **Módulo/Área** | Gestión de Pacientes (Clientes y Mascotas) |
-| **Prioridad** | Alta - Necesario para iniciar el flujo de alta de clientes descrito en CU-GP01 y para disponer de datos de contacto confiables. |
-| **Caso de Uso** | CU-GP01 |
-
+| Campo           | Valor                                                                                                                           |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| **Módulo/Área** | Gestión de Pacientes (Clientes y Mascotas)                                                                                      |
+| **Prioridad**   | Alta - Necesario para iniciar el flujo de alta de clientes descrito en CU-GP01 y para disponer de datos de contacto confiables. |
+| **Caso de Uso** | CU-GP01                                                                                                                         |
 
 ## Descripción
 
@@ -220,7 +224,6 @@ El Asistente o el Cliente/Propietario de Mascota podrán registrar la informaci�
 - Al guardar, el nuevo cliente debe crearse en la base de datos.
 - El sistema debe permitir asociar una o más mascotas a este cliente durante el registro o posteriormente.
 
-
 ## Fuente
 
 Dra. Génesis / Equipo PeluDog
@@ -230,12 +233,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito contribuye a la digitalización y eficiencia operativa del consultorio veterinario PeluDog, mejorando la experiencia del cliente y la gestión interna de procesos.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -253,12 +250,11 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
-| **Módulo/Área** | Gestión de Pacientes (Clientes y Mascotas) |
-| **Prioridad** | Alta - Esencial para asociar mascotas a sus propietarios según CU-GP01 y mantener la base clínica completa. |
-| **Caso de Uso** | CU-GP01 |
-
+| Campo           | Valor                                                                                                       |
+| --------------- | ----------------------------------------------------------------------------------------------------------- |
+| **Módulo/Área** | Gestión de Pacientes (Clientes y Mascotas)                                                                  |
+| **Prioridad**   | Alta - Esencial para asociar mascotas a sus propietarios según CU-GP01 y mantener la base clínica completa. |
+| **Caso de Uso** | CU-GP01                                                                                                     |
 
 ## Descripción
 
@@ -271,7 +267,6 @@ El Asistente, Cliente/Propietario de Mascota o Veterinario podrá registrar la i
 - El sistema debe validar los campos obligatorios (ej. nombre de mascota, especie).
 - Al guardar, la nueva mascota debe crearse y vincularse correctamente al cliente.
 
-
 ## Fuente
 
 Dra. Génesis / Equipo PeluDog
@@ -281,12 +276,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito contribuye a la digitalización y eficiencia operativa del consultorio veterinario PeluDog, mejorando la experiencia del cliente y la gestión interna de procesos.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -304,12 +293,11 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
-| **Módulo/Área** | Gestión de Pacientes (Clientes y Mascotas) |
-| **Prioridad** | Alta - Facilita la localización rápida de clientes y mascotas durante la atención, soportando CU-GP01. |
-| **Caso de Uso** | CU-GP01 |
-
+| Campo           | Valor                                                                                                  |
+| --------------- | ------------------------------------------------------------------------------------------------------ |
+| **Módulo/Área** | Gestión de Pacientes (Clientes y Mascotas)                                                             |
+| **Prioridad**   | Alta - Facilita la localización rápida de clientes y mascotas durante la atención, soportando CU-GP01. |
+| **Caso de Uso** | CU-GP01                                                                                                |
 
 ## Descripción
 
@@ -322,7 +310,6 @@ El Asistente o Veterinario podrá buscar clientes y/o mascotas existentes en el 
 - Los resultados de la búsqueda deben mostrar información clave para identificar al cliente/mascota.
 - El usuario debe poder seleccionar un cliente/mascota de los resultados para ver su información detallada.
 
-
 ## Fuente
 
 Dra. Génesis / Equipo PeluDog
@@ -332,12 +319,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito contribuye a la digitalización y eficiencia operativa del consultorio veterinario PeluDog, mejorando la experiencia del cliente y la gestión interna de procesos.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -355,12 +336,11 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
-| **Módulo/Área** | Gestión de Pacientes (Clientes y Mascotas) |
-| **Prioridad** | Alta - Permite mantener actualizada la información de los clientes, mejorando la calidad de los datos según CU-GP01. |
-| **Caso de Uso** | CU-GP01 |
-
+| Campo           | Valor                                                                                                                |
+| --------------- | -------------------------------------------------------------------------------------------------------------------- |
+| **Módulo/Área** | Gestión de Pacientes (Clientes y Mascotas)                                                                           |
+| **Prioridad**   | Alta - Permite mantener actualizada la información de los clientes, mejorando la calidad de los datos según CU-GP01. |
+| **Caso de Uso** | CU-GP01                                                                                                              |
 
 ## Descripción
 
@@ -373,7 +353,6 @@ El Asistente o Veterinario podrá ver y modificar la información de un cliente 
 - El sistema debe guardar los cambios realizados en la base de datos.
 - El sistema debe mostrar la lista de mascotas asociadas al cliente, con acceso a sus perfiles.
 
-
 ## Fuente
 
 Dra. Génesis / Equipo PeluDog
@@ -383,12 +362,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito contribuye a la digitalización y eficiencia operativa del consultorio veterinario PeluDog, mejorando la experiencia del cliente y la gestión interna de procesos.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -406,12 +379,11 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
-| **Módulo/Área** | Gestión de Pacientes (Clientes y Mascotas) |
-| **Prioridad** | Alta - Asegura que la información de las mascotas esté actualizada para decisiones clínicas, acorde a CU-GP01. |
-| **Caso de Uso** | CU-GP01 |
-
+| Campo           | Valor                                                                                                          |
+| --------------- | -------------------------------------------------------------------------------------------------------------- |
+| **Módulo/Área** | Gestión de Pacientes (Clientes y Mascotas)                                                                     |
+| **Prioridad**   | Alta - Asegura que la información de las mascotas esté actualizada para decisiones clínicas, acorde a CU-GP01. |
+| **Caso de Uso** | CU-GP01                                                                                                        |
 
 ## Descripción
 
@@ -424,7 +396,6 @@ El Asistente o Veterinario podrá ver y modificar la información general de una
 - El sistema debe guardar los cambios realizados en la base de datos.
 - El sistema debe mostrar la información del cliente dueño de la mascota.
 
-
 ## Fuente
 
 Dra. Génesis / Equipo PeluDog
@@ -434,12 +405,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito contribuye a la digitalización y eficiencia operativa del consultorio veterinario PeluDog, mejorando la experiencia del cliente y la gestión interna de procesos.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -457,12 +422,11 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
-| **Módulo/Área** | Gestión de Pacientes (Clientes y Mascotas) |
-| **Prioridad** | Alta - Empodera al cliente para gestionar los datos de sus mascotas, reduciendo carga administrativa; parte de CU-GP01. |
-| **Caso de Uso** | CU-GP01 |
-
+| Campo           | Valor                                                                                                                   |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| **Módulo/Área** | Gestión de Pacientes (Clientes y Mascotas)                                                                              |
+| **Prioridad**   | Alta - Empodera al cliente para gestionar los datos de sus mascotas, reduciendo carga administrativa; parte de CU-GP01. |
+| **Caso de Uso** | CU-GP01                                                                                                                 |
 
 ## Descripción
 
@@ -474,7 +438,6 @@ El Cliente/Propietario de Mascota podrá ver y modificar la información de sus 
 - El sistema debe permitir la edición de los campos de la mascota por parte de su dueño.
 - El sistema debe guardar los cambios realizados en la base de datos.
 
-
 ## Fuente
 
 Dra. Génesis / Equipo PeluDog
@@ -484,12 +447,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito contribuye a la digitalización y eficiencia operativa del consultorio veterinario PeluDog, mejorando la experiencia del cliente y la gestión interna de procesos.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -507,12 +464,11 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
-| **Módulo/Área** | Gestión de Pacientes (Clientes y Mascotas) |
-| **Prioridad** | Alta - Permite al cliente mantener sus datos actualizados, garantizando la exactitud de contacto y cumplimiento de CU-GP01. |
-| **Caso de Uso** | CU-GP01 |
-
+| Campo           | Valor                                                                                                                       |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| **Módulo/Área** | Gestión de Pacientes (Clientes y Mascotas)                                                                                  |
+| **Prioridad**   | Alta - Permite al cliente mantener sus datos actualizados, garantizando la exactitud de contacto y cumplimiento de CU-GP01. |
+| **Caso de Uso** | CU-GP01                                                                                                                     |
 
 ## Descripción
 
@@ -524,7 +480,6 @@ El Cliente/Propietario de Mascota podrá ver y modificar la información de su p
 - El sistema debe permitir la edición de sus propios campos.
 - El sistema debe guardar los cambios realizados en la base de datos.
 
-
 ## Fuente
 
 Dra. Génesis / Equipo PeluDog
@@ -534,12 +489,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito contribuye a la digitalización y eficiencia operativa del consultorio veterinario PeluDog, mejorando la experiencia del cliente y la gestión interna de procesos.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -557,12 +506,11 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
-| **Módulo/Área** | Gestión de Agenda y Citas |
-| **Prioridad** | Alta - Proporciona visibilidad de horarios disponibles indispensable para programar citas según CU-GA01. |
-| **Caso de Uso** | CU-GA01 |
-
+| Campo           | Valor                                                                                                    |
+| --------------- | -------------------------------------------------------------------------------------------------------- |
+| **Módulo/Área** | Gestión de Agenda y Citas                                                                                |
+| **Prioridad**   | Alta - Proporciona visibilidad de horarios disponibles indispensable para programar citas según CU-GA01. |
+| **Caso de Uso** | CU-GA01                                                                                                  |
 
 ## Descripción
 
@@ -574,7 +522,6 @@ El Asistente o Cliente/Propietario de Mascota podrá consultar los horarios disp
 - El sistema debe permitir filtrar la disponibilidad por veterinario (si hay más de uno).
 - Los bloques horarios ocupados deben estar claramente diferenciados de los disponibles.
 
-
 ## Fuente
 
 Dra. Génesis / Equipo PeluDog
@@ -584,12 +531,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito contribuye a la digitalización y eficiencia operativa del consultorio veterinario PeluDog, mejorando la experiencia del cliente y la gestión interna de procesos.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -607,12 +548,11 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
-| **Módulo/Área** | Gestión de Agenda y Citas |
-| **Prioridad** | Alta - Habilita el flujo de reserva de citas descrito en CU-GA01, pieza clave del servicio. |
-| **Caso de Uso** | CU-GA01 |
-
+| Campo           | Valor                                                                                       |
+| --------------- | ------------------------------------------------------------------------------------------- |
+| **Módulo/Área** | Gestión de Agenda y Citas                                                                   |
+| **Prioridad**   | Alta - Habilita el flujo de reserva de citas descrito en CU-GA01, pieza clave del servicio. |
+| **Caso de Uso** | CU-GA01                                                                                     |
 
 ## Descripción
 
@@ -626,7 +566,6 @@ El Asistente o Cliente/Propietario de Mascota podrá reservar una nueva cita par
 - Al confirmar, la cita debe registrarse y el horario debe marcarse como ocupado.
 - (Opcional) El sistema debe poder enviar una confirmación de cita al cliente (email/SMS).
 
-
 ## Fuente
 
 Dra. Génesis / Equipo PeluDog
@@ -636,12 +575,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito contribuye a la digitalización y eficiencia operativa del consultorio veterinario PeluDog, mejorando la experiencia del cliente y la gestión interna de procesos.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -659,12 +592,11 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
-| **Módulo/Área** | Gestión de Agenda y Citas |
-| **Prioridad** | Media - Ofrece flexibilidad a clientes y staff para cambios de agenda, evitando cancelaciones; CU-GA01. |
-| **Caso de Uso** | CU-GA01 |
-
+| Campo           | Valor                                                                                                   |
+| --------------- | ------------------------------------------------------------------------------------------------------- |
+| **Módulo/Área** | Gestión de Agenda y Citas                                                                               |
+| **Prioridad**   | Media - Ofrece flexibilidad a clientes y staff para cambios de agenda, evitando cancelaciones; CU-GA01. |
+| **Caso de Uso** | CU-GA01                                                                                                 |
 
 ## Descripción
 
@@ -677,7 +609,6 @@ El Asistente o Cliente/Propietario de Mascota podrá cambiar la fecha y/o hora d
 - Al confirmar, la cita original debe actualizarse y el bloqueo horario debe moverse.
 - (Opcional) El sistema debe poder enviar una notificación de reprogramación al cliente.
 
-
 ## Fuente
 
 Dra. Génesis / Equipo PeluDog
@@ -687,12 +618,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito contribuye a la digitalización y eficiencia operativa del consultorio veterinario PeluDog, mejorando la experiencia del cliente y la gestión interna de procesos.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -710,12 +635,11 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
-| **Módulo/Área** | Gestión de Agenda y Citas |
-| **Prioridad** | Media - Gestiona anulaciones de citas liberando horarios y evitando ausencias; CU-GA01. |
-| **Caso de Uso** | CU-GA01 |
-
+| Campo           | Valor                                                                                   |
+| --------------- | --------------------------------------------------------------------------------------- |
+| **Módulo/Área** | Gestión de Agenda y Citas                                                               |
+| **Prioridad**   | Media - Gestiona anulaciones de citas liberando horarios y evitando ausencias; CU-GA01. |
+| **Caso de Uso** | CU-GA01                                                                                 |
 
 ## Descripción
 
@@ -727,7 +651,6 @@ El Asistente o Cliente/Propietario de Mascota podrá cancelar una cita agendada 
 - Al confirmar la cancelación, la cita debe marcarse como cancelada y el horario liberarse.
 - (Opcional) El sistema debe poder enviar una notificación de cancelación al cliente.
 
-
 ## Fuente
 
 Dra. Génesis / Equipo PeluDog
@@ -737,12 +660,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito contribuye a la digitalización y eficiencia operativa del consultorio veterinario PeluDog, mejorando la experiencia del cliente y la gestión interna de procesos.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -760,12 +677,11 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
-| **Módulo/Área** | Gestión de Agenda y Citas |
-| **Prioridad** | Alta - Permite al personal visualizar la carga de trabajo y confirmar asistencia; CU-GA01. |
-| **Caso de Uso** | CU-GA01 |
-
+| Campo           | Valor                                                                                      |
+| --------------- | ------------------------------------------------------------------------------------------ |
+| **Módulo/Área** | Gestión de Agenda y Citas                                                                  |
+| **Prioridad**   | Alta - Permite al personal visualizar la carga de trabajo y confirmar asistencia; CU-GA01. |
+| **Caso de Uso** | CU-GA01                                                                                    |
 
 ## Descripción
 
@@ -778,7 +694,6 @@ El Asistente o Veterinario podrá visualizar la agenda de citas programadas.
 - Cada cita en la agenda debe mostrar información clave (hora, mascota, cliente, motivo).
 - El sistema debe permitir al Asistente confirmar la asistencia del cliente a una cita.
 
-
 ## Fuente
 
 Dra. Génesis / Equipo PeluDog
@@ -788,12 +703,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito contribuye a la digitalización y eficiencia operativa del consultorio veterinario PeluDog, mejorando la experiencia del cliente y la gestión interna de procesos.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -811,12 +720,11 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
-| **Módulo/Área** | Gestión de Agenda y Citas |
-| **Prioridad** | Alta - Reduce inasistencias enviando recordatorios automáticos; vital para eficiencia operativa (CU-GA02). |
-| **Caso de Uso** | CU-GA02 |
-
+| Campo           | Valor                                                                                                      |
+| --------------- | ---------------------------------------------------------------------------------------------------------- |
+| **Módulo/Área** | Gestión de Agenda y Citas                                                                                  |
+| **Prioridad**   | Alta - Reduce inasistencias enviando recordatorios automáticos; vital para eficiencia operativa (CU-GA02). |
+| **Caso de Uso** | CU-GA02                                                                                                    |
 
 ## Descripción
 
@@ -829,7 +737,6 @@ El sistema enviará recordatorios automáticos a los clientes sobre sus próxima
 - El recordatorio debe incluir los detalles de la cita (fecha, hora, mascota).
 - (Opcional) El recordatorio puede incluir un enlace para confirmar o cancelar la cita (enlazando con RF-GA003, RF-GA004).
 
-
 ## Fuente
 
 Dra. Génesis / Equipo PeluDog
@@ -839,12 +746,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito contribuye a la digitalización y eficiencia operativa del consultorio veterinario PeluDog, mejorando la experiencia del cliente y la gestión interna de procesos.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -862,12 +763,11 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
-| **Módulo/Área** | Atención Clínica (Historia Clínica Electrónica) |
-| **Prioridad** | Alta - Permite revisión completa de antecedentes clínicos para mejor diagnóstico; CU-AC01. |
-| **Caso de Uso** | CU-AC01 |
-
+| Campo           | Valor                                                                                      |
+| --------------- | ------------------------------------------------------------------------------------------ |
+| **Módulo/Área** | Atención Clínica (Historia Clínica Electrónica)                                            |
+| **Prioridad**   | Alta - Permite revisión completa de antecedentes clínicos para mejor diagnóstico; CU-AC01. |
+| **Caso de Uso** | CU-AC01                                                                                    |
 
 ## Descripción
 
@@ -879,7 +779,6 @@ El Veterinario podrá ver todas las entradas previas del historial clínico de l
 - Cada entrada debe mostrar como mínimo: fecha, motivo de consulta, diagnóstico(s) principal(es), y veterinario que atendió.
 - El usuario debe poder expandir una entrada para ver todos sus detalles (anamnesis, examen, tratamientos, notas, etc.).
 
-
 ## Fuente
 
 Dra. Génesis / Equipo PeluDog
@@ -889,12 +788,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito contribuye a la digitalización y eficiencia operativa del consultorio veterinario PeluDog, mejorando la experiencia del cliente y la gestión interna de procesos.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -912,12 +805,11 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
-| **Módulo/Área** | Atención Clínica (Historia Clínica Electrónica) |
-| **Prioridad** | Alta - Destaca información crítica (alergias) mejorando la seguridad clínica; CU-AC01. |
-| **Caso de Uso** | CU-AC01 |
-
+| Campo           | Valor                                                                                  |
+| --------------- | -------------------------------------------------------------------------------------- |
+| **Módulo/Área** | Atención Clínica (Historia Clínica Electrónica)                                        |
+| **Prioridad**   | Alta - Destaca información crítica (alergias) mejorando la seguridad clínica; CU-AC01. |
+| **Caso de Uso** | CU-AC01                                                                                |
 
 ## Descripción
 
@@ -928,7 +820,6 @@ El sistema mostrará información crucial de la mascota de forma destacada al co
 - El sistema debe mostrar claramente las alergias conocidas de la mascota, si existen.
 - El sistema debe mostrar datos básicos de la mascota (especie, raza, sexo, edad/fecha de nacimiento, último peso registrado).
 
-
 ## Fuente
 
 Dra. Génesis / Equipo PeluDog
@@ -938,12 +829,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito contribuye a la digitalización y eficiencia operativa del consultorio veterinario PeluDog, mejorando la experiencia del cliente y la gestión interna de procesos.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -961,12 +846,11 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
-| **Módulo/Área** | Atención Clínica (Historia Clínica Electrónica) |
-| **Prioridad** | Alta - Facilita acceso a pruebas complementarias adjuntas, esencial en CU-AC01. |
-| **Caso de Uso** | CU-AC01 |
-
+| Campo           | Valor                                                                           |
+| --------------- | ------------------------------------------------------------------------------- |
+| **Módulo/Área** | Atención Clínica (Historia Clínica Electrónica)                                 |
+| **Prioridad**   | Alta - Facilita acceso a pruebas complementarias adjuntas, esencial en CU-AC01. |
+| **Caso de Uso** | CU-AC01                                                                         |
 
 ## Descripción
 
@@ -978,7 +862,6 @@ El Veterinario podrá acceder a los archivos digitales asociados a las entradas 
 - El sistema debe permitir la visualización o descarga de estos archivos.
 - Se deben mostrar las descripciones o etiquetas de los archivos adjuntos.
 
-
 ## Fuente
 
 Dra. Génesis / Equipo PeluDog
@@ -988,12 +871,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito contribuye a la digitalización y eficiencia operativa del consultorio veterinario PeluDog, mejorando la experiencia del cliente y la gestión interna de procesos.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -1011,12 +888,11 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
-| **Módulo/Área** | Atención Clínica (Historia Clínica Electrónica) |
-| **Prioridad** | Media - Agiliza consulta de vacunas/desparasitaciones para cumplimiento sanitario; CU-AC01. |
-| **Caso de Uso** | CU-AC01 |
-
+| Campo           | Valor                                                                                       |
+| --------------- | ------------------------------------------------------------------------------------------- |
+| **Módulo/Área** | Atención Clínica (Historia Clínica Electrónica)                                             |
+| **Prioridad**   | Media - Agiliza consulta de vacunas/desparasitaciones para cumplimiento sanitario; CU-AC01. |
+| **Caso de Uso** | CU-AC01                                                                                     |
 
 ## Descripción
 
@@ -1029,7 +905,6 @@ El Veterinario podrá filtrar o acceder a una vista específica del historial pa
 - El sistema debe permitir filtrar el historial para mostrar solo eventos de desparasitación.
 - Para cada desparasitación: mostrar fecha, producto, dosis, próxima desparasitación.
 
-
 ## Fuente
 
 Dra. Génesis / Equipo PeluDog
@@ -1039,12 +914,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito contribuye a la digitalización y eficiencia operativa del consultorio veterinario PeluDog, mejorando la experiencia del cliente y la gestión interna de procesos.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -1062,12 +931,11 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
-| **Módulo/Área** | Atención Clínica (Historia Clínica Electrónica) |
-| **Prioridad** | Alta - Inicia la documentación de una consulta, base de la historia clínica; CU-AC02. |
-| **Caso de Uso** | CU-AC02 |
-
+| Campo           | Valor                                                                                 |
+| --------------- | ------------------------------------------------------------------------------------- |
+| **Módulo/Área** | Atención Clínica (Historia Clínica Electrónica)                                       |
+| **Prioridad**   | Alta - Inicia la documentación de una consulta, base de la historia clínica; CU-AC02. |
+| **Caso de Uso** | CU-AC02                                                                               |
 
 ## Descripción
 
@@ -1079,7 +947,6 @@ El Veterinario podrá crear una nueva entrada en el historial clínico para la m
 - La fecha y hora de la consulta deben autocompletarse con la actual, pero ser editables.
 - La entrada debe asociarse al veterinario que está logueado.
 
-
 ## Fuente
 
 Dra. Génesis / Equipo PeluDog
@@ -1089,12 +956,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito contribuye a la digitalización y eficiencia operativa del consultorio veterinario PeluDog, mejorando la experiencia del cliente y la gestión interna de procesos.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -1112,12 +973,11 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
-| **Módulo/Área** | Atención Clínica (Historia Clínica Electrónica) |
-| **Prioridad** | Alta - Captura la información detallada de la consulta asegurando continuidad clínica; CU-AC02. |
-| **Caso de Uso** | CU-AC02 |
-
+| Campo           | Valor                                                                                           |
+| --------------- | ----------------------------------------------------------------------------------------------- |
+| **Módulo/Área** | Atención Clínica (Historia Clínica Electrónica)                                                 |
+| **Prioridad**   | Alta - Captura la información detallada de la consulta asegurando continuidad clínica; CU-AC02. |
+| **Caso de Uso** | CU-AC02                                                                                         |
 
 ## Descripción
 
@@ -1134,7 +994,6 @@ El Veterinario podrá registrar toda la información clínica relevante de la co
 - El sistema debe proveer campo para Notas adicionales.
 - Al guardar, la nueva entrada se añade al historial de la mascota.
 
-
 ## Fuente
 
 Dra. Génesis / Equipo PeluDog
@@ -1144,12 +1003,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito contribuye a la digitalización y eficiencia operativa del consultorio veterinario PeluDog, mejorando la experiencia del cliente y la gestión interna de procesos.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -1167,12 +1020,11 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
-| **Módulo/Área** | Atención Clínica (Historia Clínica Electrónica) |
-| **Prioridad** | Alta - Estandariza y registra prescripciones, generando récipe imprimible; CU-AC02. |
-| **Caso de Uso** | CU-AC02 |
-
+| Campo           | Valor                                                                               |
+| --------------- | ----------------------------------------------------------------------------------- |
+| **Módulo/Área** | Atención Clínica (Historia Clínica Electrónica)                                     |
+| **Prioridad**   | Alta - Estandariza y registra prescripciones, generando récipe imprimible; CU-AC02. |
+| **Caso de Uso** | CU-AC02                                                                             |
 
 ## Descripción
 
@@ -1186,7 +1038,6 @@ Dentro de una consulta, el Veterinario podrá añadir prescripciones de medicame
 - Las prescripciones deben quedar guardadas como parte de la entrada del historial clínico.
 - El sistema debe permitir generar un documento de récipe (PDF imprimible) con datos del consultorio, veterinario, dueño, mascota, fecha y medicamentos prescritos.
 
-
 ## Fuente
 
 Dra. Génesis / Equipo PeluDog
@@ -1196,12 +1047,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito contribuye a la digitalización y eficiencia operativa del consultorio veterinario PeluDog, mejorando la experiencia del cliente y la gestión interna de procesos.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -1219,12 +1064,11 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
-| **Módulo/Área** | Atención Clínica (Historia Clínica Electrónica) |
-| **Prioridad** | Alta - Permite solicitudes de laboratorio integradas en la historia, evitando papel; CU-AC02. |
-| **Caso de Uso** | CU-AC02 |
-
+| Campo           | Valor                                                                                         |
+| --------------- | --------------------------------------------------------------------------------------------- |
+| **Módulo/Área** | Atención Clínica (Historia Clínica Electrónica)                                               |
+| **Prioridad**   | Alta - Permite solicitudes de laboratorio integradas en la historia, evitando papel; CU-AC02. |
+| **Caso de Uso** | CU-AC02                                                                                       |
 
 ## Descripción
 
@@ -1237,7 +1081,6 @@ Dentro de una consulta, el Veterinario podrá solicitar exámenes de laboratorio
 - Las solicitudes de exámenes deben quedar guardadas como parte de la entrada del historial clínico.
 - El sistema debe permitir generar una orden de exámenes (PDF imprimible) con datos del consultorio, veterinario, dueño, mascota, fecha y exámenes solicitados.
 
-
 ## Fuente
 
 Dra. Génesis / Equipo PeluDog
@@ -1247,12 +1090,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito contribuye a la digitalización y eficiencia operativa del consultorio veterinario PeluDog, mejorando la experiencia del cliente y la gestión interna de procesos.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -1270,12 +1107,11 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
-| **Módulo/Área** | Atención Clínica (Historia Clínica Electrónica) |
-| **Prioridad** | Alta - Conserva evidencias (imágenes, documentos) ligadas a la consulta; CU-AC02. |
-| **Caso de Uso** | CU-AC02 |
-
+| Campo           | Valor                                                                             |
+| --------------- | --------------------------------------------------------------------------------- |
+| **Módulo/Área** | Atención Clínica (Historia Clínica Electrónica)                                   |
+| **Prioridad**   | Alta - Conserva evidencias (imágenes, documentos) ligadas a la consulta; CU-AC02. |
+| **Caso de Uso** | CU-AC02                                                                           |
 
 ## Descripción
 
@@ -1288,7 +1124,6 @@ Durante la creación o edición de una entrada clínica, el Veterinario podrá a
 - Los archivos deben quedar vinculados a la entrada específica del historial.
 - El sistema debe permitir añadir una descripción/etiqueta a cada archivo.
 
-
 ## Fuente
 
 Dra. Génesis / Equipo PeluDog
@@ -1298,12 +1133,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito contribuye a la digitalización y eficiencia operativa del consultorio veterinario PeluDog, mejorando la experiencia del cliente y la gestión interna de procesos.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -1321,12 +1150,11 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
-| **Módulo/Área** | Atención Clínica (Historia Clínica Electrónica) |
-| **Prioridad** | Alta - Registra vacunaciones y desparasitaciones con recordatorios futuros; CU-AC02 & AC004. |
-| **Caso de Uso** | CU-AC02 |
-
+| Campo           | Valor                                                                                        |
+| --------------- | -------------------------------------------------------------------------------------------- |
+| **Módulo/Área** | Atención Clínica (Historia Clínica Electrónica)                                              |
+| **Prioridad**   | Alta - Registra vacunaciones y desparasitaciones con recordatorios futuros; CU-AC02 & AC004. |
+| **Caso de Uso** | CU-AC02                                                                                      |
 
 ## Descripción
 
@@ -1340,7 +1168,6 @@ El Veterinario podrá registrar la aplicación de vacunas o desparasitantes como
 - El sistema debe permitir calcular y/o registrar la próxima fecha de desparasitación.
 - Esta información debe quedar registrada en la entrada del historial clínico y ser visible en la consulta de registros específicos (RF-AC004).
 
-
 ## Fuente
 
 Dra. Génesis / Equipo PeluDog
@@ -1350,12 +1177,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito contribuye a la digitalización y eficiencia operativa del consultorio veterinario PeluDog, mejorando la experiencia del cliente y la gestión interna de procesos.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -1373,12 +1194,11 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
-| **Módulo/Área** | Atención Clínica (Historia Clínica Electrónica) |
-| **Prioridad** | Media - Ofrece ventana de corrección con trazabilidad auditada; CU-AC02. |
-| **Caso de Uso** | CU-AC02 |
-
+| Campo           | Valor                                                                    |
+| --------------- | ------------------------------------------------------------------------ |
+| **Módulo/Área** | Atención Clínica (Historia Clínica Electrónica)                          |
+| **Prioridad**   | Media - Ofrece ventana de corrección con trazabilidad auditada; CU-AC02. |
+| **Caso de Uso** | CU-AC02                                                                  |
 
 ## Descripción
 
@@ -1390,7 +1210,6 @@ El Veterinario podrá modificar una entrada de historial clínico recientemente 
 - Cualquier modificación debe registrarse en una bitácora de auditoría (quién, qué, cuándo).
 - Los campos críticos (ej. diagnóstico, prescripción) podrían tener restricciones adicionales o requerir justificación.
 
-
 ## Fuente
 
 Dra. Génesis / Equipo PeluDog
@@ -1400,12 +1219,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito contribuye a la digitalización y eficiencia operativa del consultorio veterinario PeluDog, mejorando la experiencia del cliente y la gestión interna de procesos.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -1423,12 +1236,11 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
-| **Módulo/Área** | Gestión de Recursos Humanos y Servicios Internos |
-| **Prioridad** | Alta - Impulsa la gestión de personal creando cuentas de empleados; CU-RH01. |
-| **Caso de Uso** | CU-RH01 |
-
+| Campo           | Valor                                                                        |
+| --------------- | ---------------------------------------------------------------------------- |
+| **Módulo/Área** | Gestión de Recursos Humanos y Servicios Internos                             |
+| **Prioridad**   | Alta - Impulsa la gestión de personal creando cuentas de empleados; CU-RH01. |
+| **Caso de Uso** | CU-RH01                                                                      |
 
 ## Descripción
 
@@ -1441,7 +1253,6 @@ El Administrador/Gerente podrá registrar la información de un nuevo empleado e
 - Al guardar, el nuevo empleado debe crearse en la base de datos.
 - El sistema debe permitir asignar uno o más roles al empleado (ej. Veterinario, Asistente, Peluquero Canino, Limpieza, Administrativo).
 
-
 ## Fuente
 
 Dra. Génesis / Equipo PeluDog
@@ -1451,12 +1262,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito contribuye a la digitalización y eficiencia operativa del consultorio veterinario PeluDog, mejorando la experiencia del cliente y la gestión interna de procesos.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -1474,12 +1279,11 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
-| **Módulo/Área** | Gestión de Recursos Humanos y Servicios Internos |
-| **Prioridad** | Alta - Mantiene actualizados los datos del personal para procesos internos; CU-RH01. |
-| **Caso de Uso** | CU-RH01 |
-
+| Campo           | Valor                                                                                |
+| --------------- | ------------------------------------------------------------------------------------ |
+| **Módulo/Área** | Gestión de Recursos Humanos y Servicios Internos                                     |
+| **Prioridad**   | Alta - Mantiene actualizados los datos del personal para procesos internos; CU-RH01. |
+| **Caso de Uso** | CU-RH01                                                                              |
 
 ## Descripción
 
@@ -1491,7 +1295,6 @@ El Administrador/Gerente podrá ver y modificar la información de un empleado e
 - El sistema debe permitir la edición de los campos del empleado.
 - El sistema debe guardar los cambios realizados en la base de datos.
 
-
 ## Fuente
 
 Dra. Génesis / Equipo PeluDog
@@ -1501,12 +1304,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito contribuye a la digitalización y eficiencia operativa del consultorio veterinario PeluDog, mejorando la experiencia del cliente y la gestión interna de procesos.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -1524,12 +1321,11 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
-| **Módulo/Área** | Gestión de Recursos Humanos y Servicios Internos |
-| **Prioridad** | Alta - Controla roles y permisos del personal garantizando seguridad; CU-RH01. |
-| **Caso de Uso** | CU-RH01 |
-
+| Campo           | Valor                                                                          |
+| --------------- | ------------------------------------------------------------------------------ |
+| **Módulo/Área** | Gestión de Recursos Humanos y Servicios Internos                               |
+| **Prioridad**   | Alta - Controla roles y permisos del personal garantizando seguridad; CU-RH01. |
+| **Caso de Uso** | CU-RH01                                                                        |
 
 ## Descripción
 
@@ -1540,7 +1336,6 @@ El Administrador/Gerente podrá asignar o modificar los roles de un empleado.
 - El sistema debe permitir seleccionar uno o varios roles predefinidos para un empleado.
 - El sistema debe actualizar los permisos de acceso del empleado según su rol.
 
-
 ## Fuente
 
 Dra. Génesis / Equipo PeluDog
@@ -1550,12 +1345,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito contribuye a la digitalización y eficiencia operativa del consultorio veterinario PeluDog, mejorando la experiencia del cliente y la gestión interna de procesos.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -1573,12 +1362,11 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
-| **Módulo/Área** | Gestión de Recursos Humanos y Servicios Internos |
-| **Prioridad** | Media - Permite gestionar altas/bajas de empleados asegurando control de acceso; CU-RH01. |
-| **Caso de Uso** | CU-RH01 |
-
+| Campo           | Valor                                                                                     |
+| --------------- | ----------------------------------------------------------------------------------------- |
+| **Módulo/Área** | Gestión de Recursos Humanos y Servicios Internos                                          |
+| **Prioridad**   | Media - Permite gestionar altas/bajas de empleados asegurando control de acceso; CU-RH01. |
+| **Caso de Uso** | CU-RH01                                                                                   |
 
 ## Descripción
 
@@ -1590,7 +1378,6 @@ El Administrador/Gerente podrá desactivar temporal o permanentemente la cuenta 
 - Los empleados inactivos no deben poder iniciar sesión.
 - El historial de acciones del empleado debe conservarse.
 
-
 ## Fuente
 
 Dra. Génesis / Equipo PeluDog
@@ -1600,12 +1387,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito contribuye a la digitalización y eficiencia operativa del consultorio veterinario PeluDog, mejorando la experiencia del cliente y la gestión interna de procesos.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -1623,12 +1404,11 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
-| **Módulo/Área** | Gestión de Recursos Humanos y Servicios Internos |
-| **Prioridad** | Alta - Define turnos tipo necesarios para programación; CU-RH02. |
-| **Caso de Uso** | CU-RH02 |
-
+| Campo           | Valor                                                            |
+| --------------- | ---------------------------------------------------------------- |
+| **Módulo/Área** | Gestión de Recursos Humanos y Servicios Internos                 |
+| **Prioridad**   | Alta - Define turnos tipo necesarios para programación; CU-RH02. |
+| **Caso de Uso** | CU-RH02                                                          |
 
 ## Descripción
 
@@ -1639,7 +1419,6 @@ El Administrador/Gerente podrá definir y modificar los tipos de turnos y guardi
 - El sistema debe permitir definir un nombre, hora de inicio y fin para cada tipo de turno.
 - El sistema debe permitir asociar un turno a un día específico o a un rango de fechas.
 
-
 ## Fuente
 
 Dra. Génesis / Equipo PeluDog
@@ -1649,12 +1428,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito contribuye a la digitalización y eficiencia operativa del consultorio veterinario PeluDog, mejorando la experiencia del cliente y la gestión interna de procesos.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -1672,12 +1445,11 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
-| **Módulo/Área** | Gestión de Recursos Humanos y Servicios Internos |
-| **Prioridad** | Alta - Asigna turnos a empleados, clave en planificación operativa; CU-RH02. |
-| **Caso de Uso** | CU-RH02 |
-
+| Campo           | Valor                                                                        |
+| --------------- | ---------------------------------------------------------------------------- |
+| **Módulo/Área** | Gestión de Recursos Humanos y Servicios Internos                             |
+| **Prioridad**   | Alta - Asigna turnos a empleados, clave en planificación operativa; CU-RH02. |
+| **Caso de Uso** | CU-RH02                                                                      |
 
 ## Descripción
 
@@ -1689,7 +1461,6 @@ El Administrador/Gerente podrá asignar turnos y guardias a empleados específic
 - El sistema debe mostrar posibles conflictos de horario al asignar turnos.
 - El sistema debe guardar las asignaciones de turnos.
 
-
 ## Fuente
 
 Dra. Génesis / Equipo PeluDog
@@ -1699,12 +1470,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito contribuye a la digitalización y eficiencia operativa del consultorio veterinario PeluDog, mejorando la experiencia del cliente y la gestión interna de procesos.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -1722,12 +1487,11 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
-| **Módulo/Área** | Gestión de Recursos Humanos y Servicios Internos |
-| **Prioridad** | Alta - Da visibilidad al personal de su horario, reduciendo confusión; CU-RH02. |
-| **Caso de Uso** | CU-RH02 |
-
+| Campo           | Valor                                                                           |
+| --------------- | ------------------------------------------------------------------------------- |
+| **Módulo/Área** | Gestión de Recursos Humanos y Servicios Internos                                |
+| **Prioridad**   | Alta - Da visibilidad al personal de su horario, reduciendo confusión; CU-RH02. |
+| **Caso de Uso** | CU-RH02                                                                         |
 
 ## Descripción
 
@@ -1738,7 +1502,6 @@ Cualquier empleado podrá consultar su propio horario de turnos y guardias asign
 - El sistema debe mostrar una vista de calendario con los turnos asignados al empleado.
 - Debe ser posible filtrar por semana o mes.
 
-
 ## Fuente
 
 Dra. Génesis / Equipo PeluDog
@@ -1748,12 +1511,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito contribuye a la digitalización y eficiencia operativa del consultorio veterinario PeluDog, mejorando la experiencia del cliente y la gestión interna de procesos.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -1771,12 +1528,11 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
-| **Módulo/Área** | Gestión de Recursos Humanos y Servicios Internos |
-| **Prioridad** | Media - Brinda vista global de disponibilidad para planificación; CU-RH02. |
-| **Caso de Uso** | CU-RH02 |
-
+| Campo           | Valor                                                                      |
+| --------------- | -------------------------------------------------------------------------- |
+| **Módulo/Área** | Gestión de Recursos Humanos y Servicios Internos                           |
+| **Prioridad**   | Media - Brinda vista global de disponibilidad para planificación; CU-RH02. |
+| **Caso de Uso** | CU-RH02                                                                    |
 
 ## Descripción
 
@@ -1787,7 +1543,6 @@ El Administrador/Gerente podrá consultar la disponibilidad general del personal
 - El sistema debe mostrar una vista consolidada de los turnos de todo el personal.
 - Debe ser posible filtrar por rol o por fecha.
 
-
 ## Fuente
 
 Dra. Génesis / Equipo PeluDog
@@ -1797,12 +1552,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito contribuye a la digitalización y eficiencia operativa del consultorio veterinario PeluDog, mejorando la experiencia del cliente y la gestión interna de procesos.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -1820,12 +1569,11 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
-| **Módulo/Área** | Gestión de Recursos Humanos y Servicios Internos |
-| **Prioridad** | Alta - Permite definir servicios internos que mejoran oferta clínica; CU-RH03. |
-| **Caso de Uso** | CU-RH03 |
-
+| Campo           | Valor                                                                          |
+| --------------- | ------------------------------------------------------------------------------ |
+| **Módulo/Área** | Gestión de Recursos Humanos y Servicios Internos                               |
+| **Prioridad**   | Alta - Permite definir servicios internos que mejoran oferta clínica; CU-RH03. |
+| **Caso de Uso** | CU-RH03                                                                        |
 
 ## Descripción
 
@@ -1836,7 +1584,6 @@ El Administrador/Gerente podrá definir nuevos tipos de servicios que la clínic
 - El sistema debe permitir crear un nombre y una descripción para cada servicio.
 - El sistema debe permitir activar o desactivar un servicio.
 
-
 ## Fuente
 
 Dra. Génesis / Equipo PeluDog
@@ -1846,12 +1593,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito contribuye a la digitalización y eficiencia operativa del consultorio veterinario PeluDog, mejorando la experiencia del cliente y la gestión interna de procesos.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -1869,12 +1610,11 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
-| **Módulo/Área** | Gestión de Recursos Humanos y Servicios Internos |
-| **Prioridad** | Media - Asigna responsables a servicios internos asegurando seguimiento; CU-RH03. |
-| **Caso de Uso** | CU-RH03 |
-
+| Campo           | Valor                                                                             |
+| --------------- | --------------------------------------------------------------------------------- |
+| **Módulo/Área** | Gestión de Recursos Humanos y Servicios Internos                                  |
+| **Prioridad**   | Media - Asigna responsables a servicios internos asegurando seguimiento; CU-RH03. |
+| **Caso de Uso** | CU-RH03                                                                           |
 
 ## Descripción
 
@@ -1885,7 +1625,6 @@ El Administrador/Gerente podrá asignar personal específico como responsable o 
 - El sistema debe permitir seleccionar uno o más empleados para asociarlos a un tipo de servicio.
 - Esta asignación puede influir en la visibilidad de tareas o reportes relacionados con ese servicio.
 
-
 ## Fuente
 
 Dra. Génesis / Equipo PeluDog
@@ -1895,12 +1634,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito contribuye a la digitalización y eficiencia operativa del consultorio veterinario PeluDog, mejorando la experiencia del cliente y la gestión interna de procesos.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -1918,12 +1651,11 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
-| **Módulo/Área** | Gestión de Recursos Humanos y Servicios Internos |
-| **Prioridad** | Baja - Ofrece inventario de servicios activos para control y reporte; CU-RH03. |
-| **Caso de Uso** | CU-RH03 |
-
+| Campo           | Valor                                                                          |
+| --------------- | ------------------------------------------------------------------------------ |
+| **Módulo/Área** | Gestión de Recursos Humanos y Servicios Internos                               |
+| **Prioridad**   | Baja - Ofrece inventario de servicios activos para control y reporte; CU-RH03. |
+| **Caso de Uso** | CU-RH03                                                                        |
 
 ## Descripción
 
@@ -1932,7 +1664,6 @@ El Administrador/Gerente podrá consultar la lista de servicios internos que la 
 ## Criterios de Aceptación
 
 - El sistema debe mostrar una lista de todos los servicios internos con su estado (activo/inactivo) y descripción.
-
 
 ## Fuente
 
@@ -1943,12 +1674,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito contribuye a la digitalización y eficiencia operativa del consultorio veterinario PeluDog, mejorando la experiencia del cliente y la gestión interna de procesos.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -1966,12 +1691,11 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
-| **Módulo/Área** | Gestión de Pagos y Facturación |
-| **Prioridad** | Alta - Registra ingresos de manera formal y asocia servicios, base financiera; CU-PG01. |
-| **Caso de Uso** | CU-PG01 |
-
+| Campo           | Valor                                                                                   |
+| --------------- | --------------------------------------------------------------------------------------- |
+| **Módulo/Área** | Gestión de Pagos y Facturación                                                          |
+| **Prioridad**   | Alta - Registra ingresos de manera formal y asocia servicios, base financiera; CU-PG01. |
+| **Caso de Uso** | CU-PG01                                                                                 |
 
 ## Descripción
 
@@ -1986,7 +1710,6 @@ El Asistente podrá registrar un pago recibido de un cliente, asociándolo a uno
 - El sistema debe validar que el monto pagado sea consistente con el total a pagar (o registrar un saldo pendiente/a favor).
 - Al guardar, el pago debe registrarse en la base de datos.
 
-
 ## Fuente
 
 Dra. Génesis / Equipo PeluDog
@@ -1996,12 +1719,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito contribuye a la digitalización y eficiencia operativa del consultorio veterinario PeluDog, mejorando la experiencia del cliente y la gestión interna de procesos.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -2019,12 +1736,11 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
-| **Módulo/Área** | Gestión de Pagos y Facturación |
-| **Prioridad** | Alta - Genera notas de pago para transparencia con clientes; CU-PG01. |
-| **Caso de Uso** | CU-PG01 |
-
+| Campo           | Valor                                                                 |
+| --------------- | --------------------------------------------------------------------- |
+| **Módulo/Área** | Gestión de Pagos y Facturación                                        |
+| **Prioridad**   | Alta - Genera notas de pago para transparencia con clientes; CU-PG01. |
+| **Caso de Uso** | CU-PG01                                                               |
 
 ## Descripción
 
@@ -2035,7 +1751,6 @@ El sistema debe poder generar un comprobante o recibo de pago para el cliente.
 - El comprobante debe incluir detalles del consultorio, fecha, monto, método de pago, y los servicios/productos pagados.
 - El comprobante debe ser imprimible (ej. PDF).
 
-
 ## Fuente
 
 Dra. Génesis / Equipo PeluDog
@@ -2045,12 +1760,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito contribuye a la digitalización y eficiencia operativa del consultorio veterinario PeluDog, mejorando la experiencia del cliente y la gestión interna de procesos.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -2068,12 +1777,11 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
-| **Módulo/Área** | Gestión de Pagos y Facturación |
-| **Prioridad** | Alta - Permite rastrear pagos por cliente, apoyo a atención y cobranza; CU-PG02. |
-| **Caso de Uso** | CU-PG02 |
-
+| Campo           | Valor                                                                            |
+| --------------- | -------------------------------------------------------------------------------- |
+| **Módulo/Área** | Gestión de Pagos y Facturación                                                   |
+| **Prioridad**   | Alta - Permite rastrear pagos por cliente, apoyo a atención y cobranza; CU-PG02. |
+| **Caso de Uso** | CU-PG02                                                                          |
 
 ## Descripción
 
@@ -2084,7 +1792,6 @@ El Asistente o Administrador/Gerente podrá consultar todos los pagos realizados
 - El sistema debe permitir buscar pagos asociados a un cliente o mascota.
 - Los resultados deben mostrar la fecha, monto, servicios/productos pagados y método de pago.
 
-
 ## Fuente
 
 Dra. Génesis / Equipo PeluDog
@@ -2094,12 +1801,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito contribuye a la digitalización y eficiencia operativa del consultorio veterinario PeluDog, mejorando la experiencia del cliente y la gestión interna de procesos.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -2117,12 +1818,11 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
-| **Módulo/Área** | Gestión de Pagos y Facturación |
-| **Prioridad** | Media - Facilita análisis histórico de ingresos por fechas/servicios; CU-PG02. |
-| **Caso de Uso** | CU-PG02 |
-
+| Campo           | Valor                                                                          |
+| --------------- | ------------------------------------------------------------------------------ |
+| **Módulo/Área** | Gestión de Pagos y Facturación                                                 |
+| **Prioridad**   | Media - Facilita análisis histórico de ingresos por fechas/servicios; CU-PG02. |
+| **Caso de Uso** | CU-PG02                                                                        |
 
 ## Descripción
 
@@ -2133,7 +1833,6 @@ El Administrador/Gerente podrá consultar pagos filtrados por rango de fechas o 
 - El sistema debe permitir filtrar pagos por un rango de fechas.
 - El sistema debe permitir filtrar pagos por uno o varios tipos de servicio/producto.
 
-
 ## Fuente
 
 Dra. Génesis / Equipo PeluDog
@@ -2143,12 +1842,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito contribuye a la digitalización y eficiencia operativa del consultorio veterinario PeluDog, mejorando la experiencia del cliente y la gestión interna de procesos.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -2166,12 +1859,11 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
-| **Módulo/Área** | Gestión de Pagos y Facturación |
-| **Prioridad** | Media - Empodera al cliente a revisar sus pagos, fomentando confianza; CU-PG02. |
-| **Caso de Uso** | CU-PG02 |
-
+| Campo           | Valor                                                                           |
+| --------------- | ------------------------------------------------------------------------------- |
+| **Módulo/Área** | Gestión de Pagos y Facturación                                                  |
+| **Prioridad**   | Media - Empodera al cliente a revisar sus pagos, fomentando confianza; CU-PG02. |
+| **Caso de Uso** | CU-PG02                                                                         |
 
 ## Descripción
 
@@ -2182,7 +1874,6 @@ El Cliente/Propietario de Mascota podrá consultar su propio historial de pagos 
 - El sistema debe mostrar al Cliente/Propietario una lista de sus pagos realizados, con fecha, monto y concepto.
 - El sistema debe permitir al Cliente/Propietario visualizar y/o descargar las facturas o comprobantes asociados a sus pagos.
 
-
 ## Fuente
 
 Dra. Génesis / Equipo PeluDog
@@ -2192,12 +1883,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito contribuye a la digitalización y eficiencia operativa del consultorio veterinario PeluDog, mejorando la experiencia del cliente y la gestión interna de procesos.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -2215,12 +1900,11 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
-| **Módulo/Área** | Gestión de Pagos y Facturación |
-| **Prioridad** | Alta - Provee reportes de ingresos para decisiones financieras; CU-PG03. |
-| **Caso de Uso** | CU-PG03 |
-
+| Campo           | Valor                                                                    |
+| --------------- | ------------------------------------------------------------------------ |
+| **Módulo/Área** | Gestión de Pagos y Facturación                                           |
+| **Prioridad**   | Alta - Provee reportes de ingresos para decisiones financieras; CU-PG03. |
+| **Caso de Uso** | CU-PG03                                                                  |
 
 ## Descripción
 
@@ -2232,7 +1916,6 @@ El sistema debe poder generar reportes de ingresos consolidados por períodos (d
 - El reporte puede desglosar los ingresos por tipo de servicio/producto o método de pago.
 - El reporte debe ser exportable (ej. CSV, PDF).
 
-
 ## Fuente
 
 Dra. Génesis / Equipo PeluDog
@@ -2242,12 +1925,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito contribuye a la digitalización y eficiencia operativa del consultorio veterinario PeluDog, mejorando la experiencia del cliente y la gestión interna de procesos.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -2267,8 +1944,8 @@ Este requisito contribuye a la digitalización y eficiencia operativa del consul
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
+| Campo         | Valor      |
+| ------------- | ---------- |
 | **Categoría** | Usabilidad |
 
 ## Descripción
@@ -2284,12 +1961,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito no funcional asegura la calidad, rendimiento y confiabilidad del sistema CRM, contribuyendo a una experiencia de usuario óptima y operaciones estables del consultorio.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -2307,8 +1978,8 @@ Este requisito no funcional asegura la calidad, rendimiento y confiabilidad del 
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
+| Campo         | Valor      |
+| ------------- | ---------- |
 | **Categoría** | Usabilidad |
 
 ## Descripción
@@ -2324,12 +1995,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito no funcional asegura la calidad, rendimiento y confiabilidad del sistema CRM, contribuyendo a una experiencia de usuario óptima y operaciones estables del consultorio.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -2347,8 +2012,8 @@ Este requisito no funcional asegura la calidad, rendimiento y confiabilidad del 
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
+| Campo         | Valor      |
+| ------------- | ---------- |
 | **Categoría** | Usabilidad |
 
 ## Descripción
@@ -2364,12 +2029,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito no funcional asegura la calidad, rendimiento y confiabilidad del sistema CRM, contribuyendo a una experiencia de usuario óptima y operaciones estables del consultorio.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -2387,8 +2046,8 @@ Este requisito no funcional asegura la calidad, rendimiento y confiabilidad del 
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
+| Campo         | Valor      |
+| ------------- | ---------- |
 | **Categoría** | Usabilidad |
 
 ## Descripción
@@ -2404,12 +2063,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito no funcional asegura la calidad, rendimiento y confiabilidad del sistema CRM, contribuyendo a una experiencia de usuario óptima y operaciones estables del consultorio.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -2427,8 +2080,8 @@ Este requisito no funcional asegura la calidad, rendimiento y confiabilidad del 
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
+| Campo         | Valor                       |
+| ------------- | --------------------------- |
 | **Categoría** | Rendimiento y Escalabilidad |
 
 ## Descripción
@@ -2444,12 +2097,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito no funcional asegura la calidad, rendimiento y confiabilidad del sistema CRM, contribuyendo a una experiencia de usuario óptima y operaciones estables del consultorio.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -2467,8 +2114,8 @@ Este requisito no funcional asegura la calidad, rendimiento y confiabilidad del 
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
+| Campo         | Valor                       |
+| ------------- | --------------------------- |
 | **Categoría** | Rendimiento y Escalabilidad |
 
 ## Descripción
@@ -2484,12 +2131,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito no funcional asegura la calidad, rendimiento y confiabilidad del sistema CRM, contribuyendo a una experiencia de usuario óptima y operaciones estables del consultorio.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -2507,8 +2148,8 @@ Este requisito no funcional asegura la calidad, rendimiento y confiabilidad del 
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
+| Campo         | Valor                       |
+| ------------- | --------------------------- |
 | **Categoría** | Rendimiento y Escalabilidad |
 
 ## Descripción
@@ -2524,12 +2165,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito no funcional asegura la calidad, rendimiento y confiabilidad del sistema CRM, contribuyendo a una experiencia de usuario óptima y operaciones estables del consultorio.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -2547,8 +2182,8 @@ Este requisito no funcional asegura la calidad, rendimiento y confiabilidad del 
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
+| Campo         | Valor                       |
+| ------------- | --------------------------- |
 | **Categoría** | Rendimiento y Escalabilidad |
 
 ## Descripción
@@ -2564,12 +2199,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito no funcional asegura la calidad, rendimiento y confiabilidad del sistema CRM, contribuyendo a una experiencia de usuario óptima y operaciones estables del consultorio.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -2587,8 +2216,8 @@ Este requisito no funcional asegura la calidad, rendimiento y confiabilidad del 
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
+| Campo         | Valor                       |
+| ------------- | --------------------------- |
 | **Categoría** | Disponibilidad y Fiabilidad |
 
 ## Descripción
@@ -2604,12 +2233,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito no funcional asegura la calidad, rendimiento y confiabilidad del sistema CRM, contribuyendo a una experiencia de usuario óptima y operaciones estables del consultorio.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -2627,8 +2250,8 @@ Este requisito no funcional asegura la calidad, rendimiento y confiabilidad del 
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
+| Campo         | Valor                       |
+| ------------- | --------------------------- |
 | **Categoría** | Disponibilidad y Fiabilidad |
 
 ## Descripción
@@ -2644,12 +2267,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito no funcional asegura la calidad, rendimiento y confiabilidad del sistema CRM, contribuyendo a una experiencia de usuario óptima y operaciones estables del consultorio.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -2667,8 +2284,8 @@ Este requisito no funcional asegura la calidad, rendimiento y confiabilidad del 
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
+| Campo         | Valor                       |
+| ------------- | --------------------------- |
 | **Categoría** | Disponibilidad y Fiabilidad |
 
 ## Descripción
@@ -2684,12 +2301,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito no funcional asegura la calidad, rendimiento y confiabilidad del sistema CRM, contribuyendo a una experiencia de usuario óptima y operaciones estables del consultorio.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -2707,8 +2318,8 @@ Este requisito no funcional asegura la calidad, rendimiento y confiabilidad del 
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
+| Campo         | Valor                       |
+| ------------- | --------------------------- |
 | **Categoría** | Disponibilidad y Fiabilidad |
 
 ## Descripción
@@ -2724,12 +2335,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito no funcional asegura la calidad, rendimiento y confiabilidad del sistema CRM, contribuyendo a una experiencia de usuario óptima y operaciones estables del consultorio.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -2747,8 +2352,8 @@ Este requisito no funcional asegura la calidad, rendimiento y confiabilidad del 
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
+| Campo         | Valor                       |
+| ------------- | --------------------------- |
 | **Categoría** | Disponibilidad y Fiabilidad |
 
 ## Descripción
@@ -2764,12 +2369,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito no funcional asegura la calidad, rendimiento y confiabilidad del sistema CRM, contribuyendo a una experiencia de usuario óptima y operaciones estables del consultorio.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -2787,8 +2386,8 @@ Este requisito no funcional asegura la calidad, rendimiento y confiabilidad del 
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
+| Campo         | Valor     |
+| ------------- | --------- |
 | **Categoría** | Seguridad |
 
 ## Descripción
@@ -2804,12 +2403,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito no funcional asegura la calidad, rendimiento y confiabilidad del sistema CRM, contribuyendo a una experiencia de usuario óptima y operaciones estables del consultorio.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -2827,8 +2420,8 @@ Este requisito no funcional asegura la calidad, rendimiento y confiabilidad del 
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
+| Campo         | Valor     |
+| ------------- | --------- |
 | **Categoría** | Seguridad |
 
 ## Descripción
@@ -2844,12 +2437,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito no funcional asegura la calidad, rendimiento y confiabilidad del sistema CRM, contribuyendo a una experiencia de usuario óptima y operaciones estables del consultorio.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -2867,8 +2454,8 @@ Este requisito no funcional asegura la calidad, rendimiento y confiabilidad del 
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
+| Campo         | Valor     |
+| ------------- | --------- |
 | **Categoría** | Seguridad |
 
 ## Descripción
@@ -2884,12 +2471,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito no funcional asegura la calidad, rendimiento y confiabilidad del sistema CRM, contribuyendo a una experiencia de usuario óptima y operaciones estables del consultorio.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -2907,8 +2488,8 @@ Este requisito no funcional asegura la calidad, rendimiento y confiabilidad del 
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
+| Campo         | Valor     |
+| ------------- | --------- |
 | **Categoría** | Seguridad |
 
 ## Descripción
@@ -2924,12 +2505,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito no funcional asegura la calidad, rendimiento y confiabilidad del sistema CRM, contribuyendo a una experiencia de usuario óptima y operaciones estables del consultorio.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -2947,8 +2522,8 @@ Este requisito no funcional asegura la calidad, rendimiento y confiabilidad del 
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
+| Campo         | Valor     |
+| ------------- | --------- |
 | **Categoría** | Seguridad |
 
 ## Descripción
@@ -2964,12 +2539,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito no funcional asegura la calidad, rendimiento y confiabilidad del sistema CRM, contribuyendo a una experiencia de usuario óptima y operaciones estables del consultorio.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -2987,8 +2556,8 @@ Este requisito no funcional asegura la calidad, rendimiento y confiabilidad del 
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
+| Campo         | Valor                           |
+| ------------- | ------------------------------- |
 | **Categoría** | Mantenibilidad y Compatibilidad |
 
 ## Descripción
@@ -3004,12 +2573,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito no funcional asegura la calidad, rendimiento y confiabilidad del sistema CRM, contribuyendo a una experiencia de usuario óptima y operaciones estables del consultorio.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -3027,8 +2590,8 @@ Este requisito no funcional asegura la calidad, rendimiento y confiabilidad del 
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
+| Campo         | Valor                           |
+| ------------- | ------------------------------- |
 | **Categoría** | Mantenibilidad y Compatibilidad |
 
 ## Descripción
@@ -3044,12 +2607,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito no funcional asegura la calidad, rendimiento y confiabilidad del sistema CRM, contribuyendo a una experiencia de usuario óptima y operaciones estables del consultorio.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -3067,8 +2624,8 @@ Este requisito no funcional asegura la calidad, rendimiento y confiabilidad del 
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
+| Campo         | Valor                           |
+| ------------- | ------------------------------- |
 | **Categoría** | Mantenibilidad y Compatibilidad |
 
 ## Descripción
@@ -3084,12 +2641,6 @@ Dra. Génesis / Equipo PeluDog
 Este requisito no funcional asegura la calidad, rendimiento y confiabilidad del sistema CRM, contribuyendo a una experiencia de usuario óptima y operaciones estables del consultorio.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 <div class="page-break"></div>
 
@@ -3107,8 +2658,8 @@ Este requisito no funcional asegura la calidad, rendimiento y confiabilidad del 
 
 ### Metadatos
 
-| Campo | Valor |
-|-------|-------|
+| Campo         | Valor                           |
+| ------------- | ------------------------------- |
 | **Categoría** | Mantenibilidad y Compatibilidad |
 
 ## Descripción
@@ -3124,11 +2675,5 @@ Dra. Génesis / Equipo PeluDog
 Este requisito no funcional asegura la calidad, rendimiento y confiabilidad del sistema CRM, contribuyendo a una experiencia de usuario óptima y operaciones estables del consultorio.
 
 ---
-
-<div class="footer">
-
-*Plantilla Volere - Proyecto Socio Tecnologico: Plataforma CRM para PeluDog*
-
-</div>
 
 </div>

@@ -6,8 +6,7 @@ Este documento describe la arquitectura técnica inicial propuesta para el siste
 
 La elección de tecnologías busca un equilibrio entre madurez, productividad de desarrollo y un ecosistema sólido que facilite la implementación de las funcionalidades requeridas.
 
-![Arquitectura de Contenedores](../../Imagenes/ArquitecturaContenedores.png)
-_Diagrama conceptual de la arquitectura de contenedores._
+![Arquitectura Tentativa](../Imagenes/arcTentativa.png)
 
 ---
 

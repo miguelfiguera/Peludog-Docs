@@ -10,7 +10,7 @@
 
 - Yuly Delgado
 
-**Fecha del último commit:** sábado, 12 de julio de 2025
+**Fecha del último commit:** domingo, 13 de julio de 2025
 
 ## Introducción
 
@@ -18,14 +18,29 @@ Este proyecto documenta el desarrollo de un Sistema de Gestión de Relaciones co
 
 La propuesta plantea desarrollar un sistema CRM integral para el consultorio veterinario PeluDog, ubicado en La Mora I (La Victoria, Aragua), con el fin de digitalizar la gestión de citas, historias clínicas, vacunaciones, comunicaciones y pagos. El diagnóstico participativo detecta ineficiencias en los procesos manuales actuales y define como prioridad automatizar la agenda y los registros médicos.
 
-## Documentos Principales
+## Documento Principal
 
-- **[Documento de Requisitos](./DocumentosSeparados/DocumentoDeRequisitos/DocumentoDeRequisitos.md):** Contiene la especificación completa de los requisitos funcionales y no funcionales del sistema.
-- **[Modelado de la Aplicación](./DocumentosSeparados/ModeladoDelDominioDeLaAplicacion/ModeladoDeDominioDeLaAplicacion.md):** Describe el modelo del dominio, los procesos de negocio, los actores y los objetos de negocio del sistema.
+- **[PST - Plataforma de Gestión CRM PeluDog](./DocumentoCompleto/PST-PlataformaDeGestionCRMPeluDog.pdf):** Este documento contiene el trabajo completo y consolidado del proyecto hasta la fecha.
 
 ## Estructura del Repositorio
 
 Este repositorio funciona como un índice para la documentación del proyecto. A continuación se describe el contenido de cada directorio principal:
+
+### [DocumentoCompleto/](./DocumentoCompleto/)
+
+Contiene el documento completo del proyecto en formato PDF y Markdown.
+
+- **[PST-PlataformaDeGestionCRMPeluDog.pdf](./DocumentoCompleto/PST-PlataformaDeGestionCRMPeluDog.pdf)**
+- **[pst-app-crm-peludog.md](./DocumentoCompleto/pst-app-crm-peludog.md)**
+
+### [Impresion/](./Impresion/)
+
+Contiene las versiones en PDF de los documentos principales para su fácil impresión y visualización.
+
+- **[DocumentoDeRequisitos.pdf](./Impresion/DocumentoDeRequisitos.pdf)**
+- **[ModeladoDeLaAplicacion.pdf](./Impresion/ModeladoDeLaAplicacion.pdf)**
+- **[pst-app-crm-peludog.pdf](./Impresion/pst-app-crm-peludog.pdf)**
+- **[todas_plantillas_volere.pdf](./Impresion/todas_plantillas_volere.pdf)**
 
 ### [DocumentosSeparados/](./DocumentosSeparados/)
 
@@ -42,13 +57,6 @@ Aloja todos los diagramas, gráficos e imágenes utilizados en la documentación
 ### [plantillasVolere/](./plantillasVolere/)
 
 Contiene todas las plantillas de requisitos, inspiradas en el enfoque Volere, redactadas en formato Markdown.
-
-### [Impresion/](./Impresion/)
-
-Contiene las versiones en PDF de los documentos principales para su fácil impresión y visualización.
-
-- **[DocumentoDeRequisitos.pdf](./Impresion/DocumentoDeRequisitos.pdf)**
-- **[ModeladoDeLaAplicacion.pdf](./Impresion/ModeladoDeLaAplicacion.pdf)**
 
 ## Índice de Diagramas
 

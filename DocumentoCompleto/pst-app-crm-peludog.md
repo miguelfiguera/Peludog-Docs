@@ -1569,7 +1569,7 @@ El siguiente diagrama muestra una visión consolidada de los principales casos d
 
 #### **Módulo: Autenticación y Gestión de Usuarios**
 
-![Autenticación de Usuarios](../Imagenes/CasosDeUso/autenticacionUsuarios.png)
+![Autenticación de Usuarios](../Imagenes/CasosDeUso/AutenticacionDeUsuarios.png)
 
 **CU-AU01: Autenticar Usuario**
 
@@ -1611,12 +1611,6 @@ El siguiente diagrama muestra una visión consolidada de los principales casos d
 ![FA-AU01-02](../Imagenes/FlujosAlternativosCasosDeUso/FA-AU01-02.png)
 
 <div style="page-break-after: always;"></div>
-
-![FA-AU01-03](../Imagenes/FlujosAlternativosCasosDeUso/FA-AU01-03.png)
-
-<div style="page-break-after: always;"></div>
-
-![FA-AU01-04](../Imagenes/FlujosAlternativosCasosDeUso/FA-AU01-04.png)
 
 #### **Módulo: Atención Clínica**
 

@@ -29,25 +29,9 @@ interface {
 title Estructura de Componentes - Landing Page y Acceso Público
 
 frame "Landing Page" {
-  component [
-    **Página Principal (Home)**
-    ----
-    Pantalla de bienvenida y navegación principal.
-  ] as Home
-
-  component [
-    **Agendamiento de Citas**
-    ----
-    Flujo para que clientes nuevos o existentes
-    reserven una cita.
-  ] as Agendamiento
-
-  component [
-    **Login / Registro**
-    ----
-    Acceso para clientes existentes y
-    registro para nuevos usuarios.
-  ] as Auth
+  component "**Página Principal (Home)**\n----\nPantalla de bienvenida y navegación principal." as Home
+  component "**Agendamiento de Citas**\n----\nFlujo para que clientes nuevos o existentes\nreserven una cita." as Agendamiento
+  component "**Login / Registro**\n----\nAcceso para clientes existentes y\nregistro para nuevos usuarios." as Auth
 
   Home -- Agendamiento
   Home -- Auth

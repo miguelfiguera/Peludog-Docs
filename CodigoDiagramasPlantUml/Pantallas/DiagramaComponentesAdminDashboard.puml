@@ -11,7 +11,7 @@ frame {
   BorderColor #1565C0
   FontName Arial
 }
-component {
+rectangle {
     BackgroundColor #FFFFFF
     BorderColor #1565C0
     FontColor #1A237E
@@ -23,41 +23,12 @@ component {
 title Estructura de Componentes - Admin Dashboard
 
 frame "Admin Dashboard" {
-  component [
-    **Vista General**
-    ----
-    Métricas clave y accesos directos.
-  ] as Dashboard
-
-  component [
-    **Gestión de Personal**
-    ----
-    Administración de empleados y roles.
-  ] as RRHH
-
-  component [
-    **Gestión de Turnos**
-    ----
-    Planificación de horarios y guardias.
-  ] as Turnos
-
-  component [
-    **Gestión Financiera**
-    ----
-    Consulta de pagos y reportes.
-  ] as Finanzas
-
-  component [
-    **Gestión de Servicios**
-    ----
-    Configuración de los servicios de la clínica.
-  ] as Servicios
-
-  component [
-    **Gestión de Contenido**
-    ----
-    Administración de anuncios para la Landing Page.
-  ] as Contenido
+  rectangle "**Vista General**\n----\nMétricas clave y accesos directos." as Dashboard
+  rectangle "**Gestión de Personal**\n----\nAdministración de empleados y roles." as RRHH
+  rectangle "**Gestión de Turnos**\n----\nPlanificación de horarios y guardias." as Turnos
+  rectangle "**Gestión Financiera**\n----\nConsulta de pagos y reportes." as Finanzas
+  rectangle "**Gestión de Servicios**\n----\nConfiguración de los servicios de la clínica." as Servicios
+  rectangle "**Gestión de Contenido**\n----\nAdministración de anuncios para la Landing Page." as Contenido
 
   Dashboard -- RRHH
   Dashboard -- Turnos

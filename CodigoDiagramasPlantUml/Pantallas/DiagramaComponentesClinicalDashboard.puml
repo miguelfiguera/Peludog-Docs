@@ -23,41 +23,12 @@ component {
 title Estructura de Componentes - Dashboard Clínico
 
 frame "Dashboard Clínico (Veterinario/Asistente)" {
-  component [
-    **Agenda y Citas**
-    ----
-    Visualización y gestión de la agenda diaria.
-  ] as Agenda
-
-  component [
-    **Gestión de Pacientes**
-    ----
-    Búsqueda y administración de clientes y mascotas.
-  ] as Pacientes
-
-  component [
-    **Historial Clínico**
-    ----
-    Consulta detallada del historial de una mascota.
-  ] as Historial
-
-  component [
-    **Registro de Consulta**
-    ----
-    Formulario para registrar una nueva atención clínica.
-  ] as Consulta
-
-  component [
-    **Registro de Pagos**
-    ----
-    Gestión de pagos y generación de comprobantes.
-  ] as Pagos
-
-  component [
-    **Emisión de Reportes**
-    ----
-    Generación de informes para referencias.
-  ] as Reportes
+  component "**Agenda y Citas**\n----\nVisualización y gestión de la agenda diaria." as Agenda
+  component "**Gestión de Pacientes**\n----\nBúsqueda y administración de clientes y mascotas." as Pacientes
+  component "**Historial Clínico**\n----\nConsulta detallada del historial de una mascota." as Historial
+  component "**Registro de Consulta**\n----\nFormulario para registrar una nueva atención clínica." as Consulta
+  component "**Registro de Pagos**\n----\nGestión de pagos y generación de comprobantes." as Pagos
+  component "**Emisión de Reportes**\n----\nGeneración de informes para referencias." as Reportes
 
   Agenda -- Pacientes
   Pacientes -- Historial

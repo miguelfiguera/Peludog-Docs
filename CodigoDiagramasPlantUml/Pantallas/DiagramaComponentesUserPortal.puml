@@ -1,0 +1,41 @@
+@startuml
+!theme plain
+
+<style>
+title {
+  FontSize 20
+  FontColor #333333
+}
+frame {
+  BackgroundColor #E3F2FD
+  BorderColor #1565C0
+  FontName Arial
+}
+component {
+    BackgroundColor #FFFFFF
+    BorderColor #1565C0
+    FontColor #1A237E
+    roundCorner 15
+    shadowing true
+}
+</style>
+
+title Estructura de Componentes - Portal del Cliente
+
+frame "Espacio de Usuario" {
+  component "**Mi Perfil**\n----\nActualización de datos personales." as Perfil
+  component "**Mis Mascotas**\n----\nGestión de la información de las mascotas." as Mascotas
+  component "**Mis Citas**\n----\nConsulta y gestión de citas agendadas." as Citas
+  component "**Historial de Pagos**\n----\nConsulta de pagos y descarga de facturas." as Pagos
+
+  Perfil -- Mascotas
+  Mascotas -- Citas
+  Citas -- Pagos
+}
+
+note bottom of Mascotas
+  Permite al cliente registrar
+  una nueva mascota directamente
+  desde su portal.
+end note
+@enduml

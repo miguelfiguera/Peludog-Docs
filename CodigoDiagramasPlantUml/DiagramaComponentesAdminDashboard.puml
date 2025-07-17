@@ -1,0 +1,79 @@
+@startuml
+!theme plain
+
+<style>
+title {
+  FontSize 20
+  FontColor #333333
+}
+frame {
+  BackgroundColor #E3F2FD
+  BorderColor #1565C0
+  FontName Arial
+}
+component {
+    BackgroundColor #FFFFFF
+    BorderColor #1565C0
+    FontColor #1A237E
+    roundCorner 15
+    shadowing true
+}
+</style>
+
+title Estructura de Componentes - Admin Dashboard
+
+frame "Admin Dashboard" {
+  component [
+    **Vista General**
+    ----
+    Métricas clave y accesos directos.
+  ] as Dashboard
+
+  component [
+    **Gestión de Personal**
+    ----
+    Administración de empleados y roles.
+  ] as RRHH
+
+  component [
+    **Gestión de Turnos**
+    ----
+    Planificación de horarios y guardias.
+  ] as Turnos
+
+  component [
+    **Gestión Financiera**
+    ----
+    Consulta de pagos y reportes.
+  ] as Finanzas
+
+  component [
+    **Gestión de Servicios**
+    ----
+    Configuración de los servicios de la clínica.
+  ] as Servicios
+
+  component [
+    **Gestión de Contenido**
+    ----
+    Administración de anuncios para la Landing Page.
+  ] as Contenido
+
+  Dashboard -- RRHH
+  Dashboard -- Turnos
+  Dashboard -- Finanzas
+  Dashboard -- Servicios
+  Dashboard -- Contenido
+}
+
+note bottom of Finanzas
+  Genera reportes de ingresos
+  y consulta el historial de pagos.
+end note
+
+note top of Contenido
+  Permite al administrador
+  actualizar las promociones
+  visibles en la página pública.
+end note
+@enduml

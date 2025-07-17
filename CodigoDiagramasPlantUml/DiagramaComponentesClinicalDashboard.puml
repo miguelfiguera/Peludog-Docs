@@ -1,0 +1,80 @@
+@startuml
+!theme plain
+
+<style>
+title {
+  FontSize 20
+  FontColor #333333
+}
+frame {
+  BackgroundColor #E3F2FD
+  BorderColor #1565C0
+  FontName Arial
+}
+component {
+    BackgroundColor #FFFFFF
+    BorderColor #1565C0
+    FontColor #1A237E
+    roundCorner 15
+    shadowing true
+}
+</style>
+
+title Estructura de Componentes - Dashboard Clínico
+
+frame "Dashboard Clínico (Veterinario/Asistente)" {
+  component [
+    **Agenda y Citas**
+    ----
+    Visualización y gestión de la agenda diaria.
+  ] as Agenda
+
+  component [
+    **Gestión de Pacientes**
+    ----
+    Búsqueda y administración de clientes y mascotas.
+  ] as Pacientes
+
+  component [
+    **Historial Clínico**
+    ----
+    Consulta detallada del historial de una mascota.
+  ] as Historial
+
+  component [
+    **Registro de Consulta**
+    ----
+    Formulario para registrar una nueva atención clínica.
+  ] as Consulta
+
+  component [
+    **Registro de Pagos**
+    ----
+    Gestión de pagos y generación de comprobantes.
+  ] as Pagos
+
+  component [
+    **Emisión de Reportes**
+    ----
+    Generación de informes para referencias.
+  ] as Reportes
+
+  Agenda -- Pacientes
+  Pacientes -- Historial
+  Historial -- Consulta
+  Consulta -- Pagos
+  Historial -- Reportes
+}
+
+note right of Historial
+  Incluye widget de estado de vacunas
+  y resumen de datos vitales.
+end note
+
+note bottom of Reportes
+  Permite exportar en JSON/CSV o PDF.
+  Presenta una vista de doble panel para
+  redactar el informe mientras se consulta
+  el historial.
+end note
+@enduml

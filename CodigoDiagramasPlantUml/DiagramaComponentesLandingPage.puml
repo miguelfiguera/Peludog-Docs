@@ -1,0 +1,77 @@
+@startuml
+!theme plain
+
+<style>
+title {
+  FontSize 20
+  FontColor #333333
+}
+frame {
+  BackgroundColor #E3F2FD
+  BorderColor #1565C0
+  FontName Arial
+}
+component {
+    BackgroundColor #FFFFFF
+    BorderColor #1565C0
+    FontColor #1A237E
+    roundCorner 15
+    shadowing true
+}
+interface {
+    BackgroundColor #CFD8DC
+    BorderColor #37474F
+    FontColor #263238
+    roundCorner 20
+}
+</style>
+
+title Estructura de Componentes - Landing Page y Acceso Público
+
+frame "Landing Page" {
+  component [
+    **Página Principal (Home)**
+    ----
+    Pantalla de bienvenida y navegación principal.
+  ] as Home
+
+  component [
+    **Agendamiento de Citas**
+    ----
+    Flujo para que clientes nuevos o existentes
+    reserven una cita.
+  ] as Agendamiento
+
+  component [
+    **Login / Registro**
+    ----
+    Acceso para clientes existentes y
+    registro para nuevos usuarios.
+  ] as Auth
+
+  Home -- Agendamiento
+  Home -- Auth
+}
+
+package "Funcionalidades Principales" {
+  interface "Sección 'Quiénes Somos'" as QuienesSomos
+  interface "Sección 'Anuncios y Promociones'" as Promociones
+  interface "Formulario de Agendamiento" as FormCita
+  interface "Consulta de Disponibilidad" as Disponibilidad
+  interface "Formulario de Login" as FormLogin
+  interface "Formulario de Registro" as FormRegistro
+}
+
+Home -- QuienesSomos
+Home -- Promociones
+Agendamiento -- FormCita
+Agendamiento -- Disponibilidad
+Auth -- FormLogin
+Auth -- FormRegistro
+
+note right of Agendamiento
+  Permite agendar sin estar logueado.
+  El sistema puede crear un cliente
+  básico durante el proceso.
+end note
+@enduml

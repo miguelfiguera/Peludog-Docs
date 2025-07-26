@@ -18,6 +18,10 @@ Este proyecto documenta el desarrollo de un Sistema de Gestión de Relaciones co
 
 La propuesta plantea desarrollar un sistema CRM integral para el consultorio veterinario PeluDog, ubicado en La Mora I (La Victoria, Aragua), con el fin de digitalizar la gestión de citas, historias clínicas, vacunaciones, comunicaciones y pagos. El diagnóstico participativo detecta ineficiencias en los procesos manuales actuales y define como prioridad automatizar la agenda y los registros médicos.
 
+## Mockups
+
+- **[Landing Page](https://crm-landing-mockup-peludog.netlify.app/):** Mockup de la página de inicio.
+
 ## Documento Principal
 
 - **[PST - Plataforma de Gestión CRM PeluDog](./DocumentoCompleto/PST-PlataformaDeGestionCRMPeluDog.pdf):** Este documento contiene el trabajo completo y consolidado del proyecto hasta la fecha.

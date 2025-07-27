@@ -21,6 +21,7 @@ La propuesta plantea desarrollar un sistema CRM integral para el consultorio vet
 ## Mockups
 
 - **[Landing Page](https://crm-landing-mockup-peludog.netlify.app/):** Mockup de la página de inicio.
+- **[Dashboard](https://vet-dashboard-mockup.netlify.app/):** Mockup del dashboard.
 
 ## Documento Principal
 

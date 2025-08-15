@@ -49,7 +49,13 @@ Contiene las versiones en PDF de los documentos principales para su fácil impre
 
 ### [DocumentosSeparados/](./DocumentosSeparados/)
 
-Alberga los documentos que describen cada una de las partes del proyecto de forma individual, incluyendo el documento de requisitos y el de modelado de la aplicación.
+Alberga los documentos que describen cada una de las partes del proyecto de forma individual, incluyendo el documento de requisitos, modelado de la aplicación y arquitectura técnica.
+
+#### Documentos de Arquitectura Técnica
+
+- **[ArquitecturaEstablecida.md](./DocumentosSeparados/ArquitecturaEstablecida.md)** - Arquitectura técnica completa del sistema, estrategias de escalamiento vertical y horizontal
+- **[AnexosArquitectura.md](./DocumentosSeparados/AnexosArquitectura.md)** - Configuraciones técnicas, código y ejemplos de implementación
+- **[EnvsTemplate.md](./DocumentosSeparados/EnvsTemplate.md)** - Variables de entorno para MVP y desarrollo
 
 ### [CodigoDiagramasPlantUml/](./CodigoDiagramasPlantUml/)
 

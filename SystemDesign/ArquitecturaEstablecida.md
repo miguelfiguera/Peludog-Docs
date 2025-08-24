@@ -84,9 +84,47 @@ El sistema implementará backups automáticos diarios utilizando la gema Wheneve
 
 **Configuración de Backups:**
 - **Frecuencia:** Diaria a las 2:00 AM
-- **Retención:** 6 backups rotativos por semana
+- **Retención:** Se conservan los 6 backups más recientes.
 - **Compresión:** Automática con gzip para optimizar espacio
 - **Restauración:** Comando específico desde Rails para recuperación rápida
+
+---
+
+## 5. Orquestación y Despliegue con Docker
+
+### **Estrategia de Containerización**
+
+La arquitectura utiliza Docker Compose para orquestar todos los servicios necesarios, manteniendo la simplicidad de instalación mientras proporciona flexibilidad para el escalamiento futuro.
+
+**Servicios Containerizados:**
+- **NGINX:** Proxy inverso y servidor de archivos estáticos
+- **Rails Backend:** API server con todas las dependencias
+- **Frontend Web:** Contenedor que sirve la compilación estática para web (PWA) de la aplicación Expo.
+- **MySQL:** Base de datos con configuraciones optimizadas
+
+**Volúmenes Persistentes:**
+- Base de datos MySQL
+- Almacenamiento ActiveStorage
+- Backups de base de datos
+- Archivos estáticos del frontend
+
+---
+
+## 6. Estrategia de Escalamiento
+
+### **Importancia del Escalamiento Vertical Primero**
+
+El escalamiento vertical debe ser la primera opción antes de considerar el escalamiento horizontal. Esto es crítico por varias razones:
+
+1. **Simplicidad Operacional:** Mantener un único servidor es significativamente más simple de administrar, monitorear y debuggear
+2. **Menor Complejidad de Código:** No requiere modificaciones en la aplicación para manejar estado distribuido
+3. **Costos Reducidos:** Un servidor más potente es generalmente más económico que múltiples servidores más pequeños
+4. **Menor Latencia:** Sin overhead de comunicación entre servicios
+5. **Facilidad de Backup y Restauración:** Un solo punto de datos facilita las operaciones de backup
+
+### **6.1 Fase 1: Escalamiento Vertical Extensivo (0-300 usuarios concurrentes)**
+
+Como primer paso en el escalamiento vertical, y antes de escalar horizontalmente, se puede introducir **Redis** para gestionar el caché de la aplicación y aliviar la carga sobre la base de datos.
 
 **Proceso de Backup:**
 1. Generación automática del dump de MySQL

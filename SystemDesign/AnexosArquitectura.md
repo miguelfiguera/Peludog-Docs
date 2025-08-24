@@ -172,7 +172,6 @@ services:
       - backup_data:/app/db/backups
     depends_on:
       - mysql
-      - redis
     networks:
       - peludog_network
 
@@ -197,19 +196,11 @@ services:
     networks:
       - peludog_network
 
-  redis:
-    image: redis:7-alpine
-    volumes:
-      - redis_data:/data
-    networks:
-      - peludog_network
-
 volumes:
   mysql_data:
   storage_data:
   backup_data:
   static_files:
-  redis_data:
 
 networks:
   peludog_network:
@@ -265,9 +256,17 @@ services:
     networks:
       - peludog_network
 
+  redis:
+    image: redis:7-alpine
+    volumes:
+      - redis_data:/data
+    networks:
+      - peludog_network
+
 volumes:
   shared_storage:
   minio_data:
+  redis_data:
 ```
 
 ---
@@ -324,7 +323,9 @@ production:
     timeout: 5000
 ```
 
-### A4.3 Configuración de Redis y Cache
+### A4.3 Configuración de Redis y Cache (Para Escalamiento)
+
+**Nota:** Esta configuración se aplica durante la fase de escalamiento, no en la instalación inicial.
 
 ```ruby
 # config/environments/production.rb
@@ -563,10 +564,6 @@ scrape_configs:
   - job_name: 'mysql'
     static_configs:
       - targets: ['mysql:3306']
-      
-  - job_name: 'redis'
-    static_configs:
-      - targets: ['redis:6379']
 ```
 
 ### A8.2 Métricas Custom en Rails

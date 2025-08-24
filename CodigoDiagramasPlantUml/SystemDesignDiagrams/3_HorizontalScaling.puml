@@ -1,0 +1,102 @@
+@startuml
+!theme plain
+
+<style>
+title {
+  FontSize 20
+  FontColor #333333
+}
+node {
+  BackgroundColor #F5F5F5
+  BorderColor #666666
+}
+frame {
+  BackgroundColor #E3F2FD
+  BorderColor #1565C0
+}
+database {
+  BackgroundColor #FFF9C4
+  BorderColor #F57F17
+}
+component {
+    BackgroundColor #FFFFFF
+    BorderColor #1565C0
+    FontColor #1A237E
+    roundCorner 15
+    shadowing true
+}
+cloud {
+    BackgroundColor #ECEFF1
+    BorderColor #607D8B
+}
+</style>
+
+title Fase 2: Escalamiento Horizontal (Completo)
+
+actor "Usuario" as User
+node "CDN" as CDN
+
+cloud "Infraestructura Principal (Cloud)" {
+  component "Load Balancer Principal\n(NGINX)" as NginxLB
+
+  package "Servidores Frontend" {
+    component "Frontend 1" as FE1
+    component "Frontend 2" as FE2
+    component "..." as FEN
+  }
+
+  package "Instancias de Backend" {
+    component "Backend 1" as BE1
+    component "Backend 2" as BE2
+    component "..." as BEN
+  }
+
+  database "MySQL Cluster" as DB {
+    node "Master (Escrituras)"
+    node "Replica (Lecturas)"
+  }
+
+  database "Redis" as Redis
+  component "Object Storage\n(DigitalOcean Spaces)" as DOSpaces
+
+  component "Sistema de Monitoreo\n(Prometheus)" as Monitor
+}
+
+' --- Flujo Principal de Peticiones ---
+User --> CDN : Petición web
+CDN --> NginxLB : Sirve assets / Redirige API
+
+NginxLB --> FE1 : Sirve PWA
+NginxLB --> FE2
+NginxLB --> FEN
+
+FE1 --> NginxLB : Petición a /api/*
+FE2 --> NginxLB
+FEN --> NginxLB
+
+NginxLB --> BE1 : Redirige /api/*
+NginxLB --> BE2
+NginxLB --> BEN
+
+' --- Conexiones Internas del Backend ---
+BE1 <--> DB
+BE2 <--> DB
+BEN <--> DB
+
+BE1 <--> Redis
+BE2 <--> Redis
+BEN <--> Redis
+
+BE1 <--> DOSpaces
+BE2 <--> DOSpaces
+BEN <--> DOSpaces
+
+' --- Conexiones de Monitoreo ---
+Monitor .> NginxLB : Scrape
+Monitor .> FE1 : Scrape
+Monitor .> BE1 : Scrape
+Monitor .> DB : Scrape
+Monitor .> Redis : Scrape
+Monitor .> DOSpaces : Scrape
+
+@enduml

@@ -1,0 +1,74 @@
+@startuml
+!theme plain
+
+<style>
+title {
+  FontSize 20
+  FontColor #333333
+}
+node {
+  BackgroundColor #F5F5F5
+  BorderColor #666666
+}
+frame {
+  BackgroundColor #E3F2FD
+  BorderColor #1565C0
+}
+database {
+  BackgroundColor #FFF9C4
+  BorderColor #F57F17
+}
+component {
+    BackgroundColor #FFFFFF
+    BorderColor #1565C0
+    FontColor #1A237E
+    roundCorner 15
+    shadowing true
+}
+</style>
+
+title Arquitectura Inicial (Single Server)
+
+actor "Usuario" as User
+
+node "Host (Servidor Básico)" {
+  note top: 2 cores, 2GB RAM, 50GB SSD
+  frame "Docker Compose" {
+    component "NGINX\n(Proxy Inverso)" as Nginx
+    
+    package "Servicios de Aplicación" {
+      component "Backend\n(Ruby on Rails API)" as Backend
+      component "Frontend\n(Expo for Web)" as Frontend
+    }
+
+    database "MySQL" as DB {
+      folder "Volumen Persistente"
+    }
+    
+    folder "Storage Local" as Storage {
+        note "Volumen para\nActiveStorage" as NStorage
+    }
+  }
+}
+
+User --> Nginx : Petición HTTPS
+Nginx --> Frontend : Sirve la PWA
+Frontend -> Nginx : Peticiones a /api/*
+Nginx --> Backend : Redirige a la API
+Backend <--> DB : Lee/Escribe datos
+Backend <--> Storage : Gestiona archivos
+
+note right of Backend
+  **Lógica de Negocio**
+  - API RESTful (JSON)
+  - Autenticación JWT
+  - Concurrencia: 1 Worker, 5 Threads
+end note
+
+note bottom of DB
+  **Persistencia Principal**
+  - Datos de usuarios, citas, etc.
+  - Backups diarios programados
+end note
+
+@enduml

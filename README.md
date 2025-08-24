@@ -10,7 +10,7 @@
 
 - Yuly Delgado
 
-**Fecha del último commit:** domingo, 13 de julio de 2025
+**Fecha del último commit:** sábado, 23 de agosto de 2025
 
 ## Introducción
 
@@ -47,15 +47,18 @@ Contiene las versiones en PDF de los documentos principales para su fácil impre
 - **[pst-app-crm-peludog.pdf](./Impresion/pst-app-crm-peludog.pdf)**
 - **[todas_plantillas_volere.pdf](./Impresion/todas_plantillas_volere.pdf)**
 
+### [SystemDesign/](./DocumentosSeparados/SystemDesign/)
+
+Contiene todos los documentos relacionados con el diseño del sistema, incluyendo la arquitectura de software y el diseño de la base de datos.
+
+- **[ArquitecturaTentativa.md](./DocumentosSeparados/SystemDesign/ArquitecturaTentativa.md)** - Propuesta de arquitectura inicial.
+- **[ArquitecturaEstablecida.md](./DocumentosSeparados/SystemDesign/ArquitecturaEstablecida.md)** - Arquitectura técnica definitiva del sistema.
+- **[AnexosArquitectura.md](./DocumentosSeparados/SystemDesign/AnexosArquitectura.md)** - Configuraciones técnicas y código de la arquitectura.
+- **[DatabaseDesign.md](./DocumentosSeparados/SystemDesign/DatabaseDesign.md)** - Diseño detallado de la base de datos.
+
 ### [DocumentosSeparados/](./DocumentosSeparados/)
 
-Alberga los documentos que describen cada una de las partes del proyecto de forma individual, incluyendo el documento de requisitos, modelado de la aplicación y arquitectura técnica.
-
-#### Documentos de Arquitectura Técnica
-
-- **[ArquitecturaEstablecida.md](./DocumentosSeparados/ArquitecturaEstablecida.md)** - Arquitectura técnica completa del sistema, estrategias de escalamiento vertical y horizontal
-- **[AnexosArquitectura.md](./DocumentosSeparados/AnexosArquitectura.md)** - Configuraciones técnicas, código y ejemplos de implementación
-- **[EnvsTemplate.md](./DocumentosSeparados/EnvsTemplate.md)** - Variables de entorno para MVP y desarrollo
+Alberga los documentos que describen cada una de las partes del proyecto de forma individual, como el documento de requisitos y el modelado de la aplicación.
 
 ### [CodigoDiagramasPlantUml/](./CodigoDiagramasPlantUml/)
 

@@ -275,10 +275,19 @@ volumes:
 
 ### A4.1 Configuración de Puma (Escalamiento Vertical)
 
+La concurrencia en Puma se gestiona mediante una combinación de **Workers** (procesos) y **Threads** (hilos). La capacidad total de peticiones simultáneas se calcula así: `(Nº de Workers) * (Nº de Threads)`.
+
+- **Workers (`WEB_CONCURRENCY`):** Son clones del proceso de la aplicación. Cada uno consume su propia memoria y puede ejecutarse en un core de CPU distinto. Es la forma principal de escalar para aprovechar servidores multi-core.
+- **Threads (`RAILS_MAX_THREADS`):** Permiten que cada Worker maneje múltiples peticiones a la vez. Mientras un hilo espera por la base de datos, otro puede procesar una nueva petición.
+
+La configuración se realiza a través de variables de entorno para no tener que modificar el código:
+
+> **Nota de Configuración:** Los valores por defecto en este ejemplo (`WEB_CONCURRENCY=1`, `RAILS_MAX_THREADS=5`) son un punto de partida seguro para el hardware **Básico (Inicial)**, resultando en 5 peticiones simultáneas. A medida que el servidor escale, estos valores deben incrementarse. Un servidor con 4 cores y 8GB de RAM podría usar `WEB_CONCURRENCY=2` y `RAILS_MAX_THREADS=5` para una capacidad de 10 peticiones simultáneas.
+
 ```ruby
 # config/puma.rb
-workers_count = ENV.fetch('WEB_CONCURRENCY', 6).to_i
-threads_count = ENV.fetch('RAILS_MAX_THREADS', 25).to_i
+workers_count = ENV.fetch('WEB_CONCURRENCY', 1).to_i
+threads_count = ENV.fetch('RAILS_MAX_THREADS', 5).to_i
 
 workers workers_count
 threads threads_count, threads_count
@@ -411,11 +420,7 @@ http {
             try_files $uri @backend;
         }
 
-        location /rails/active_storage/ {
-            proxy_pass http://storage;
-            proxy_set_header Host $host;
-            proxy_set_header X-Real-IP $remote_addr;
-        }
+        
 
         location @backend {
             proxy_pass http://backend;
@@ -547,6 +552,8 @@ docker-compose logs -f backend
 ---
 
 ## A8. Monitoring y Observabilidad
+
+> **Nota sobre Monitoreo:** La siguiente configuración de Prometheus es una sugerencia para un monitoreo avanzado en etapas de escalamiento. Para la versión inicial del producto, el sistema de logs integrado de Rails (`log/production.log`) es más que suficiente para las tareas de monitoreo y debugging.
 
 ### A8.1 Configuración de Prometheus
 

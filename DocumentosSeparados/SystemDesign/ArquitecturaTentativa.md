@@ -1,3 +1,7 @@
+> **ADVERTENCIA: DOCUMENTO DEPRECADO**
+> Este documento representa una fase de diseño inicial y ha sido reemplazado por la **[Arquitectura Establecida](./ArquitecturaEstablecida.md)**.
+> La información contenida aquí no debe ser utilizada como referencia actual.
+
 # Arquitectura Técnica Tentativa - PeluDog CRM
 
 ## 1. Introducción y Filosofía

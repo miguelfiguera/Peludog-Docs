@@ -1,0 +1,73 @@
+@startuml
+!theme plain
+
+<style>
+title {
+  FontSize 20
+  FontColor #333333
+}
+node {
+  BackgroundColor #F5F5F5
+  BorderColor #666666
+}
+frame {
+  BackgroundColor #E3F2FD
+  BorderColor #1565C0
+}
+database {
+  BackgroundColor #FFF9C4
+  BorderColor #F57F17
+}
+component {
+    BackgroundColor #FFFFFF
+    BorderColor #1565C0
+    FontColor #1A237E
+    roundCorner 15
+    shadowing true
+}
+</style>
+
+title Fase 1: Escalamiento Vertical
+
+actor "Usuario" as User
+
+node "Host (Servidor Potenciado)" {
+  note top: Aumento de recursos (CPU/RAM)
+  frame "Docker Compose" {
+    component "NGINX\n(Proxy Inverso)" as Nginx
+    
+    package "Servicios de Aplicación" {
+      component "Backend\n(Ruby on Rails API)" as Backend
+      component "Frontend\n(Expo for Web)" as Frontend
+    }
+
+    database "MySQL" as DB
+    database "Redis" as Redis
+    
+    folder "Storage Local" as Storage
+  }
+}
+
+User --> Nginx
+Nginx --> Frontend
+Frontend -> Nginx
+Nginx --> Backend
+
+Backend <--> DB
+Backend <--> Storage
+Backend <--> Redis : Cache y Sesiones
+
+note right of Backend
+  **Mayor Concurrencia**
+  - Workers aumentados para usar
+    nuevos cores de CPU.
+  - Capacidad total = workers * threads
+end note
+
+note bottom of Redis
+  **Introducción de Redis**
+  - Aliviar carga sobre la base de datos.
+  - Gestionar caché de la aplicación.
+end note
+
+@enduml

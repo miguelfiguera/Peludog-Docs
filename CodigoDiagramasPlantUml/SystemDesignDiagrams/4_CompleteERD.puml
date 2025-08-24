@@ -1,0 +1,229 @@
+@startuml
+!theme plain
+
+<style>
+  title {
+    FontSize 24
+    FontColor #333333
+  }
+  package {
+    FontColor #333333
+    BorderColor #1565C0
+    BackgroundColor #E3F2FD
+  }
+  entity {
+    BackgroundColor #FFFFFF
+    BorderColor #1565C0
+    FontColor #1A237E
+    roundCorner 15
+    shadowing true
+  }
+  arrow {
+    color #1565C0
+    thickness 1.5
+  }
+  note {
+    BackgroundColor #FFF9C4
+    BorderColor #F57F17
+  }
+</style>
+
+title Diagrama de Entidad-Relación (Completo)
+
+package "Usuarios y Perfiles" {
+  entity "users" as users {
+    + id (PK)
+    --
+    *first_name
+    *last_name
+    *email
+    *password_digest
+    *role
+    is_active
+    last_login_at
+  }
+
+  entity "client_profiles" as client_profiles {
+    + id (PK)
+    --
+    *user_id (FK)
+    phone_number
+    address
+    notes
+  }
+}
+
+package "Mascotas" {
+  entity "pets" as pets {
+    + id (PK)
+    --
+    *user_id (FK)
+    *name
+    species
+    breed
+    birth_date
+    gender
+    color
+    chip_number
+    deleted_at
+  }
+}
+
+package "Gestión Clínica" {
+  entity "appointments" as appointments {
+    + id (PK)
+    --
+    *pet_id (FK)
+    *service_id (FK)
+    payment_note_id (FK)
+    *appointment_time
+    status
+    type
+    reason
+  }
+
+  entity "appointment_staff" as appointment_staff {
+    + id (PK)
+    --
+    *appointment_id (FK)
+    *user_id (FK)
+  }
+
+  entity "medical_records" as medical_records {
+    + id (PK)
+    --
+    *appointment_id (FK)
+    weight
+    temperature
+    anamnesis
+    physical_exam_findings
+    diagnosis
+    treatment_plan
+  }
+}
+
+package "Detalles Clínicos" {
+  entity "prescriptions" as prescriptions {
+    + id (PK)
+    --
+    *medical_record_id (FK)
+    drug_name
+    dosage
+  }
+
+  entity "vaccination_records" as vaccination_records {
+    + id (PK)
+    --
+    *pet_id (FK)
+    medical_record_id (FK)
+    vaccine_name
+    next_due_date
+  }
+
+  entity "lab_orders" as lab_orders {
+    + id (PK)
+    --
+    *medical_record_id (FK)
+    test_name
+    status
+  }
+}
+
+package "Gestión Administrativa" {
+  entity "services" as services {
+    + id (PK)
+    --
+    *name
+    price
+    is_active
+  }
+
+  entity "products" as products {
+    + id (PK)
+    --
+    *name
+    price
+    is_active
+  }
+
+  entity "shift_templates" as shift_templates {
+    + id (PK)
+    --
+    *name
+    *day_of_week
+    *start_time
+    *end_time
+  }
+
+  entity "user_schedules" as user_schedules {
+    + id (PK)
+    --
+    *user_id (FK)
+    *shift_template_id (FK)
+    start_date
+    end_date
+  }
+}
+
+package "Finanzas" {
+  entity "payment_notes" as payment_notes {
+    + id (PK)
+    --
+    *user_id (FK)
+    total_amount
+    status
+    due_date
+  }
+
+  entity "payment_note_items" as payment_note_items {
+    + id (PK)
+    --
+    *payment_note_id (FK)
+    *item_id (Polymorphic)
+    *item_type (Polymorphic)
+    quantity
+    unit_price
+  }
+
+  entity "payments" as payments {
+    + id (PK)
+    --
+    *payment_note_id (FK)
+    amount
+    payment_method
+    transaction_id
+  }
+}
+
+' --- Relaciones Principales ---
+users "1" -- "0..1" client_profiles : tiene perfil >
+pets "*" -- "1" users : pertenece a >
+
+' --- Relaciones de Citas ---
+appointments "*" -- "1" pets : es para >
+appointment_staff "*" -- "1" appointments : tiene cita >
+appointment_staff "*" -- "1" users : tiene personal >
+appointments "1" -- "1" services : es para el servicio >
+
+' --- Relaciones de Registros Médicos ---
+medical_records "0..1" -- "1" appointments : generado en >
+medical_records "1" -- "0..*" prescriptions : detalla >
+medical_records "1" -- "0..*" lab_orders : detalla >
+vaccination_records "*" -- "1" pets : es de >
+vaccination_records "*" .. "0..1" medical_records : (opcional) registrado en >
+
+' --- Relaciones Financieras ---
+payment_notes "*" -- "1" users : emitida para >
+appointments "*" -- "0..1" payment_notes : agrupada en >
+payment_notes "1" -- "1..*" payment_note_items : contiene >
+payment_notes "1" -- "1..*" payments : se paga con >
+
+' --- Relaciones Polimórficas ---
+payment_note_items ..> services : (item)
+payment_note_items ..> products : (item)
+
+' --- Relaciones de Administración (Horarios) ---
+user_schedules "*" -- "1" users : asignado a >
+user_schedules "*" -- "1" shift_templates : usa plantilla >
+
+@enduml

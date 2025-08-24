@@ -6,7 +6,7 @@ Esta arquitectura técnica definitiva establece el diseño técnico completo par
 
 La elección de tecnologías busca un equilibrio entre madurez, productividad de desarrollo, facilidad de escalamiento y un ecosistema sólido que facilite la implementación de las funcionalidades requeridas.
 
-![Arquitectura Tentativa](../Imagenes/arcTentativa.png)
+![Arquitectura Inicial](../../Imagenes/SystemDesignDiagramsImages/initialSetup.png)
 
 ---
 
@@ -124,67 +124,18 @@ El escalamiento vertical debe ser la primera opción antes de considerar el esca
 
 ### **6.1 Fase 1: Escalamiento Vertical Extensivo (0-300 usuarios concurrentes)**
 
+![Escalamiento Vertical](../../Imagenes/SystemDesignDiagramsImages/verticalScaling.png)
+
 Como primer paso en el escalamiento vertical, y antes de escalar horizontalmente, se puede introducir **Redis** para gestionar el caché de la aplicación y aliviar la carga sobre la base de datos.
 
-**Proceso de Backup:**
-1. Generación automática del dump de MySQL
-2. Compresión del archivo resultante
-3. Eliminación automática de backups antiguos
-4. Logging de operaciones para auditoría
-
-**Comando de Restauración:**
-El sistema incluirá un comando específico desde Rails que permita restaurar la base de datos desde cualquier backup disponible, facilitando la recuperación ante desastres.
-
----
-
-## 5. Orquestación y Despliegue con Docker
-
-### **Estrategia de Containerización**
-
-La arquitectura utiliza Docker Compose para orquestar todos los servicios necesarios, manteniendo la simplicidad de instalación mientras proporciona flexibilidad para el escalamiento futuro.
-
-**Servicios Containerizados:**
-- **NGINX:** Proxy inverso y servidor de archivos estáticos
-- **Rails Backend:** API server con todas las dependencias
-- **Frontend Web:** Compilación web de la aplicación Expo
-- **MySQL:** Base de datos con configuraciones optimizadas
-- **Redis:** Cache y gestión de sesiones (agregado en escalamiento vertical)
-
-**Volúmenes Persistentes:**
-- Base de datos MySQL
-- Almacenamiento ActiveStorage
-- Backups de base de datos
-- Archivos estáticos del frontend
-
----
-
-## 6. Estrategia de Escalamiento
-
-### **Importancia del Escalamiento Vertical Primero**
-
-El escalamiento vertical debe ser la primera opción antes de considerar el escalamiento horizontal. Esto es crítico por varias razones:
-
-1. **Simplicidad Operacional:** Mantener un único servidor es significativamente más simple de administrar, monitorear y debuggear
-2. **Menor Complejidad de Código:** No requiere modificaciones en la aplicación para manejar estado distribuido
-3. **Costos Reducidos:** Un servidor más potente es generalmente más económico que múltiples servidores más pequeños
-4. **Menor Latencia:** Sin overhead de comunicación entre servicios
-5. **Facilidad de Backup y Restauración:** Un solo punto de datos facilita las operaciones de backup
-
-### **6.1 Fase 1: Escalamiento Vertical Extensivo (0-300 usuarios concurrentes)**
-
 **Hardware Progresivo:**
-- **Inicial:** 4 cores, 8GB RAM, 500GB SSD
-- **Medio:** 8 cores, 16GB RAM, 1TB SSD
-- **Avanzado:** 16 cores, 32GB RAM, 2TB NVMe SSD
-- **Máximo:** 32 cores, 64GB RAM, 4TB NVMe SSD
+- **Básico (Inicial):** 2 cores, 2GB RAM, 50GB SSD
+- **Medio:** 4 cores, 8GB RAM, 500GB SSD
+- **Avanzado:** 8 cores, 16GB RAM, 1TB SSD
+- **Potente:** 16 cores, 32GB RAM, 2TB NVMe SSD
 
 **Optimización de Workers y Threads:**
-El escalamiento vertical permite aumentar significativamente el número de workers de Puma y threads por worker sin los problemas de sincronización que aparecen en arquitecturas distribuidas.
-
-- **Workers de Puma:** Se pueden incrementar desde 4 hasta 12-16 workers en un servidor potente
-- **Threads por Worker:** Aumentar de 5 hasta 25-30 threads por worker
-- **Conexiones de Base de Datos:** Pool de conexiones escalable hasta 400-500 conexiones simultáneas
-- **Memoria Cache:** Redis puede utilizar 8-16GB de RAM para caching agresivo
+    La estrategia de escalamiento vertical consiste en empezar con una configuración conservadora (ej. 1 worker, 5 threads) y, a medida que se aumentan los recursos del servidor (CPU y RAM), incrementar gradualmente el número de workers para mejorar la capacidad de respuesta y el volumen de peticiones que el sistema puede manejar simultáneamente. El número de conexiones a la base de datos y la memoria caché de Redis también deben ajustarse en consonancia.
 
 **Límites Reales del Escalamiento Vertical:**
 Un servidor bien optimizado puede manejar entre 250-300 usuarios concurrentes reales (no solo conexiones) antes de necesitar escalamiento horizontal. Este límite considera:
@@ -245,20 +196,45 @@ Cuando múltiples instancias de Rails manejan subida de archivos simultáneament
 
 **Configuración de MinIO en Escalamiento:**
 - **Replicación:** MinIO puede configurarse con múltiples nodos para redundancia
-- **CDN:** Servir archivos estáticos through CDN para mejor performance
+- **CDN:** DigitalOcean Spaces se integra nativamente con su propio servicio de CDN para mejorar la performance.
 - **Backup:** MinIO se integra con estrategias de backup existentes
 
-### **6.5 Arquitectura Distribuida Final (1000+ usuarios concurrentes)**
+### 6.5 Base de Datos Distribuida (Master-Slave)
 
-**Migración desde Docker:**
-El proceso de migración desde contenedores Docker a servidores especializados debe ser gradual y sin interrupciones:
+Para soportar la carga en un entorno horizontal, la base de datos también debe distribuirse. La estrategia a seguir es un modelo de replicación Master-Slave (o Primario-Réplica):
 
-1. **Preparación de Infraestructura:** Configurar servidores dedicados
-2. **Migración de Base de Datos:** Establecer replicación Master-Slave
-3. **Migración de Storage:** Mover ActiveStorage a cluster distribuido
-4. **Migración de Aplicación:** Desplegar Rails en múltiples servidores
-5. **Migración de Load Balancer:** HAProxy/NGINX en servidores dedicados
-6. **Verificación y Rollback:** Planes de rollback en cada fase
+1.  **Servidor Maestro (Master/Primary):** Una única instancia de base de datos que maneja **todas las operaciones de escritura** (INSERT, UPDATE, DELETE). Esto garantiza la consistencia y la integridad de los datos al tener una única fuente de verdad.
+2.  **Servidores Réplica (Slaves/Replicas):** Una o más instancias de base de datos que son copias de solo lectura del servidor maestro. Su único propósito es manejar **operaciones de lectura** (SELECT).
+3.  **Flujo de Datos:** La aplicación Rails se configura para dirigir todas las consultas de escritura al servidor maestro y distribuir las consultas de lectura entre las diversas réplicas. Esto reduce drásticamente la carga sobre la base de datos principal, mejorando el rendimiento de las consultas, que suelen ser la operación más frecuente.
+4.  **Alta Disponibilidad:** Este modelo también proporciona una capa de redundancia. Si el servidor maestro falla, una de las réplicas puede ser promovida para convertirse en el nuevo maestro, minimizando el tiempo de inactividad.
+
+La configuración para que Rails pueda manejar esta topología se detalla en `AnexosArquitectura.md`, donde se define una conexión `primary` para escrituras y una `replica` para lecturas en `config/database.yml`.
+
+### 6.6 Componentes de la Arquitectura Distribuida Final
+
+![Escalamiento Horizontal](../../Imagenes/SystemDesignDiagramsImages/horizontalScaling.png)
+
+La arquitectura para 1000+ usuarios concurrentes evoluciona a un sistema distribuido donde cada componente está desacoplado para maximizar el rendimiento y la disponibilidad. A continuación se detallan los componentes clave:
+
+#### **CDN (Content Delivery Network)**
+- **Función:** Actúa como la primera capa de contacto con el usuario. Es una red de servidores distribuidos geográficamente que almacena en caché los activos estáticos de la aplicación.
+- **Detalle Técnico:** Cachea los archivos compilados del frontend (JavaScript, CSS) y los archivos subidos por los usuarios desde el servidor de Storage (MinIO). Esto reduce drásticamente la latencia para los usuarios de todo el mundo y disminuye la carga sobre la infraestructura principal.
+
+#### **Load Balancer Principal (NGINX)**
+- **Función:** Es el único punto de entrada a la infraestructura de la nube. Recibe todo el tráfico que no fue servido por la caché del CDN.
+- **Detalle Técnico y Flujo de Peticiones:** Opera como un balanceador de carga de Capa 7, lo que le permite inspeccionar la URL de la petición para enrutar el tráfico de forma inteligente. El flujo es el siguiente:
+    1. Una petición del usuario llega al Load Balancer.
+    2. El LB analiza la ruta. Si la ruta comienza con `/api/`, la reconoce como una llamada a la API y la reenvía de forma segura a una de las instancias disponibles en la **flota de servidores Backend**.
+    3. Si la ruta es cualquier otra (ej. `/`, `/citas`, `/perfil`), el LB la identifica como una petición para la aplicación web y la reenvía a una instancia de la **flota de servidores Frontend**.
+- **Beneficio:** Este mecanismo de enrutamiento basado en la ruta es crucial. Permite que tanto el frontend como el backend compartan el mismo dominio y punto de entrada, simplificando la configuración de DNS y SSL/TLS, al tiempo que permite escalar cada flota de servidores de forma independiente.
+
+#### **Flota de Servidores Frontend**
+- **Función:** Un grupo de servidores idénticos cuya única responsabilidad es servir los archivos estáticos (HTML, CSS, JS) que componen la aplicación de Expo para la web (PWA).
+- **Detalle Técnico:** Al ser servidores sin estado, se pueden añadir o quitar instancias fácilmente según la demanda de tráfico. El Load Balancer se encarga de distribuir las peticiones entre ellos, garantizando alta disponibilidad.
+
+#### **Sistema de Monitoreo (Prometheus)**
+- **Función:** Proporciona observabilidad completa sobre la salud y el rendimiento de toda la infraestructura.
+- **Detalle Técnico:** Es un sistema centralizado que recolecta métricas de todos los componentes del sistema (Load Balancer, instancias de Frontend y Backend, Base de Datos, Redis, etc.). Esta recolección de datos (scraping) es fundamental para alimentar los dashboards de monitoreo y para el sistema de alertas críticas definido en la sección 7.
 
 ---
 

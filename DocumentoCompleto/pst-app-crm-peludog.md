@@ -1878,24 +1878,24 @@ Cuando múltiples instancias de Rails manejan subida de archivos simultáneament
 
 **Solución: Servidor de Storage Dedicado**
 
-1. **MinIO como Servidor Dedicado:** Separar ActiveStorage a un contenedor MinIO dedicado
-2. **API S3 Compatible:** Todas las instancias Rails hablan con MinIO via API S3
-3. **Consistencia Garantizada:** MinIO maneja la consistencia y concurrencia automáticamente
-4. **Eliminación de Race Conditions:** MinIO es responsible de la escritura atómica
+1. **DigitalOcean Spaces como Servidor Dedicado:** Separar ActiveStorage a DigitalOcean Spaces dedicado
+2. **API S3 Compatible:** Todas las instancias Rails hablan con DigitalOcean Spaces via API S3
+3. **Consistencia Garantizada:** DigitalOcean Spaces maneja la consistencia y concurrencia automáticamente
+4. **Eliminación de Race Conditions:** DigitalOcean Spaces es responsible de la escritura atómica
 
 **Proceso de Migración de Storage:**
 
-1. **Instalación de MinIO:** Nuevo contenedor con volúmenes persistentes
-2. **Configuración de Rails:** Cambiar ActiveStorage de `local` a `amazon` (MinIO)
-3. **Migración de Archivos Existentes:** Rake task para transferir archivos locales a MinIO
+1. **Configuración de DigitalOcean Spaces:** Configuración de buckets y credenciales
+2. **Configuración de Rails:** Cambiar ActiveStorage de `local` a `amazon` (DigitalOcean Spaces)
+3. **Migración de Archivos Existentes:** Rake task para transferir archivos locales a DigitalOcean Spaces
 4. **Verificación de Integridad:** Confirmar que todos los archivos fueron migrados correctamente
 5. **Limpieza:** Eliminar archivos locales después de verificar migración
 
-**Configuración de MinIO en Escalamiento:**
+**Configuración de DigitalOcean Spaces en Escalamiento:**
 
-- **Replicación:** MinIO puede configurarse con múltiples nodos para redundancia
+- **Replicación:** DigitalOcean Spaces proporciona redundancia automática entre múltiples zonas
 - **CDN:** DigitalOcean Spaces se integra nativamente con su propio servicio de CDN para mejorar la performance.
-- **Backup:** MinIO se integra con estrategias de backup existentes
+- **Backup:** DigitalOcean Spaces se integra con estrategias de backup existentes
 
 ### 6.5 Base de Datos Distribuida (Master-Slave)
 
@@ -1917,7 +1917,7 @@ La arquitectura para 1000+ usuarios concurrentes evoluciona a un sistema distrib
 #### **CDN (Content Delivery Network)**
 
 - **Función:** Actúa como la primera capa de contacto con el usuario. Es una red de servidores distribuidos geográficamente que almacena en caché los activos estáticos de la aplicación.
-- **Detalle Técnico:** Cachea los archivos compilados del frontend (JavaScript, CSS) y los archivos subidos por los usuarios desde el servidor de Storage (MinIO). Esto reduce drásticamente la latencia para los usuarios de todo el mundo y disminuye la carga sobre la infraestructura principal.
+- **Detalle Técnico:** Cachea los archivos compilados del frontend (JavaScript, CSS) y los archivos subidos por los usuarios desde el servidor de Storage (DigitalOcean Spaces). Esto reduce drásticamente la latencia para los usuarios de todo el mundo y disminuye la carga sobre la infraestructura principal.
 
 #### **Load Balancer Principal (NGINX)**
 

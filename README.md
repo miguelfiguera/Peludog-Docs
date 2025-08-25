@@ -10,7 +10,7 @@
 
 - Yuly Delgado
 
-**Fecha del último commit:** sábado, 23 de agosto de 2025
+**Fecha del último commit:** domingo, 25 de agosto de 2025
 
 ## Introducción
 
@@ -42,6 +42,7 @@ Contiene el documento completo del proyecto en formato PDF y Markdown.
 
 Contiene las versiones en PDF de los documentos principales para su fácil impresión y visualización.
 
+- **[AnexosArquitectura.pdf](./Impresion/AnexosArquitectura.pdf)**
 - **[DocumentoDeRequisitos.pdf](./Impresion/DocumentoDeRequisitos.pdf)**
 - **[ModeladoDeLaAplicacion.pdf](./Impresion/ModeladoDeLaAplicacion.pdf)**
 - **[pst-app-crm-peludog.pdf](./Impresion/pst-app-crm-peludog.pdf)**
@@ -123,6 +124,13 @@ A continuación se presenta un índice de los diagramas incluidos en el proyecto
 - [FA-RH01-01](./Imagenes/FlujosAlternativosCasosDeUso/FA-RH01-01.png)
 - [FA-RH02-01](./Imagenes/FlujosAlternativosCasosDeUso/FA-RH02-01.png)
 - [FA-RH03-01](./Imagenes/FlujosAlternativosCasosDeUso/FA-RH03-01.png)
+
+### Diagramas de Arquitectura del Sistema
+
+- [Arquitectura Inicial](./Imagenes/SystemDesignDiagramsImages/initialSetup.png)
+- [Escalamiento Vertical](./Imagenes/SystemDesignDiagramsImages/verticalScaling.png)
+- [Escalamiento Horizontal](./Imagenes/SystemDesignDiagramsImages/horizontalScaling.png)
+- [Diseño de Base de Datos](./Imagenes/SystemDesignDiagramsImages/database.png)
 
 ### Otros Diagramas
 

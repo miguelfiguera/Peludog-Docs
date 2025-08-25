@@ -36,11 +36,13 @@ La elección de tecnologías busca un equilibrio entre madurez, productividad de
 
 - **Tecnología:** **Expo (React Native) con TypeScript**
 - **Versiones:** Expo SDK 52+, React Native 0.76+
+- **Enfoque actual:** **Aplicación web** compilada desde Expo (preparada para extensión móvil futura)
 - **Responsabilidades:**
-  - Renderizar la **interfaz de usuario** para veterinarios, asistentes y clientes
+  - Renderizar la **interfaz de usuario web** para veterinarios, asistentes y clientes
   - Gestionar el **estado de la aplicación** con React Hooks reutilizables
   - Realizar peticiones a la **API del backend**
-  - Incluir **Landing Page personalizable** como pantalla de inicio
+  - Incluir **Landing Page integrada** como parte de la aplicación web
+  - Ser **responsive** para funcionar en escritorio, tablet y móvil via navegador
 
 - **Tecnologías Complementarias:**
   - **Estilos:** Tailwind CSS con NativeWind
@@ -99,7 +101,7 @@ La arquitectura utiliza Docker Compose para orquestar todos los servicios necesa
 **Servicios Containerizados:**
 - **NGINX:** Proxy inverso y servidor de archivos estáticos
 - **Rails Backend:** API server con todas las dependencias
-- **Frontend Web:** Contenedor que sirve la compilación estática para web (PWA) de la aplicación Expo.
+- **Frontend Web:** Contenedor que sirve la aplicación web compilada desde Expo (SPA/PWA).
 - **MySQL:** Base de datos con configuraciones optimizadas
 
 **Volúmenes Persistentes:**
@@ -229,7 +231,7 @@ La arquitectura para 1000+ usuarios concurrentes evoluciona a un sistema distrib
 - **Beneficio:** Este mecanismo de enrutamiento basado en la ruta es crucial. Permite que tanto el frontend como el backend compartan el mismo dominio y punto de entrada, simplificando la configuración de DNS y SSL/TLS, al tiempo que permite escalar cada flota de servidores de forma independiente.
 
 #### **Flota de Servidores Frontend**
-- **Función:** Un grupo de servidores idénticos cuya única responsabilidad es servir los archivos estáticos (HTML, CSS, JS) que componen la aplicación de Expo para la web (PWA).
+- **Función:** Un grupo de servidores idénticos cuya única responsabilidad es servir los archivos estáticos (HTML, CSS, JS) que componen la aplicación web compilada desde Expo (SPA/PWA).
 - **Detalle Técnico:** Al ser servidores sin estado, se pueden añadir o quitar instancias fácilmente según la demanda de tráfico. El Load Balancer se encarga de distribuir las peticiones entre ellos, garantizando alta disponibilidad.
 
 #### **Sistema de Monitoreo (Prometheus)**

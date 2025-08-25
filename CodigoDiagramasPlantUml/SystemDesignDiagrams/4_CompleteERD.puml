@@ -93,6 +93,7 @@ package "Gestión Clínica" {
     + id (PK)
     --
     *appointment_id (FK)
+    *pet_id (FK)
     weight
     temperature
     anamnesis
@@ -207,6 +208,7 @@ appointments "1" -- "1" services : es para el servicio >
 
 ' --- Relaciones de Registros Médicos ---
 medical_records "0..1" -- "1" appointments : generado en >
+medical_records "*" -- "1" pets : pertenece a >
 medical_records "1" -- "0..*" prescriptions : detalla >
 medical_records "1" -- "0..*" lab_orders : detalla >
 vaccination_records "*" -- "1" pets : es de >

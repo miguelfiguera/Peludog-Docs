@@ -107,6 +107,7 @@ Registra los detalles estructurados de una consulta o evento clínico.
 | ------------------------ | ------------- | ----------------------------------------------------------------------- |
 | `id`                     | `bigint` (PK) | Identificador único para cada registro clínico.                         |
 | `appointment_id`         | `bigint` (FK) | Referencia a la cita donde se generó este registro (`appointments.id`). |
+| `pet_id`                 | `bigint` (FK) | Referencia a la mascota del registro (`pets.id`).                       |
 | `weight`                 | `decimal`     | Peso de la mascota en la consulta (ej. en kg).                          |
 | `temperature`            | `decimal`     | Temperatura de la mascota en la consulta (ej. en °C).                   |
 | `anamnesis`              | `text`        | Historial y síntomas reportados por el dueño.                           |
@@ -270,6 +271,7 @@ A continuación se describen las principales relaciones entre los modelos, usand
 
 - `belongs_to :user` (su dueño)
 - `has_many :appointments`
+- `has_many :medical_records`
 - `has_many :vaccination_records`
 
 ### Appointment
@@ -284,6 +286,7 @@ A continuación se describen las principales relaciones entre los modelos, usand
 ### MedicalRecord
 
 - `belongs_to :appointment`
+- `belongs_to :pet`
 - `has_many :prescriptions`
 - `has_many :lab_orders`
 

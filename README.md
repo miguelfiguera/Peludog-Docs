@@ -42,23 +42,23 @@ Contiene el documento completo del proyecto en formato PDF y Markdown.
 
 Contiene las versiones en PDF de los documentos principales para su fácil impresión y visualización.
 
-- **[AnexosArquitectura.pdf](./Impresion/AnexosArquitectura.pdf)**
-- **[DocumentoDeRequisitos.pdf](./Impresion/DocumentoDeRequisitos.pdf)**
-- **[ModeladoDeLaAplicacion.pdf](./Impresion/ModeladoDeLaAplicacion.pdf)**
-- **[pst-app-crm-peludog.pdf](./Impresion/pst-app-crm-peludog.pdf)**
-- **[todas_plantillas_volere.pdf](./Impresion/todas_plantillas_volere.pdf)**
+- **[AnexosArquitectura.pdf](./Impresion/AnexosArquitectura.pdf)** - Versión en PDF de las configuraciones técnicas y código de implementación de la arquitectura.
+- **[DocumentoDeRequisitos.pdf](./Impresion/DocumentoDeRequisitos.pdf)** - Documento de requisitos del sistema en formato PDF para impresión.
+- **[ModeladoDeLaAplicacion.pdf](./Impresion/ModeladoDeLaAplicacion.pdf)** - Documento de modelado de la aplicación en formato PDF.
+- **[pst-app-crm-peludog.pdf](./Impresion/pst-app-crm-peludog.pdf)** - Versión en PDF del proyecto de servicio técnico completo.
+- **[todas_plantillas_volere.pdf](./Impresion/todas_plantillas_volere.pdf)** - Compilación en PDF de todas las plantillas de requisitos inspiradas en Volere.
 
 ### [SystemDesign/](./DocumentosSeparados/SystemDesign/)
 
 Contiene todos los documentos relacionados con el diseño del sistema, incluyendo la arquitectura de software y el diseño de la base de datos.
 
-- **[AnexosArquitectura.md](./DocumentosSeparados/SystemDesign/AnexosArquitectura.md)** - Configuraciones técnicas y código de la arquitectura.
-- **[ArquitecturaEstablecida.md](./DocumentosSeparados/SystemDesign/ArquitecturaEstablecida.md)** - Arquitectura técnica definitiva del sistema.
-- **[ArquitecturaTentativa.md](./DocumentosSeparados/SystemDesign/ArquitecturaTentativa.md)** - Propuesta de arquitectura inicial.
-- **[backend_funcionalidades.md](./DocumentosSeparados/SystemDesign/backend_funcionalidades.md)** - Funcionalidades y endpoints del backend.
-- **[DatabaseDesign.md](./DocumentosSeparados/SystemDesign/DatabaseDesign.md)** - Diseño detallado de la base de datos.
-- **[informe_pantallas_funcionalidades.md](./DocumentosSeparados/SystemDesign/informe_pantallas_funcionalidades.md)** - Informe de pantallas y funcionalidades estimadas.
-- **[seguridadYAutenticacion.md](./DocumentosSeparados/SystemDesign/seguridadYAutenticacion.md)** - Documento de seguridad y autenticación.
+- **[AnexosArquitectura.md](./DocumentosSeparados/SystemDesign/AnexosArquitectura.md)** - Configuraciones técnicas, código de implementación y anexos para la arquitectura establecida. Incluye configuraciones Docker, ActiveStorage, sistema de backups, NGINX, MySQL, comandos de administración y scripts de deployment.
+- **[ArquitecturaEstablecida.md](./DocumentosSeparados/SystemDesign/ArquitecturaEstablecida.md)** - Arquitectura técnica definitiva del sistema. Diseño de 3 capas containerizada (Backend Rails API, Frontend Expo Web, MySQL), estrategias de escalamiento vertical y horizontal, gestión de archivos y sistema de backups automatizado.
+- **[ArquitecturaTentativa.md](./DocumentosSeparados/SystemDesign/ArquitecturaTentativa.md)** - **[DEPRECADO]** Propuesta de arquitectura inicial reemplazada por la Arquitectura Establecida.
+- **[backend_funcionalidades.md](./DocumentosSeparados/SystemDesign/backend_funcionalidades.md)** - Estructura completa del backend Rails API incluyendo endpoints, controladores organizados por namespaces (Auth, Admin, Clinical, Client, Public), modelos de datos, validaciones y configuraciones de background jobs con SolidQueue.
+- **[DatabaseDesign.md](./DocumentosSeparados/SystemDesign/DatabaseDesign.md)** - Diseño detallado de la base de datos MySQL con 18 tablas principales, relaciones entre modelos, índices de performance y integración con ActiveStorage y SolidQueue.
+- **[informe_pantallas_funcionalidades.md](./DocumentosSeparados/SystemDesign/informe_pantallas_funcionalidades.md)** - Análisis detallado de las pantallas estimadas para la aplicación web: Landing Page (4 pantallas), Admin Dashboard (6-8 pantallas), Dashboard Clínico (6-7 pantallas) y Portal del Cliente (4-5 pantallas). Total estimado: 20-24 pantallas principales.
+- **[seguridadYAutenticacion.md](./DocumentosSeparados/SystemDesign/seguridadYAutenticacion.md)** - Implementación de seguridad con autenticación JWT stateless, protecciones nativas de Rails (CSRF, SQL Injection, XSS), configuración de NGINX como proxy inverso con rate limiting, SSL/TLS, headers de seguridad y protección DDoS.
 
 ### [DocumentosSeparados/](./DocumentosSeparados/)
 

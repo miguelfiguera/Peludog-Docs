@@ -1999,6 +1999,813 @@ Para detalles técnicos específicos, configuraciones y código de implementaci�
 
    <div style="page-break-after: always;"></div>
 
+   <p class="c8" style="margin-top:40vh;"><span class="c10">FRONTEND</span></p>
+
+<div style="page-break-after: always;"></div>
+
+# Informe de Pantallas y Funcionalidades Estimadas
+
+A continuación, se presenta un desglose de las posibles pantallas y funcionalidades de la aplicación web, basado en los requisitos funcionales y las vistas solicitadas. La aplicación está desarrollada con Expo para web y diseñada para ser responsive, funcionando eficientemente en escritorio, tablet y móvil via navegador.
+
+## Mockups de Referencia
+
+- **[Landing Page](https://crm-landing-mockup-peludog.netlify.app/):** Mockup de la página de inicio.
+- **[Dashboard](https://vet-dashboard-mockup.netlify.app/):** Mockup del dashboard.
+
+---
+
+## 1. Landing Page y Acceso Público
+
+Esta sección corresponde a la cara visible de la clínica para usuarios no autenticados.
+
+**Pantallas Estimadas:** 3-4
+
+- **1.1. Página Principal (Home)**
+
+  - **Sección "Quiénes Somos":** Presentación de la clínica, su misión, visión y el equipo.
+  - **Sección "Anuncios y Promociones":** Espacio dinámico para publicar jornadas de vacunación, descuentos, etc. (contenido gestionado desde el Admin Dashboard).
+  - **Sección "Servicios":** Descripción de los servicios ofrecidos (clínica, peluquería, etc.).
+  - **Llamada a la Acción (CTA):** Botones claros para "Agendar Cita" y "Acceso Clientes". ( Se puede agendar cita siendo un cliente no registrado, el veterinario o el asistente puede hacer el registro directo en el consultorio para personas menos tecnicas).
+
+- **1.2. Agendamiento de Citas (Público)**
+
+  - **Funcionalidades:**
+    - Consultar disponibilidad horaria de la clínica o veterinarios.
+    - Permitir a usuarios nuevos o existentes agendar una nueva cita.
+    - Formulario para registrar datos básicos del cliente y la mascota si no existen.
+
+- **1.3. Login / Registro de Clientes**
+  - **Funcionalidades:**
+    - Formulario de inicio de sesión para clientes existentes.
+    - Formulario para registrar un nuevo cliente.
+
+---
+
+## 2. Admin Dashboard (Panel de Administración)
+
+Panel para el rol de Administrador/Gerente, enfocado en la gestión del negocio, personal y configuración del sistema.
+
+**Pantallas Estimadas:** 6-8
+
+- **2.1. Vista General (Dashboard Principal)**
+
+  - **Funcionalidades:**
+    - Visualización de métricas clave: ingresos del día/mes, citas programadas, nuevos clientes.
+    - Accesos directos a las funciones más utilizadas.
+    - Generación de reportes de ingresos.
+
+- **2.2. Gestión de Personal (RRHH)**
+
+  - **Funcionalidades:**
+    - Registrar, visualizar y actualizar datos de empleados.
+    - Asignar y modificar roles (permisos).
+    - Activar/desactivar cuentas de empleados.
+
+- **2.3. Gestión de Turnos y Horarios**
+
+  - **Funcionalidades:**
+    - Crear y modificar tipos de turnos (mañana, tarde, guardia).
+    - Asignar turnos a los empleados en un calendario.
+    - Consultar la disponibilidad general del personal.
+
+- **2.4. Gestión Financiera**
+
+  - **Funcionalidades:**
+    - Consultar historial de pagos por múltiples filtros (fecha, servicio, cliente).
+    - Generar reportes de ingresos detallados y exportables.
+
+- **2.5. Gestión de Servicios de la Clínica**
+
+  - **Funcionalidades:**
+    - Definir y modificar los servicios internos que ofrece la clínica.
+    - Asignar personal responsable a cada servicio.
+    - Consultar listado de servicios activos.
+
+- **2.6. Gestión de Contenido (Landing Page)**
+  - **Funcionalidades:**
+    - Crear, editar y eliminar anuncios y promociones que se mostrarán en la página principal.
+
+---
+
+## 3. Dashboard Clínico (Panel para Veterinario y Asistente)
+
+El corazón operativo de la clínica, donde se gestiona el día a día de pacientes y citas.
+
+**Pantallas Estimadas:** 6-7
+
+- **3.1. Agenda y Citas**
+
+  - **Funcionalidades:**
+    - Visualizar la agenda de citas (diaria, semanal, mensual).
+    - Filtrar agenda por veterinario.
+    - Agendar, reprogramar y cancelar citas.
+    - Confirmar asistencia de pacientes (solo deben aparecer los pacientes que hayan confirmado).
+
+- **3.2. Gestión de Pacientes y Clientes**
+
+  - **Funcionalidades:**
+    - Buscador avanzado de clientes y mascotas.
+    - Formularios para registrar nuevos clientes y mascotas.
+    - Visualizar y actualizar la información de contacto de los clientes y los datos generales de las mascotas.
+
+- **3.3. Historial Clínico**
+
+  - **Funcionalidades:**
+    - Visualización completa del historial de una mascota.
+    - Resumen destacado de alergias, enfermedades cronicas y datos vitales.
+    - Visor de archivos adjuntos (radiografías, análisis).
+    - Filtro para ver historial de vacunación y desparasitación.
+  - Widget/componente que indique si esta o no al dia con sus vacunas.
+
+- **3.4. Registro de Consulta (Atención Clínica)**
+
+  - **Funcionalidades:**
+    - Formulario para una nueva entrada en el historial: anamnesis, diagnóstico, tratamiento.
+    - Generador de récipes (prescripciones) imprimibles.
+    - Generador de órdenes de laboratorio imprimibles.
+    - Registro de aplicación de vacunas y desparasitantes.
+    - Subida de archivos adjuntos a la consulta.
+    - Opción para editar la entrada recién creada.
+
+- **3.5. Registro y Consulta de Pagos**
+  - **Funcionalidades:**
+    - Registrar un pago asociándolo a servicios/productos.
+    - Generar comprobante de pago digital imprimible.
+    - Consultar el historial de pagos de un cliente/mascota.
+- **3.6. Emision de reportes o historia en caso de referencias a otros profesionales**
+  - **Funcionalidades:**
+    - Emision de reportes en formato .json o csv si maneja el mismo software.
+    - Emision de reportes pdf para impresion o para enviar por correo si no maneja el mismo software.
+    - Si se escribe un reporte, debe haber doble pantalla, una que muestre lo que se esta escribiendo, quizas con un formato predefinido y otra que muestre el historial clinico mas reciente al lateral.
+
+---
+
+## 4. Espacio de Usuario (Portal del Cliente)
+
+Área privada para que los dueños de mascotas gestionen su información y la de sus animales.
+
+**Pantallas Estimadas:** 4-5
+
+- **4.1. Mi Perfil**
+
+  - **Funcionalidades:**
+    - Visualizar y actualizar sus datos personales (teléfono, dirección, etc.).
+
+- **4.2. Mis Mascotas**
+
+  - **Funcionalidades:**
+    - Ver listado de sus mascotas registradas.
+    - Visualizar y actualizar datos de sus mascotas (foto, señas particulares).
+    - Opción para registrar una nueva mascota a su nombre.
+
+- **4.3. Mis Citas**
+
+  - **Funcionalidades:**
+    - Ver historial y próximas citas.
+    - Agendar, reprogramar y cancelar sus propias citas.
+
+- **4.4. Historial de Pagos y Facturas**
+
+  - **Funcionalidades:**
+    - Consultar su historial de pagos.
+    - Descargar comprobantes o facturas.
+
+- **4.5. Historial Clínico (Vista de Consulta)**
+  - **Funcionalidades:**
+    - Consultar un resumen del historial clínico de sus mascotas (diagnósticos, vacunas, tratamientos).
+
+---
+
+### Resumen General
+
+- **Landing Page:** ~4 pantallas principales.
+- **Admin Dashboard:** ~6-8 áreas funcionales/pantallas.
+- **Dashboard Clínico:** ~6-7 áreas funcionales/pantallas.
+- **Espacio de Usuario:** ~5 áreas funcionales/pantallas.
+
+**Total Estimado:** La aplicación podría constar de aproximadamente **20 a 24 pantallas o secciones principales**, cada una con múltiples funcionalidades y componentes.
+
+   <div style="page-break-after: always;"></div>
+
+   <p class="c8" style="margin-top:40vh;"><span class="c10">BACKEND</span></p>
+
+<div style="page-break-after: always;"></div>
+
+# Backend Funcionalidades - PeluDog CRM
+
+Este documento define la estructura del backend para el sistema CRM de PeluDog, incluyendo endpoints, modelos, controladores y namespaces organizados por funcionalidades.
+
+## Arquitectura General
+
+**Framework:** Ruby on Rails 7+ (modo `api_only`)  
+**Ruby Version:** 3.3+  
+**Base de datos:** MySQL 8.0+  
+**Autenticación:** JWT (stateless, sin sesiones del lado del servidor)  
+**API:** RESTful JSON API  
+**Orquestación:** Docker Compose para todos los servicios  
+**Proxy:** NGINX como proxy inverso y servidor de archivos estáticos
+
+---
+
+## 1. Namespace: Auth
+
+### Controladores
+
+- `AuthController`
+
+### Endpoints
+
+#### POST /api/auth/login
+
+**Propósito:** Autenticación de usuarios  
+**Parámetros:**
+
+```json
+{
+  "email": "string",
+  "password": "string"
+}
+```
+
+**Respuesta:**
+
+```json
+{
+  "token": "jwt_token",
+  "user": {
+    "id": "integer",
+    "email": "string",
+    "role": "string",
+    "name": "string"
+  }
+}
+```
+
+#### POST /api/auth/logout
+
+**Propósito:** Cerrar sesión (invalidar token)
+
+#### POST /api/auth/validate
+
+**Propósito:** Validar token JWT activo
+
+---
+
+## 2. Namespace: Admin
+
+### Controladores
+
+- `Admin::DashboardController`
+- `Admin::StaffController`
+- `Admin::ShiftsController`
+- `Admin::FinanceController`
+- `Admin::ServicesController`
+- `Admin::ContentController`
+
+### Endpoints
+
+#### Dashboard Principal
+
+- **GET /api/admin/dashboard/metrics**  
+  Métricas generales: ingresos, citas, nuevos clientes
+
+#### Gestión de Personal
+
+- **GET /api/admin/staff**  
+  Listar todos los empleados
+- **POST /api/admin/staff**  
+  Registrar nuevo empleado
+- **GET /api/admin/staff/:id**  
+  Obtener datos específicos de empleado
+- **PUT /api/admin/staff/:id**  
+  Actualizar datos de empleado
+- **DELETE /api/admin/staff/:id**  
+  Desactivar empleado
+- **PUT /api/admin/staff/:id/role**  
+  Cambiar rol/permisos de empleado
+
+#### Gestión de Turnos
+
+- **GET /api/admin/shifts**  
+  Obtener calendario de turnos
+- **POST /api/admin/shifts**  
+  Crear nuevo turno
+- **PUT /api/admin/shifts/:id**  
+  Modificar turno existente
+- **DELETE /api/admin/shifts/:id**  
+  Eliminar turno
+- **GET /api/admin/shifts/availability**  
+  Consultar disponibilidad general
+
+#### Gestión Financiera
+
+- **GET /api/admin/finance/payments**  
+  Historial de pagos con filtros
+- **GET /api/admin/finance/reports**  
+  Generar reportes de ingresos
+- **GET /api/admin/finance/export**  
+  Exportar datos financieros
+
+#### Gestión de Servicios
+
+- **GET /api/admin/services**  
+  Listar servicios de la clínica
+- **POST /api/admin/services**  
+  Crear nuevo servicio
+- **PUT /api/admin/services/:id**  
+  Actualizar servicio
+- **DELETE /api/admin/services/:id**  
+  Eliminar servicio
+- **PUT /api/admin/services/:id/staff**  
+  Asignar personal a servicio
+
+#### Gestión de Contenido
+
+- **GET /api/admin/content/announcements**  
+  Listar anuncios y promociones
+- **POST /api/admin/content/announcements**  
+  Crear nuevo anuncio
+- **PUT /api/admin/content/announcements/:id**  
+  Editar anuncio
+- **DELETE /api/admin/content/announcements/:id**  
+  Eliminar anuncio
+
+---
+
+## 3. Namespace: Clinical
+
+### Controladores
+
+- `Clinical::AppointmentsController`
+- `Clinical::PatientsController`
+- `Clinical::ClientsController`
+- `Clinical::MedicalRecordsController`
+- `Clinical::ConsultationsController`
+- `Clinical::PaymentsController`
+- `Clinical::ReportsController`
+
+### Endpoints
+
+#### Gestión de Citas
+
+- **GET /api/clinical/appointments**  
+  Agenda de citas (filtros: fecha, veterinario)
+- **POST /api/clinical/appointments**  
+  Agendar nueva cita
+- **GET /api/clinical/appointments/:id**  
+  Detalles de cita específica
+- **PUT /api/clinical/appointments/:id**  
+  Reprogramar cita
+- **DELETE /api/clinical/appointments/:id**  
+  Cancelar cita
+- **PUT /api/clinical/appointments/:id/confirm**  
+  Confirmar asistencia
+- **GET /api/clinical/appointments/availability**  
+  Consultar disponibilidad horaria
+
+#### Gestión de Pacientes y Clientes
+
+- **GET /api/clinical/clients**  
+  Buscador avanzado de clientes
+- **POST /api/clinical/clients**  
+  Registrar nuevo cliente
+- **GET /api/clinical/clients/:id**  
+  Datos específicos del cliente
+- **PUT /api/clinical/clients/:id**  
+  Actualizar datos del cliente
+- **GET /api/clinical/clients/:id/pets**  
+  Listar mascotas del cliente
+- **POST /api/clinical/clients/:id/pets**  
+  Registrar nueva mascota al cliente
+- **GET /api/clinical/pets/:id**  
+  Datos específicos de la mascota
+- **PUT /api/clinical/pets/:id**  
+  Actualizar datos de la mascota
+
+#### Historial Clínico
+
+- **GET /api/clinical/pets/:id/medical-history**  
+  Historial completo de la mascota
+- **GET /api/clinical/pets/:id/medical-history/summary**  
+  Resumen de alergias, enfermedades crónicas
+- **GET /api/clinical/pets/:id/medical-history/export**  
+  Exportar historial completo (JSON, Markdown, PDF)
+- **GET /api/clinical/pets/:id/vaccinations**  
+  Historial de vacunación
+- **GET /api/clinical/pets/:id/vaccinations/status**  
+  Estado actual de vacunas (al día o no)
+- **GET /api/clinical/pets/:id/attachments**  
+  Archivos adjuntos (radiografías, análisis)
+
+#### Registro de Consultas
+
+- **POST /api/clinical/consultations**  
+  Crear nueva entrada en historial
+- **GET /api/clinical/consultations/:id**  
+  Detalles de consulta específica
+- **PUT /api/clinical/consultations/:id**  
+  Editar consulta reciente
+- **POST /api/clinical/consultations/:id/attachments**  
+  Subir archivos adjuntos
+- **GET /api/clinical/consultations/:id/prescription**  
+  Generar receta imprimible
+- **GET /api/clinical/consultations/:id/lab-order**  
+  Generar orden de laboratorio
+- **POST /api/clinical/pets/:id/vaccinations**  
+  Registrar aplicación de vacuna
+- **POST /api/clinical/pets/:id/dewormings**  
+  Registrar desparasitación
+
+#### Gestión de Pagos
+
+- **POST /api/clinical/payments**  
+  Registrar nuevo pago
+- **GET /api/clinical/payments/:id/receipt**  
+  Generar comprobante imprimible
+- **GET /api/clinical/clients/:id/payments**  
+  Historial de pagos del cliente
+- **GET /api/clinical/pets/:id/payments**  
+  Historial de pagos de la mascota
+
+#### Reportes Profesionales
+
+- **POST /api/clinical/reports/referral**  
+  Generar reporte de referencia
+- **GET /api/clinical/reports/:id/export**  
+  Exportar reporte (JSON, CSV, PDF)
+- **GET /api/clinical/pets/:id/summary**  
+  Resumen clínico para reportes
+
+---
+
+## 4. Namespace: Client
+
+### Controladores
+
+- `Client::ProfileController`
+- `Client::PetsController`
+- `Client::AppointmentsController`
+- `Client::PaymentsController`
+- `Client::MedicalRecordsController`
+
+### Endpoints
+
+#### Gestión de Perfil
+
+- **GET /api/client/profile**  
+  Datos personales del cliente
+- **PUT /api/client/profile**  
+  Actualizar datos personales
+
+#### Mis Mascotas
+
+- **GET /api/client/pets**  
+  Listar mascotas del cliente
+- **POST /api/client/pets**  
+  Registrar nueva mascota
+- **GET /api/client/pets/:id**  
+  Detalles de mascota específica
+- **PUT /api/client/pets/:id**  
+  Actualizar datos de la mascota
+
+#### Mis Citas
+
+- **GET /api/client/appointments**  
+  Historial y próximas citas
+- **POST /api/client/appointments**  
+  Agendar nueva cita
+- **PUT /api/client/appointments/:id**  
+  Reprogramar cita propia
+- **DELETE /api/client/appointments/:id**  
+  Cancelar cita propia
+
+#### Historial de Pagos
+
+- **GET /api/client/payments**  
+  Historial de pagos del cliente
+- **GET /api/client/payments/:id/receipt**  
+  Descargar comprobante
+
+#### Historial Clínico (Vista Cliente)
+
+- **GET /api/client/pets/:id/medical-summary**  
+  Resumen del historial clínico
+- **GET /api/client/pets/:id/medical-history/export**  
+  Exportar historial completo de su mascota (JSON, Markdown, PDF)
+- **GET /api/client/pets/:id/vaccinations**  
+  Historial de vacunación
+
+---
+
+## 5. Namespace: Public
+
+### Controladores
+
+- `Public::AppointmentsController`
+- `Public::ContentController`
+
+### Endpoints
+
+#### Agendamiento Público
+
+- **GET /api/public/appointments/availability**  
+  Consultar disponibilidad para citas públicas
+- **POST /api/public/appointments**  
+  Agendar cita sin registro previo
+- **POST /api/public/clients**  
+  Registro rápido de cliente nuevo
+
+#### Contenido Público
+
+- **GET /api/public/announcements**  
+  Anuncios y promociones activos
+- **GET /api/public/services**  
+  Servicios disponibles de la clínica
+
+---
+
+## Modelos de Datos Principales
+
+### User
+
+```ruby
+# Usuarios del sistema con roles integrados
+# Roles: admin, vet_admin, veterinario, asistente, lab, cliente
+enum role: { admin: 0, vet_admin: 1, veterinario: 2, asistente: 3, lab: 4, cliente: 5 }
+has_one :client_profile # (si rol es 'cliente')
+has_many :pets # (como dueño, si rol es 'cliente')
+has_many :appointment_staff # (como personal clínico)
+has_many :appointments, through: :appointment_staff # (como personal asignado)
+has_many :user_schedules
+has_many :shift_templates, through: :user_schedules
+has_many :payment_notes # (como cliente)
+```
+
+### ClientProfile
+
+```ruby
+# Perfil específico para usuarios con rol 'cliente'
+belongs_to :user
+```
+
+### Pet
+
+```ruby
+# Mascotas/pacientes
+belongs_to :user # (dueño con rol 'cliente')
+has_many :appointments
+has_many :medical_records
+has_many :vaccination_records
+```
+
+### Appointment
+
+```ruby
+# Citas médicas
+belongs_to :pet
+belongs_to :service
+belongs_to :payment_note, optional: true
+has_one :medical_record
+has_many :appointment_staff
+has_many :staff, through: :appointment_staff, source: :user
+```
+
+### MedicalRecord
+
+```ruby
+# Registros del historial clínico
+belongs_to :appointment
+belongs_to :pet
+has_many :prescriptions
+has_many :lab_orders
+has_many_attached :files
+```
+
+### PaymentNote
+
+```ruby
+# Notas de pago (facturas)
+belongs_to :user # (cliente)
+has_many :appointments
+has_many :payment_note_items
+has_many :payments
+```
+
+### Payment
+
+```ruby
+# Pagos realizados
+belongs_to :payment_note
+```
+
+### Service
+
+```ruby
+# Servicios de la clínica
+has_many :appointments
+has_many :payment_note_items, as: :item
+```
+
+### Product
+
+```ruby
+# Productos de la clínica
+has_many :payment_note_items, as: :item
+```
+
+### VaccinationRecord
+
+```ruby
+# Registro de vacunas
+belongs_to :pet
+belongs_to :medical_record, optional: true
+```
+
+### ShiftTemplate
+
+```ruby
+# Plantillas de turno
+has_many :user_schedules
+```
+
+### UserSchedule
+
+```ruby
+# Horarios asignados
+belongs_to :user
+belongs_to :shift_template
+```
+
+### AppointmentStaff
+
+```ruby
+# Personal asignado a citas
+belongs_to :appointment
+belongs_to :user
+```
+
+### Prescription
+
+```ruby
+# Prescripciones médicas
+belongs_to :medical_record
+```
+
+### LabOrder
+
+```ruby
+# Órdenes de laboratorio
+belongs_to :medical_record
+```
+
+### PaymentNoteItem
+
+```ruby
+# Items en notas de pago
+belongs_to :payment_note
+belongs_to :item, polymorphic: true # Service o Product
+```
+
+---
+
+## Middlewares y Políticas
+
+### Authentication Middleware
+
+- Validación de JWT en rutas protegidas
+- Manejo de expiración de tokens
+
+### Authorization Policies
+
+- **AdminPolicy**: Acceso completo a todas las funcionalidades
+- **VetAdminPolicy**: Acceso completo a namespace admin + funciones clínicas
+- **VeterinarianPolicy**: Acceso completo a funciones clínicas
+- **AssistantPolicy**: Acceso limitado a funciones clínicas y gestión de citas
+- **LabPolicy**: Acceso específico a resultados de laboratorio
+- **ClientPolicy**: Acceso solo a sus propios datos
+
+### Rate Limiting
+
+- Límites por endpoint según criticidad
+- Protección especial en endpoints de autenticación
+
+---
+
+## Validaciones y Reglas de Negocio
+
+### Appointments
+
+- No permitir citas en horarios ocupados
+- Validar disponibilidad del veterinario
+- Confirmar cliente y mascota válidos
+
+### Medical Records
+
+- Solo veterinarios pueden crear/editar
+- Campos obligatorios según tipo de consulta
+- Validación de archivos adjuntos
+
+### Payments
+
+- Asociación obligatoria con cliente
+- Validación de montos positivos
+- Generación automática de comprobantes
+
+### Users/Staff
+
+- Email único en el sistema
+- Roles válidos: admin, vet_admin, veterinario, asistente, lab, cliente
+- Activación/desactivación soft delete
+- Control de acceso basado en roles (RBAC)
+
+---
+
+## Configuraciones Adicionales
+
+### Background Jobs (SolidQueue + MySQL)
+
+#### Sistema de Recordatorios de Citas
+
+- **AppointmentReminderJob**: Envía recordatorios 24 horas antes de la cita
+- **AppointmentConfirmationJob**: Solicita confirmación 48 horas antes
+- **NoShowFollowUpJob**: Seguimiento a pacientes que no asistieron
+- **Programación**: Cron job diario que programa recordatorios
+
+#### Sistema de Seguimiento Veterinario
+
+- **VaccinationReminderJob**: Notifica esquemas de vacunación próximos a vencer
+- **DewormingReminderJob**: Recordatorios de desparasitación según calendario
+- **VaccinationStatusUpdateJob**: Actualiza estado de vacunas (al día/vencidas) diariamente
+- **FollowUpAppointmentJob**: Programa citas de seguimiento para casos críticos
+- **Programación**: Cron job semanal para revisar esquemas
+
+#### Sistema de Pagos y Cobranza
+
+- **PaymentReminderJob**: Recordatorios de pagos pendientes
+- **OverduePaymentJob**: Notificaciones de pagos vencidos con escalación
+- **PaymentStatusUpdateJob**: Actualiza estado de notas de pago automáticamente
+- **Programación**: Cron job diario para revisar vencimientos
+
+#### Sistema de Reportes Automáticos
+
+- **DailyReportJob**: Genera reportes diarios de actividad
+- **WeeklyFinanceReportJob**: Reportes financieros semanales para administración
+- **MonthlyClientReportJob**: Reportes mensuales de retención de clientes
+- **VaccinationComplianceReportJob**: Reportes de cumplimiento de vacunación
+- **MedicalHistoryExportJob**: Genera historiales clínicos en segundo plano (JSON, Markdown, PDF)
+- **Programación**: Cron jobs programados según frecuencia
+
+#### Configuración SolidQueue
+
+```ruby
+# config/solid_queue.yml
+production:
+  dispatchers:
+    - polling_interval: 1
+      batch_size: 500
+  workers:
+    - queues: critical
+      threads: 3
+    - queues: default,reminders
+      threads: 5
+    - queues: reports,cleanup
+      threads: 2
+```
+
+#### Colas de Trabajo
+
+- **critical**: Pagos, confirmaciones críticas
+- **reminders**: Recordatorios de citas y vacunas
+- **reports**: Generación de reportes y exportación de historiales clínicos
+- **cleanup**: Tareas de mantenimiento y limpieza
+- **default**: Trabajos generales
+
+### File Storage (ActiveStorage)
+
+- **Inicial**: Almacenamiento local en disco con ActiveStorage
+- **Escalamiento**: Migración a DigitalOcean Spaces (S3 compatible) para arquitectura distribuida
+- **CDN**: Integración nativa con CDN de DigitalOcean para mejor performance
+- **Tipos soportados**: JPEG, PNG, WebP, PDF
+- **Límites**: 50MB por archivo inicialmente
+- **Organización**: Por fecha y tipo con limpieza automática de archivos temporales
+
+### Sistema de Backups Automatizado
+
+- **Herramienta**: Whenever gem para programar tareas cron
+- **Frecuencia**: Diaria a las 2:00 AM
+- **Retención**: 6 backups más recientes
+- **Compresión**: Automática con gzip
+- **Restauración**: Comando específico desde Rails
+
+### Logging y Monitoreo
+
+- **Audit trail**: Cambios críticos registrados
+- **Logs de acceso**: Por roles de usuario
+- **Monitoreo de errores**: Para detección temprana
+- **Escalamiento**: Prometheus para observabilidad en arquitectura distribuida
+
+   <div style="page-break-after: always;"></div>
+
    <p class="c8" style="margin-top:40vh;"><span class="c10">BASE DE DATOS</span></p>
 
 <div style="page-break-after: always;"></div>
@@ -2017,13 +2824,11 @@ Un diagrama visual de la relación entre las tablas es fundamental para entender
 
 El siguiente es una representacion visual del diagrama entidad relacion existente en este apartado con todos los campos definidos:
 
-![database](../Imagenes/SystemDesignDiagramsImages/database.png)
+![database](../../Imagenes/SystemDesignDiagramsImages/database.png)
 
 ## 3. Definición de Entidades y Tablas
 
 Tras un análisis detallado de los requerimientos funcionales, el modelo de base de datos se expande para dar soporte a todas las entidades de negocio. Se adopta un **modelo de usuarios unificado con perfiles separados**, y se añaden tablas específicas para los distintos registros clínicos y de gestión, en lugar de almacenarlos como texto simple.
-
-<div style="page-break-after: always;"></div>
 
 ### Modelos Principales y de Usuario
 
@@ -2044,8 +2849,6 @@ Almacena la información de autenticación y los datos básicos de todas las ent
 | `created_at`      | `datetime`    | Fecha y hora de creación del registro.                                                |
 | `updated_at`      | `datetime`    | Fecha y hora de la última actualización.                                              |
 
-<div style="page-break-after: always;"></div>
-
 #### Tabla: `client_profiles`
 
 Contiene la información de contacto específica de los usuarios con el rol `cliente`.
@@ -2059,8 +2862,6 @@ Contiene la información de contacto específica de los usuarios con el rol `cli
 | `notes`        | `text`        | Notas internas sobre el cliente (ej. preferencias). |
 | `created_at`   | `datetime`    | Fecha y hora de creación del registro.              |
 | `updated_at`   | `datetime`    | Fecha y hora de la última actualización.            |
-
-<div style="page-break-after: always;"></div>
 
 #### Tabla: `pets`
 
@@ -2081,8 +2882,6 @@ Almacena la información de cada mascota (paciente).
 | `created_at`  | `datetime`    | Fecha y hora de creación del registro.                            |
 | `updated_at`  | `datetime`    | Fecha y hora de la última actualización.                          |
 
-<div style="page-break-after: always;"></div>
-
 ### Modelos de Gestión Clínica
 
 #### Tabla: `appointments`
@@ -2102,8 +2901,6 @@ Gestiona las citas programadas en la clínica.
 | `created_at`       | `datetime`    | Fecha y hora de creación del registro.                                             |
 | `updated_at`       | `datetime`    | Fecha y hora de la última actualización.                                           |
 
-<div style="page-break-after: always;"></div>
-
 #### Tabla: `appointment_staff` (Tabla de Unión)
 
 Asocia uno o más veterinarios/asistentes a una cita.
@@ -2114,8 +2911,6 @@ Asocia uno o más veterinarios/asistentes a una cita.
 | `appointment_id` | `bigint` (FK) | Referencia a la cita (`appointments.id`).               |
 | `user_id`        | `bigint` (FK) | Referencia al empleado asignado a la cita (`users.id`). |
 
-<div style="page-break-after: always;"></div>
-
 #### Tabla: `medical_records`
 
 Registra los detalles estructurados de una consulta o evento clínico.
@@ -2124,6 +2919,7 @@ Registra los detalles estructurados de una consulta o evento clínico.
 | ------------------------ | ------------- | ----------------------------------------------------------------------- |
 | `id`                     | `bigint` (PK) | Identificador único para cada registro clínico.                         |
 | `appointment_id`         | `bigint` (FK) | Referencia a la cita donde se generó este registro (`appointments.id`). |
+| `pet_id`                 | `bigint` (FK) | Referencia a la mascota del registro (`pets.id`).                       |
 | `weight`                 | `decimal`     | Peso de la mascota en la consulta (ej. en kg).                          |
 | `temperature`            | `decimal`     | Temperatura de la mascota en la consulta (ej. en °C).                   |
 | `anamnesis`              | `text`        | Historial y síntomas reportados por el dueño.                           |
@@ -2135,8 +2931,6 @@ Registra los detalles estructurados de una consulta o evento clínico.
 | `updated_at`             | `datetime`    | Fecha y hora de la última actualización.                                |
 
 **Nota sobre la edición:** Por reglas de negocio y para garantizar la integridad del historial, los registros médicos no podrán ser editados después de 7 días desde su creación. La única excepción será la tabla `lab_orders` para poder adjuntar los resultados de laboratorio posteriormente.
-
-<div style="page-break-after: always;"></div>
 
 ### Modelos de Detalle Clínico
 
@@ -2153,8 +2947,6 @@ Estas tablas añaden granularidad a los registros médicos.
 | `frequency`         | `string`      | Frecuencia (ej. "Cada 12 horas").                     |
 | `duration`          | `string`      | Duración del tratamiento (ej. "Por 7 días").          |
 
-<div style="page-break-after: always;"></div>
-
 #### Tabla: `vaccination_records`
 
 | Campo               | Tipo          | Descripción                                                |
@@ -2167,8 +2959,6 @@ Estas tablas añaden granularidad a los registros médicos.
 | `applied_at`        | `date`        | Fecha de aplicación.                                       |
 | `next_due_date`     | `date`        | Fecha del próximo refuerzo.                                |
 
-<div style="page-break-after: always;"></div>
-
 #### Tabla: `lab_orders`
 
 | Campo               | Tipo          | Descripción                                           |
@@ -2178,8 +2968,6 @@ Estas tablas añaden granularidad a los registros médicos.
 | `test_name`         | `string`      | Nombre del exámen solicitado.                         |
 | `status`            | `string`      | Estado (`solicitado`, `resultados_recibidos`).        |
 | `results_summary`   | `text`        | Resumen de los resultados (opcional).                 |
-
-<div style="page-break-after: always;"></div>
 
 ### Modelos de Gestión y Administración
 
@@ -2193,8 +2981,6 @@ Estas tablas añaden granularidad a los registros médicos.
 | `price`       | `decimal`     | Precio base del servicio.                           |
 | `is_active`   | `boolean`     | Indica si el servicio se ofrece actualmente.        |
 
-<div style="page-break-after: always;"></div>
-
 #### Tabla: `products`
 
 | Campo         | Tipo          | Descripción                                   |
@@ -2204,8 +2990,6 @@ Estas tablas añaden granularidad a los registros médicos.
 | `description` | `text`        | Descripción del producto.                     |
 | `price`       | `decimal`     | Precio de venta del producto.                 |
 | `is_active`   | `boolean`     | Indica si el producto está a la venta.        |
-
-<div style="page-break-after: always;"></div>
 
 #### Tabla: `shift_templates` (Plantillas de Turno)
 
@@ -2218,8 +3002,6 @@ Define los bloques de horario reusables para el personal.
 | `day_of_week` | `integer`     | Día de la semana (0=Domingo, 1=Lunes, ...).  |
 | `start_time`  | `time`        | Hora de inicio del turno (ej. `09:00`).      |
 | `end_time`    | `time`        | Hora de fin del turno (ej. `17:00`).         |
-
-<div style="page-break-after: always;"></div>
 
 #### Tabla: `user_schedules` (Horarios de Usuario)
 
@@ -2237,8 +3019,6 @@ Asigna una plantilla de turno a un empleado para un período determinado.
 
 Para manejar las transacciones de forma estructurada, se introduce el concepto de una "Nota de Pago" que funciona como una factura o recibo detallado.
 
-<div style="page-break-after: always;"></div>
-
 #### Tabla: `payment_notes` (Notas de Pago)
 
 Esta tabla es el corazón del módulo financiero. Cada nota agrupa todos los cargos de una o más citas.
@@ -2253,8 +3033,6 @@ Esta tabla es el corazón del módulo financiero. Cada nota agrupa todos los car
 | `created_at`   | `datetime`    | Fecha y hora de creación del registro.                                       |
 | `updated_at`   | `datetime`    | Fecha y hora de la última actualización.                                     |
 
-<div style="page-break-after: always;"></div>
-
 #### Tabla: `payment_note_items` (Ítems de la Nota de Pago)
 
 Esta es una tabla polimórfica que detalla cada línea de servicio o producto dentro de una nota de pago.
@@ -2267,8 +3045,6 @@ Esta es una tabla polimórfica que detalla cada línea de servicio o producto de
 | `item_type`       | `string`      | El tipo de modelo del ítem ("Service" o "Product").                   |
 | `quantity`        | `integer`     | Cantidad del servicio o producto.                                     |
 | `unit_price`      | `decimal`     | El precio del ítem al momento de la venta.                            |
-
-<div style="page-break-after: always;"></div>
 
 #### Tabla: `payments` (Pagos)
 
@@ -2307,6 +3083,7 @@ A continuación se describen las principales relaciones entre los modelos, usand
 
 - `belongs_to :user` (su dueño)
 - `has_many :appointments`
+- `has_many :medical_records`
 - `has_many :vaccination_records`
 
 ### Appointment
@@ -2321,6 +3098,7 @@ A continuación se describen las principales relaciones entre los modelos, usand
 ### MedicalRecord
 
 - `belongs_to :appointment`
+- `belongs_to :pet`
 - `has_many :prescriptions`
 - `has_many :lab_orders`
 

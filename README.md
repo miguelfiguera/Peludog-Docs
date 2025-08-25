@@ -52,10 +52,13 @@ Contiene las versiones en PDF de los documentos principales para su fácil impre
 
 Contiene todos los documentos relacionados con el diseño del sistema, incluyendo la arquitectura de software y el diseño de la base de datos.
 
-- **[ArquitecturaTentativa.md](./DocumentosSeparados/SystemDesign/ArquitecturaTentativa.md)** - Propuesta de arquitectura inicial.
-- **[ArquitecturaEstablecida.md](./DocumentosSeparados/SystemDesign/ArquitecturaEstablecida.md)** - Arquitectura técnica definitiva del sistema.
 - **[AnexosArquitectura.md](./DocumentosSeparados/SystemDesign/AnexosArquitectura.md)** - Configuraciones técnicas y código de la arquitectura.
+- **[ArquitecturaEstablecida.md](./DocumentosSeparados/SystemDesign/ArquitecturaEstablecida.md)** - Arquitectura técnica definitiva del sistema.
+- **[ArquitecturaTentativa.md](./DocumentosSeparados/SystemDesign/ArquitecturaTentativa.md)** - Propuesta de arquitectura inicial.
+- **[backend_funcionalidades.md](./DocumentosSeparados/SystemDesign/backend_funcionalidades.md)** - Funcionalidades y endpoints del backend.
 - **[DatabaseDesign.md](./DocumentosSeparados/SystemDesign/DatabaseDesign.md)** - Diseño detallado de la base de datos.
+- **[informe_pantallas_funcionalidades.md](./DocumentosSeparados/SystemDesign/informe_pantallas_funcionalidades.md)** - Informe de pantallas y funcionalidades estimadas.
+- **[seguridadYAutenticacion.md](./DocumentosSeparados/SystemDesign/seguridadYAutenticacion.md)** - Documento de seguridad y autenticación.
 
 ### [DocumentosSeparados/](./DocumentosSeparados/)
 

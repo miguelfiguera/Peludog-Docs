@@ -41,6 +41,8 @@ package "Usuarios y Perfiles" {
     *role
     is_active
     last_login_at
+    created_at
+    updated_at
   }
 
   entity "client_profiles" as client_profiles {
@@ -50,6 +52,8 @@ package "Usuarios y Perfiles" {
     phone_number
     address
     notes
+    created_at
+    updated_at
   }
 }
 
@@ -66,6 +70,8 @@ package "Mascotas" {
     color
     chip_number
     deleted_at
+    created_at
+    updated_at
   }
 }
 
@@ -80,6 +86,8 @@ package "Gestión Clínica" {
     status
     type
     reason
+    created_at
+    updated_at
   }
 
   entity "appointment_staff" as appointment_staff {
@@ -100,6 +108,9 @@ package "Gestión Clínica" {
     physical_exam_findings
     diagnosis
     treatment_plan
+    notes
+    created_at
+    updated_at
   }
 }
 
@@ -110,6 +121,8 @@ package "Detalles Clínicos" {
     *medical_record_id (FK)
     drug_name
     dosage
+    frequency
+    duration
   }
 
   entity "vaccination_records" as vaccination_records {
@@ -118,6 +131,8 @@ package "Detalles Clínicos" {
     *pet_id (FK)
     medical_record_id (FK)
     vaccine_name
+    lot_number
+    applied_at
     next_due_date
   }
 
@@ -127,6 +142,7 @@ package "Detalles Clínicos" {
     *medical_record_id (FK)
     test_name
     status
+    results_summary
   }
 }
 
@@ -135,6 +151,7 @@ package "Gestión Administrativa" {
     + id (PK)
     --
     *name
+    description
     price
     is_active
   }
@@ -143,6 +160,7 @@ package "Gestión Administrativa" {
     + id (PK)
     --
     *name
+    description
     price
     is_active
   }
@@ -174,6 +192,8 @@ package "Finanzas" {
     total_amount
     status
     due_date
+    created_at
+    updated_at
   }
 
   entity "payment_note_items" as payment_note_items {
@@ -193,6 +213,9 @@ package "Finanzas" {
     amount
     payment_method
     transaction_id
+    transaction_date
+    created_at
+    updated_at
   }
 }
 

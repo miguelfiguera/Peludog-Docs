@@ -17,6 +17,7 @@ La elección de tecnologías busca un equilibrio entre madurez, productividad de
 - **Tecnología:** Ruby on Rails 7+ (modo `api_only`)
 - **Ruby Version:** 3.3+
 - **Responsabilidades:**
+
   - Exponer una **API RESTful** segura para que el frontend consuma los datos
   - Implementar toda la **lógica de negocio** y las reglas del dominio (cálculos de vacunación, gestión de citas, etc.)
   - Gestionar la **autenticación y autorización** de usuarios mediante JWT
@@ -38,6 +39,7 @@ La elección de tecnologías busca un equilibrio entre madurez, productividad de
 - **Versiones:** Expo SDK 52+, React Native 0.76+
 - **Enfoque actual:** **Aplicación web** compilada desde Expo (preparada para extensión móvil futura)
 - **Responsabilidades:**
+
   - Renderizar la **interfaz de usuario web** para veterinarios, asistentes y clientes
   - Gestionar el **estado de la aplicación** con React Hooks reutilizables
   - Realizar peticiones a la **API del backend**
@@ -67,11 +69,13 @@ La elección de tecnologías busca un equilibrio entre madurez, productividad de
 ActiveStorage se configurará inicialmente para persistencia local en disco, facilitando la instalación y configuración inicial. La estructura de almacenamiento será organizada para garantizar la integridad y facilitar futuras migraciones.
 
 **Estructura de Almacenamiento Local:**
+
 - Archivos originales organizados por fecha y tipo
 - Variaciones de imagen generadas automáticamente (thumbnails)
 - Archivos temporales con limpieza automática
 
 **Tipos de Archivos Soportados:**
+
 - **Imágenes:** JPEG, PNG, WebP (fotos de mascotas, documentos escaneados)
 - **Documentos:** PDF (historias clínicas, reportes)
 - **Límites:** 50MB por archivo inicialmente, escalable según necesidades
@@ -85,6 +89,7 @@ ActiveStorage se configurará inicialmente para persistencia local en disco, fac
 El sistema implementará backups automáticos diarios utilizando la gema Whenever para programar tareas cron. Esta estrategia garantiza la continuidad del servicio y la protección de datos críticos.
 
 **Configuración de Backups:**
+
 - **Frecuencia:** Diaria a las 2:00 AM
 - **Retención:** Se conservan los 6 backups más recientes.
 - **Compresión:** Automática con gzip para optimizar espacio
@@ -99,12 +104,14 @@ El sistema implementará backups automáticos diarios utilizando la gema Wheneve
 La arquitectura utiliza Docker Compose para orquestar todos los servicios necesarios, manteniendo la simplicidad de instalación mientras proporciona flexibilidad para el escalamiento futuro.
 
 **Servicios Containerizados:**
+
 - **NGINX:** Proxy inverso y servidor de archivos estáticos
 - **Rails Backend:** API server con todas las dependencias
 - **Frontend Web:** Contenedor que sirve la aplicación web compilada desde Expo (SPA/PWA).
 - **MySQL:** Base de datos con configuraciones optimizadas
 
 **Volúmenes Persistentes:**
+
 - Base de datos MySQL
 - Almacenamiento ActiveStorage
 - Backups de base de datos
@@ -131,16 +138,18 @@ El escalamiento vertical debe ser la primera opción antes de considerar el esca
 Como primer paso en el escalamiento vertical, y antes de escalar horizontalmente, se puede introducir **Redis** para gestionar el caché de la aplicación y aliviar la carga sobre la base de datos.
 
 **Hardware Progresivo:**
+
 - **Básico (Inicial):** 2 cores, 2GB RAM, 50GB SSD
 - **Medio:** 4 cores, 8GB RAM, 500GB SSD
 - **Avanzado:** 8 cores, 16GB RAM, 1TB SSD
 - **Potente:** 16 cores, 32GB RAM, 2TB NVMe SSD
 
 **Optimización de Workers y Threads:**
-    La estrategia de escalamiento vertical consiste en empezar con una configuración conservadora (ej. 1 worker, 5 threads) y, a medida que se aumentan los recursos del servidor (CPU y RAM), incrementar gradualmente el número de workers para mejorar la capacidad de respuesta y el volumen de peticiones que el sistema puede manejar simultáneamente. El número de conexiones a la base de datos y la memoria caché de Redis también deben ajustarse en consonancia.
+La estrategia de escalamiento vertical consiste en empezar con una configuración conservadora (ej. 1 worker, 5 threads) y, a medida que se aumentan los recursos del servidor (CPU y RAM), incrementar gradualmente el número de workers para mejorar la capacidad de respuesta y el volumen de peticiones que el sistema puede manejar simultáneamente. El número de conexiones a la base de datos y la memoria caché de Redis también deben ajustarse en consonancia.
 
 **Límites Reales del Escalamiento Vertical:**
 Un servidor bien optimizado puede manejar entre 250-300 usuarios concurrentes reales (no solo conexiones) antes de necesitar escalamiento horizontal. Este límite considera:
+
 - Operaciones complejas de base de datos (historias clínicas, reportes)
 - Subida/descarga de archivos multimedia
 - Procesamiento de imágenes con ActiveStorage
@@ -149,6 +158,7 @@ Un servidor bien optimizado puede manejar entre 250-300 usuarios concurrentes re
 ### **6.2 Transición al Escalamiento Horizontal (300+ usuarios concurrentes)**
 
 **Cuándo Escalar Horizontalmente:**
+
 - CPU constantemente por encima del 80%
 - Memoria RAM utilizada por encima del 85%
 - Tiempo de respuesta de la base de datos > 200ms consistentemente
@@ -158,18 +168,21 @@ Un servidor bien optimizado puede manejar entre 250-300 usuarios concurrentes re
 
 **Problema de Consistencia de ENV:**
 Cuando se escala horizontalmente, todas las instancias de Rails deben compartir las mismas variables de entorno para garantizar comportamiento consistente. Esto incluye:
+
 - Claves de encriptación (SECRET_KEY_BASE, JWT_SECRET_KEY)
 - Configuraciones de base de datos
 - Configuraciones de Redis
 - Configuraciones de ActiveStorage
 
 **Solución con Archivos ENV Compartidos:**
+
 1. **Archivo ENV Central:** Un único archivo `.env.scaling` compartido entre todas las instancias
 2. **Montaje de Volumen:** Docker monta este archivo en todas las instancias de backend
 3. **Sincronización:** Cualquier cambio en variables se refleja inmediatamente en todas las instancias
 4. **Versionado:** Git tracks de archivos ENV para control de cambios
 
 **Gestión de Sesiones Distribuidas:**
+
 - **Redis Centralizado:** Todas las instancias comparten el mismo Redis para sesiones
 - **JWT Stateless:** Preferir JWT sobre sesiones cuando sea posible
 - **Sticky Sessions:** NGINX puede configurarse para mantener usuarios en la misma instancia
@@ -184,12 +197,14 @@ Cuando múltiples instancias de Rails manejan subida de archivos simultáneament
 3. **Limpieza de Archivos Temporales:** Conflictos cuando múltiples instancias limpian archivos
 
 **Solución: Servidor de Storage Dedicado**
+
 1. **MinIO como Servidor Dedicado:** Separar ActiveStorage a un contenedor MinIO dedicado
 2. **API S3 Compatible:** Todas las instancias Rails hablan con MinIO via API S3
 3. **Consistencia Garantizada:** MinIO maneja la consistencia y concurrencia automáticamente
 4. **Eliminación de Race Conditions:** MinIO es responsible de la escritura atómica
 
 **Proceso de Migración de Storage:**
+
 1. **Instalación de MinIO:** Nuevo contenedor con volúmenes persistentes
 2. **Configuración de Rails:** Cambiar ActiveStorage de `local` a `amazon` (MinIO)
 3. **Migración de Archivos Existentes:** Rake task para transferir archivos locales a MinIO
@@ -197,6 +212,7 @@ Cuando múltiples instancias de Rails manejan subida de archivos simultáneament
 5. **Limpieza:** Eliminar archivos locales después de verificar migración
 
 **Configuración de MinIO en Escalamiento:**
+
 - **Replicación:** MinIO puede configurarse con múltiples nodos para redundancia
 - **CDN:** DigitalOcean Spaces se integra nativamente con su propio servicio de CDN para mejorar la performance.
 - **Backup:** MinIO se integra con estrategias de backup existentes
@@ -219,22 +235,26 @@ La configuración para que Rails pueda manejar esta topología se detalla en `An
 La arquitectura para 1000+ usuarios concurrentes evoluciona a un sistema distribuido donde cada componente está desacoplado para maximizar el rendimiento y la disponibilidad. A continuación se detallan los componentes clave:
 
 #### **CDN (Content Delivery Network)**
+
 - **Función:** Actúa como la primera capa de contacto con el usuario. Es una red de servidores distribuidos geográficamente que almacena en caché los activos estáticos de la aplicación.
 - **Detalle Técnico:** Cachea los archivos compilados del frontend (JavaScript, CSS) y los archivos subidos por los usuarios desde el servidor de Storage (MinIO). Esto reduce drásticamente la latencia para los usuarios de todo el mundo y disminuye la carga sobre la infraestructura principal.
 
 #### **Load Balancer Principal (NGINX)**
+
 - **Función:** Es el único punto de entrada a la infraestructura de la nube. Recibe todo el tráfico que no fue servido por la caché del CDN.
 - **Detalle Técnico y Flujo de Peticiones:** Opera como un balanceador de carga de Capa 7, lo que le permite inspeccionar la URL de la petición para enrutar el tráfico de forma inteligente. El flujo es el siguiente:
-    1. Una petición del usuario llega al Load Balancer.
-    2. El LB analiza la ruta. Si la ruta comienza con `/api/`, la reconoce como una llamada a la API y la reenvía de forma segura a una de las instancias disponibles en la **flota de servidores Backend**.
-    3. Si la ruta es cualquier otra (ej. `/`, `/citas`, `/perfil`), el LB la identifica como una petición para la aplicación web y la reenvía a una instancia de la **flota de servidores Frontend**.
+  1. Una petición del usuario llega al Load Balancer.
+  2. El LB analiza la ruta. Si la ruta comienza con `/api/`, la reconoce como una llamada a la API y la reenvía de forma segura a una de las instancias disponibles en la **flota de servidores Backend**.
+  3. Si la ruta es cualquier otra (ej. `/`, `/citas`, `/perfil`), el LB la identifica como una petición para la aplicación web y la reenvía a una instancia de la **flota de servidores Frontend**.
 - **Beneficio:** Este mecanismo de enrutamiento basado en la ruta es crucial. Permite que tanto el frontend como el backend compartan el mismo dominio y punto de entrada, simplificando la configuración de DNS y SSL/TLS, al tiempo que permite escalar cada flota de servidores de forma independiente.
 
 #### **Flota de Servidores Frontend**
+
 - **Función:** Un grupo de servidores idénticos cuya única responsabilidad es servir los archivos estáticos (HTML, CSS, JS) que componen la aplicación web compilada desde Expo (SPA/PWA).
 - **Detalle Técnico:** Al ser servidores sin estado, se pueden añadir o quitar instancias fácilmente según la demanda de tráfico. El Load Balancer se encarga de distribuir las peticiones entre ellos, garantizando alta disponibilidad.
 
 #### **Sistema de Monitoreo (Prometheus)**
+
 - **Función:** Proporciona observabilidad completa sobre la salud y el rendimiento de toda la infraestructura.
 - **Detalle Técnico:** Es un sistema centralizado que recolecta métricas de todos los componentes del sistema (Load Balancer, instancias de Frontend y Backend, Base de Datos, Redis, etc.). Esta recolección de datos (scraping) es fundamental para alimentar los dashboards de monitoreo y para el sistema de alertas críticas definido en la sección 7.
 
